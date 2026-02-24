@@ -1,0 +1,850 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guía Visual del Kit de Agentes</title>
+    <style>
+        :root {
+            --primary-color: #2563eb;
+            --primary-dark: #1e40af;
+            --secondary-color: #64748b;
+            --accent-color: #3b82f6;
+            --background-color: #f8fafc;
+            --card-bg: #ffffff;
+            --text-main: #0f172a;
+            --text-secondary: #475569;
+            --sidebar-width: 260px;
+            --success: #10b981;
+            --warning: #f59e0b;
+            --purple: #8b5cf6;
+            --purple-light: #f3e8ff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        body {
+            background-color: var(--background-color);
+            color: var(--text-main);
+            display: flex;
+            min-height: 100vh;
+        }
+
+        /* Sidebar Styles */
+        .sidebar {
+            width: var(--sidebar-width);
+            background-color: var(--card-bg);
+            border-right: 1px solid #e2e8f0;
+            padding: 2rem 1.5rem;
+            position: fixed;
+            height: 100vh;
+            overflow-y: auto;
+            z-index: 100;
+        }
+
+        .logo {
+            font-size: 1.25rem;
+            font-weight: 800;
+            color: var(--primary-color);
+            margin-bottom: 3rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .nav-menu {
+            list-style: none;
+        }
+
+        .nav-item {
+            margin-bottom: 0.5rem;
+        }
+
+        .nav-link {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 0.75rem 1rem;
+            text-decoration: none;
+            color: var(--text-secondary);
+            border-radius: 0.5rem;
+            transition: all 0.2s;
+            font-weight: 500;
+            font-size: 0.95rem;
+        }
+
+        .nav-link:hover {
+            background-color: #f1f5f9;
+            color: var(--text-main);
+        }
+
+        .nav-link.active {
+            background-color: #eff6ff;
+            color: var(--primary-color);
+            font-weight: 600;
+        }
+
+        /* Main Content Styles */
+        .main-content {
+            margin-left: var(--sidebar-width);
+            flex: 1;
+            padding: 4rem 5rem;
+            max-width: 1400px;
+        }
+
+        section {
+            margin-bottom: 6rem;
+            scroll-margin-top: 4rem;
+        }
+
+        /* Typography */
+        h1 {
+            font-size: 3rem;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+            color: var(--text-main);
+            letter-spacing: -0.02em;
+        }
+
+        h2 {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            color: var(--text-main);
+            letter-spacing: -0.01em;
+        }
+
+        h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        p {
+            font-size: 1.1rem;
+            line-height: 1.7;
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+        }
+
+        /* Process Flow */
+        .flow-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: stretch;
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .flow-step {
+            flex: 1;
+            background: var(--card-bg);
+            padding: 2rem;
+            border-radius: 1rem;
+            border: 1px solid #e2e8f0;
+            text-align: center;
+            position: relative;
+        }
+
+        .flow-arrow {
+            display: flex;
+            align-items: center;
+            color: #cbd5e1;
+            font-size: 2rem;
+        }
+
+        .flow-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            display: inline-block;
+            background: #f8fafc;
+            padding: 1rem;
+            border-radius: 50%;
+        }
+
+        /* Agent Cards */
+        .agent-card {
+            background: var(--card-bg);
+            border: 1px solid #e2e8f0;
+            border-radius: 1.5rem;
+            padding: 2.5rem;
+            margin-bottom: 2rem;
+            display: grid;
+            grid-template-columns: 80px 1fr;
+            gap: 2rem;
+            align-items: start;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .agent-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05);
+        }
+
+        .agent-avatar {
+            width: 80px;
+            height: 80px;
+            background: #eff6ff;
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            color: var(--primary-color);
+        }
+
+        .agent-content {
+            flex: 1;
+        }
+
+        .agent-role {
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+            letter-spacing: 0.05em;
+        }
+
+        .agent-workflow {
+            margin-top: 1.5rem;
+            background: #f8fafc;
+            padding: 1.5rem;
+            border-radius: 1rem;
+            border: 1px dashed #cbd5e1;
+        }
+
+        .workflow-steps {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .wf-step {
+            background: white;
+            padding: 0.5rem 1rem;
+            border-radius: 0.5rem;
+            border: 1px solid #e2e8f0;
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: var(--text-main);
+        }
+
+        .wf-arrow {
+            color: #94a3b8;
+        }
+
+        /* Migration Timeline Styles */
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 2px;
+            background-color: #e2e8f0;
+            top: 0;
+            bottom: 0;
+            left: 30px;
+            margin-left: -1px;
+        }
+
+        .timeline-item {
+            padding: 10px 40px;
+            position: relative;
+            background-color: inherit;
+            width: 100%;
+            margin-bottom: 2rem;
+        }
+
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            right: auto;
+            background-color: white;
+            border: 4px solid var(--primary-color);
+            top: 25px;
+            border-radius: 50%;
+            z-index: 1;
+            left: 21px;
+        }
+
+        .timeline-content {
+            padding: 20px 30px;
+            background-color: white;
+            position: relative;
+            border-radius: 8px;
+            border: 1px solid #e2e8f0;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+        }
+
+        .timeline-tag {
+            background: #e2e8f0;
+            color: #475569;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            margin-bottom: 0.5rem;
+            display: inline-block;
+        }
+
+        .timeline-tag.auto {
+            background: #dcfce7;
+            color: #166534;
+        }
+
+        .timeline-tag.check {
+            background: #fef9c3;
+            color: #854d0e;
+        }
+
+        /* Extending Kit Styles */
+        .architecture-diagram {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+            align-items: center;
+            margin: 3rem 0;
+            position: relative;
+        }
+
+        .arch-block {
+            background: var(--card-bg);
+            border: 2px solid #e2e8f0;
+            border-radius: 1rem;
+            padding: 2rem;
+            width: 100%;
+            max-width: 600px;
+            text-align: left;
+            position: relative;
+        }
+
+        .arch-block h4 {
+            font-size: 1.25rem;
+            color: var(--text-main);
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .arch-block p {
+            font-size: 1rem;
+            margin-bottom: 0;
+        }
+
+        .arch-connector {
+            width: 2px;
+            height: 40px;
+            background: #cbd5e1;
+        }
+
+        .file-badge {
+            display: inline-block;
+            background: #f1f5f9;
+            padding: 0.2rem 0.5rem;
+            border-radius: 0.3rem;
+            font-family: monospace;
+            font-size: 0.9rem;
+            border: 1px solid #e2e8f0;
+            color: var(--text-secondary);
+            margin-top: 0.5rem;
+        }
+
+        /* Capabilities Grid */
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .feature-card {
+            background: var(--card-bg);
+            padding: 2rem;
+            border-radius: 1rem;
+            border: 1px solid #e2e8f0;
+        }
+
+        .feature-icon {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+        }
+
+        /* Action Section */
+        .action-box {
+            background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+            color: white;
+            padding: 3rem;
+            border-radius: 1.5rem;
+            text-align: center;
+        }
+
+        .action-box h2 {
+            color: white;
+        }
+
+        .action-box p {
+            color: rgba(255, 255, 255, 0.9);
+            max-width: 600px;
+            margin: 0 auto 2rem auto;
+        }
+
+        .code-block {
+            background: rgba(0, 0, 0, 0.2);
+            padding: 1rem 2rem;
+            border-radius: 0.5rem;
+            font-family: 'Monaco', 'Courier New', monospace;
+            font-size: 1.1rem;
+            display: inline-block;
+            color: #fff;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        @media (max-width: 1024px) {
+            .sidebar {
+                display: none;
+            }
+
+            .main-content {
+                margin-left: 0;
+                padding: 2rem;
+            }
+
+            .flow-container {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .flow-arrow {
+                transform: rotate(90deg);
+                justify-content: center;
+            }
+
+            .agent-card {
+                grid-template-columns: 1fr;
+            }
+
+            .agent-avatar {
+                margin-bottom: 1rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <aside class="sidebar">
+        <div class="logo">
+            <span>🚀 Agent Kit</span>
+        </div>
+        <ul class="nav-menu">
+            <li class="nav-item">
+                <a href="#overview" class="nav-link active">📖 Visión General</a>
+            </li>
+            <li class="nav-item">
+                <a href="#how-it-works" class="nav-link">⚙️ ¿Cómo Funciona?</a>
+            </li>
+            <li class="nav-item">
+                <a href="#agents" class="nav-link">🤖 Nuestros Agentes</a>
+            </li>
+            <li class="nav-item">
+                <a href="#migration-flow" class="nav-link">📍 Flujo de Migración</a>
+            </li>
+            <li class="nav-item">
+                <a href="#extending" class="nav-link">🧩 Crear Agentes</a>
+            </li>
+            <li class="nav-item">
+                <a href="#capabilities" class="nav-link">⚡ Capacidades</a>
+            </li>
+            <li class="nav-item">
+                <a href="#start" class="nav-link">🏁 Empezar</a>
+            </li>
+        </ul>
+    </aside>
+
+    <main class="main-content">
+        <!-- Overview Section -->
+        <section id="overview">
+            <h1>Modernice sus Sistemas Legacy<br>con Inteligencia Artificial</h1>
+            <p style="font-size: 1.25rem; max-width: 800px;">
+                Nuestro Kit de Agentes no es solo una herramienta, es un equipo completo de ingenieros de software
+                virtuales expertos en migración.
+                Analizan, planifican y reescriben su código antiguo a tecnologías modernas automáticamente.
+            </p>
+            <div style="margin-top: 2rem;">
+                <span
+                    style="background: #dbeafe; color: #1e40af; padding: 0.5rem 1rem; border-radius: 2rem; font-size: 0.9rem; font-weight: 600; margin-right: 1rem;">100%
+                    Automatizado</span>
+                <span
+                    style="background: #d1fae5; color: #065f46; padding: 0.5rem 1rem; border-radius: 2rem; font-size: 0.9rem; font-weight: 600;">Auto-Reparación
+                    de Errores</span>
+            </div>
+        </section>
+
+        <!-- How It Works Section -->
+        <section id="how-it-works">
+            <h2>El Proceso de Transformación</h2>
+            <p>De código obsoleto a una aplicación moderna en cuatro pasos claros.</p>
+
+            <div class="flow-container">
+                <div class="flow-step">
+                    <span class="flow-icon">🏛️</span>
+                    <h3>1. Análisis</h3>
+                    <p>El agente lee su código VB6/Access y entiende la lógica de negocio.</p>
+                </div>
+                <div class="flow-arrow">→</div>
+                <div class="flow-step">
+                    <span class="flow-icon">🧱</span>
+                    <h3>2. Backend</h3>
+                    <p>Generación de base de datos y APIs seguras en Node.js.</p>
+                </div>
+                <div class="flow-arrow">→</div>
+                <div class="flow-step">
+                    <span class="flow-icon">✨</span>
+                    <h3>3. Frontend</h3>
+                    <p>Creación de interfaces web modernas en Angular.</p>
+                </div>
+                <div class="flow-arrow">→</div>
+                <div class="flow-step">
+                    <span class="flow-icon">✅</span>
+                    <h3>4. Calidad</h3>
+                    <p>Pruebas automáticas y curación de errores.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Agents Section -->
+        <section id="agents">
+            <h2>Conozca a su Equipo de Agentes</h2>
+            <p>Cada agente es un especialista en una fase del proyecto. Trabajan juntos orquestados para entregar el
+                resultado final.</p>
+
+            <!-- Agent 1: Analyst -->
+            <div class="agent-card">
+                <div class="agent-avatar">🕵️‍♂️</div>
+                <div class="agent-content">
+                    <div class="agent-role">Fase 1: El Detective</div>
+                    <h3>VB6 Analyst</h3>
+                    <p>Su trabajo es investigar. Escanea cada línea de su código antiguo para crear un mapa detallado de
+                        cómo funciona todo. No toca nada, solo observa y documenta.</p>
+                    <div class="agent-workflow">
+                        <small style="display: block; margin-bottom: 0.5rem; color: #64748b; font-weight: 600;">FLUJO DE
+                            TRABAJO:</small>
+                        <div class="workflow-steps">
+                            <div class="wf-step">Código Fuente</div>
+                            <span class="wf-arrow">→</span>
+                            <div class="wf-step">Extracción de Lógica</div>
+                            <span class="wf-arrow">→</span>
+                            <div class="wf-step">Mapa de Dependencias</div>
+                            <span class="wf-arrow">→</span>
+                            <div class="wf-step">Reporte de Auditoría</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Agent 2: Backend Architect -->
+            <div class="agent-card">
+                <div class="agent-avatar">🏗️</div>
+                <div class="agent-content">
+                    <div class="agent-role">Fase 2: El Constructor</div>
+                    <h3>Backend Architect</h3>
+                    <p>Toma los planos del analista y construye los cimientos. Crea la base de datos moderna y el
+                        servidor que manejará los datos de su empresa.</p>
+                    <div class="agent-workflow">
+                        <small style="display: block; margin-bottom: 0.5rem; color: #64748b; font-weight: 600;">FLUJO DE
+                            TRABAJO:</small>
+                        <div class="workflow-steps">
+                            <div class="wf-step">Esquema de Datos</div>
+                            <span class="wf-arrow">→</span>
+                            <div class="wf-step">Base de Datos SQLite</div>
+                            <span class="wf-arrow">→</span>
+                            <div class="wf-step">API REST</div>
+                            <span class="wf-arrow">→</span>
+                            <div class="wf-step">Documentación Swagger</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Agent 3: Angular Architect -->
+            <div class="agent-card">
+                <div class="agent-avatar">🎨</div>
+                <div class="agent-content">
+                    <div class="agent-role">Fase 3: El Diseñador</div>
+                    <h3>Angular Architect</h3>
+                    <p>Se encarga de lo que ven los usuarios. Transforma pantallas grises y antiguas en interfaces web
+                        modernas, rápidas y adaptables a móviles.</p>
+                    <div class="agent-workflow">
+                        <small style="display: block; margin-bottom: 0.5rem; color: #64748b; font-weight: 600;">FLUJO DE
+                            TRABAJO:</small>
+                        <div class="workflow-steps">
+                            <div class="wf-step">Diseño de Pantallas</div>
+                            <span class="wf-arrow">→</span>
+                            <div class="wf-step">Componentes Web</div>
+                            <span class="wf-arrow">→</span>
+                            <div class="wf-step">Conexión con Datos</div>
+                            <span class="wf-arrow">→</span>
+                            <div class="wf-step">App Funcional</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Agent 4: Testing Verifier -->
+            <div class="agent-card">
+                <div class="agent-avatar">🧪</div>
+                <div class="agent-content">
+                    <div class="agent-role">Fase 4: El Inspector</div>
+                    <h3>Testing Verifier</h3>
+                    <p>El perfeccionista del grupo. Prueba la aplicación incansablemente. Si encuentra un error, no solo
+                        avisa: escribe una corrección y vuelve a probar hasta que todo funcione.</p>
+                    <div class="agent-workflow">
+                        <small style="display: block; margin-bottom: 0.5rem; color: #64748b; font-weight: 600;">FLUJO DE
+                            TRABAJO (AUTÓNOMO):</small>
+                        <div class="workflow-steps">
+                            <div class="wf-step">Generar Tests</div>
+                            <span class="wf-arrow">→</span>
+                            <div class="wf-step">Ejecutar Pruebas</div>
+                            <span class="wf-arrow">→</span>
+                            <div class="wf-step" style="border-color: #f59e0b; color: #d97706;">Detectar Fallo</div>
+                            <span class="wf-arrow">↺</span>
+                            <div class="wf-step" style="border-color: #10b981; color: #059669;">Auto-Reparar</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Migration Flow Section -->
+        <section id="migration-flow">
+            <h2>Flujo de Ejecución</h2>
+            <p>Esto es lo que sucede paso a paso cuando ejecuta el comando de orquestación. Es como una lista de tareas
+                automatizada.</p>
+
+            <div class="timeline">
+                <!-- Step 0 -->
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <span class="timeline-tag auto">Automático</span>
+                        <h3>🚀 Inicialización</h3>
+                        <p>El sistema crea versiones de respaldo y prepara el entorno de trabajo.</p>
+                    </div>
+                </div>
+
+                <!-- Step 1 -->
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <span class="timeline-tag auto">Automático</span>
+                        <h3>🔍 Fase 1: Análisis Profundo</h3>
+                        <p>El agente <code>vb6-analyst</code> escanea todo el código fuente.
+                            <br><br>
+                            <strong>Resultado:</strong> Inventario completo, métricas de complejidad, y extracción de
+                            lógica en formato JSON.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Step 2 -->
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <span class="timeline-tag auto">Automático</span>
+                        <h3>🏗️ Fase 2: Construcción Backend</h3>
+                        <p>El agente <code>backend-architect</code> genera la base de datos y la API.
+                            <br><br>
+                            <strong>Operaciones:</strong>
+                        <ul style="margin-left: 20px; font-size: 0.95rem; margin-top: 5px;">
+                            <li>Crea esquema SQLite</li>
+                            <li>Genera DTOs (Tipos de datos)</li>
+                            <li>Escribe Controladores y Servicios</li>
+                            <li>Documenta API con Swagger</li>
+                        </ul>
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Step 3 -->
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <span class="timeline-tag auto">Automático</span>
+                        <h3>🎨 Fase 3: Construcción Frontend</h3>
+                        <p>El agente <code>angular-architect</code> crea la interfaz de usuario.
+                            <br><br>
+                            <strong>Operaciones:</strong>
+                        <ul style="margin-left: 20px; font-size: 0.95rem; margin-top: 5px;">
+                            <li>Genera componentes Angular Standalone</li>
+                            <li>Conecta servicios al backend</li>
+                            <li>Implementa rutas y navegación</li>
+                        </ul>
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Step 4 -->
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <span class="timeline-tag check">Auto-Healing</span>
+                        <h3>🧪 Fase 4: Verificación y Reparación</h3>
+                        <p>El agente <code>testing-verifier</code> entra en un bucle de mejora continua.
+                            <br><br>
+                            <strong>Bucle (Max 5 intentos):</strong>
+                        <ol style="margin-left: 20px; font-size: 0.95rem; margin-top: 5px;">
+                            <li>Genera Tests Unitarios</li>
+                            <li>Ejecuta Tests</li>
+                            <li>Si falla: <strong>Auto-corrige el código</strong> y repite</li>
+                        </ol>
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Step 5 -->
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <span class="timeline-tag auto">Finalización</span>
+                        <h3>📊 Fase 5: Reporte Final</h3>
+                        <p>Generación de documentación final y dashboard de resultados.
+                            <br><br>
+                            <strong>Entrega:</strong> Código fuente completo + Reporte HTML de migración.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Extensions Section -->
+        <section id="extending">
+            <h2>Cómo Crear Nuevos Agentes</h2>
+            <p>El kit es extensible. Puede crear sus propios agentes para tareas específicas siguiendo esta arquitectura
+                de 3 capas.</p>
+
+            <div class="architecture-diagram">
+                <!-- Capa 1: Workflow -->
+                <div class="arch-block" style="border-color: #3b82f6;">
+                    <h4 style="color: #2563eb;">1. El Orquestador (Workflow)</h4>
+                    <p>Es el manual de instrucciones paso a paso. Define qué debe suceder, en qué orden y qué agentes
+                        deben intervenir.</p>
+                    <span class="file-badge">workflows/mi-nuevo-flujo.md</span>
+                </div>
+
+                <div class="arch-connector"></div>
+
+                <!-- Capa 2: Agente -->
+                <div class="arch-block" style="border-color: #8b5cf6;">
+                    <h4 style="color: #7c3aed;">2. El Agente (Persona)</h4>
+                    <p>Es la identidad de la IA. Aquí le dice "Eres un experto en SQL" o "Eres un diseñador UX". También
+                        define qué herramientas tiene permitidas.</p>
+                    <span class="file-badge">agents/mi-nuevo-agente.md</span>
+                </div>
+
+                <div class="arch-connector"></div>
+
+                <!-- Capa 3: Habilidad -->
+                <div class="arch-block" style="border-color: #ec4899;">
+                    <h4 style="color: #db2777;">3. La Habilidad (Skill)</h4>
+                    <p>Es el conocimiento técnico específico. Contiene guías de estilo, reglas de negocio, tablas de
+                        referencia y scripts de ayuda.</p>
+                    <span class="file-badge">skills/mi-nueva-skill/SKILL.md</span>
+                </div>
+            </div>
+
+            <div class="grid-3" style="margin-top: 3rem;">
+                <div class="feature-card">
+                    <h3>📝 Paso 1: Definir</h3>
+                    <p>Cree un archivo <code>.md</code> en la carpeta <code>agents/</code>. Dele un nombre y un
+                        propósito claro.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>🧠 Paso 2: Enseñar</h3>
+                    <p>Cree una carpeta en <code>skills/</code> con un <code>SKILL.md</code>. Escriba ahí todo lo que el
+                        agente necesita saber.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>🚀 Paso 3: Ejecutar</h3>
+                    <p>Use el agente en un workflow o llámelo directamente para que aplique su nueva habilidad.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Capabilities Section -->
+        <section id="capabilities">
+            <h2>Capacidades Clave</h2>
+            <div class="grid-3">
+                <div class="feature-card">
+                    <div class="feature-icon">📊</div>
+                    <h3>Documentación Viva</h3>
+                    <p>Nunca más documentación desactualizada. Los agentes generan reportes HTML interactivos en cada
+                        paso del proceso.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🛡️</div>
+                    <h3>Seguridad Primero</h3>
+                    <p>Auditoría de seguridad OWASP integrada. El código generado sigue las mejores prácticas de
+                        seguridad.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🏎️</div>
+                    <h3>Alta Velocidad</h3>
+                    <p>Lo que a un equipo humano le tomaría meses, el kit de agentes lo procesa en minutos u horas.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Start Section -->
+        <section id="start">
+            <div class="action-box">
+                <h2>¿Listo para migrar?</h2>
+                <p>Inicie la orquestación completa con un solo comando. El sistema se encargará del resto.</p>
+                <div class="code-block">
+                    /orchestrate-migration
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <script>
+        // Smooth scroll and active link highlighting
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    document.querySelectorAll('.nav-link').forEach(link => {
+                        link.classList.remove('active');
+                        if (link.getAttribute('href') === '#' + entry.target.id) {
+                            link.classList.add('active');
+                        }
+                    });
+                }
+            });
+        }, { threshold: 0.5 });
+
+        document.querySelectorAll('section').forEach(section => {
+            observer.observe(section);
+        });
+    </script>
+</body>
+
+</html>
