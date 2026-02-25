@@ -34,9 +34,7 @@ Generate `prisma/schema.prisma` with:
 - ALL models from VB6_DATABASE.md
 - ALL relationships (foreign keys)
 - Proper type mappings
-- **CRITICAL:** `createdAt` and `updatedAt` on EVERY model.
-- **CRITICAL:** `deletedAt DateTime?` on EVERY model for soft-deletes.
-- **CRITICAL:** `@@index` on EVERY foreign key field to prevent N+1 queries.
+- **CRITICAL:** Comply strictly with all regulations of `database-stack` (e.g. timestamps, soft deletes, index relations). Do not generate a schema without applying these strict organizational DB policies.
 
 ```prisma
 datasource db {
@@ -49,7 +47,7 @@ generator client {
 }
 
 // ALL models generated here - not just samples
-// MUST include createdAt, updatedAt, deletedAt and @@index for relations
+// MUST strictly adhere to database-stack rules
 ```
 
 ---
