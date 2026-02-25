@@ -33,8 +33,10 @@ mdb-export database.mdb TableName > exports/tablename.csv
 Generate `prisma/schema.prisma` with:
 - ALL models from VB6_DATABASE.md
 - ALL relationships (foreign keys)
-- ALL indexes
 - Proper type mappings
+- **CRITICAL:** `createdAt` and `updatedAt` on EVERY model.
+- **CRITICAL:** `deletedAt DateTime?` on EVERY model for soft-deletes.
+- **CRITICAL:** `@@index` on EVERY foreign key field to prevent N+1 queries.
 
 ```prisma
 datasource db {
@@ -47,6 +49,7 @@ generator client {
 }
 
 // ALL models generated here - not just samples
+// MUST include createdAt, updatedAt, deletedAt and @@index for relations
 ```
 
 ---
@@ -54,8 +57,12 @@ generator client {
 ## Step 3: Run Migrations (Auto)
 
 ```bash
-npx prisma validate
 npx prisma format
+
+# STRICT QUALITY GATE: Validate schema against database-stack rules
+python .agent/skills/database-stack/scripts/schema_validator.py .
+
+npx prisma validate
 npx prisma migrate dev --name init
 npx prisma generate
 ```
