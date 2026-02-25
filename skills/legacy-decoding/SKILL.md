@@ -200,10 +200,10 @@ cn.Open strConnection  ' ← Intercept here with API call
 ### Navigation Seams
 ```vb
 ' SEAM: Form transitions
-frmClientes.Show  ' ← Redirect to Angular route
+frm[Target].Show  ' ← Redirect to Angular route
 
 ' Modern intercept:
-' Shell("start http://localhost:4200/clientes")
+' Shell("start http://localhost:4200/[target-route]")
 ' Unload Me
 ```
 
@@ -246,7 +246,7 @@ grep -rn "^Public\|^Global" *.bas
 |--------|--------|------|-------|------|
 | FrmMain | modData | Data | 15 | Medium |
 | FrmMain | modUtils | Util | 8 | Low |
-| FrmPedidos | FrmClientes | Form | 3 | High |
+| `Frm[Source]` | `Frm[Target]` | Form | 3 | High |
 ```
 
 ---

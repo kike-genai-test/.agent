@@ -33,11 +33,11 @@ allowed-tools: view_file, list_dir, grep_search, run_command, write_to_file
 Every migrated artifact must trace back to its VB6 origin:
 
 ```
-VB6 Form (frmClientes.frm)
-  → Angular Component (clientes-list.component.ts)
-  → Backend Service (clientes.service.ts)
-  → Prisma Model (Cliente)
-  → API Route (/api/clientes)
+VB6 Form (frm[Entity].frm)
+  → Angular Component ([entity]-list.component.ts)
+  → Backend Service ([entity].service.ts)
+  → Prisma Model ([ModelName])
+  → API Route (/api/[entities])
 ```
 
 ### 2. Phase-by-Phase Reporting

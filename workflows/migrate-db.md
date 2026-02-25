@@ -21,9 +21,20 @@ description: Exports Access data and imports it into SQLite via Prisma. FULLY AU
 ```bash
 mkdir -p exports
 
+# Auto-discover the Access Database file in the project folder
+ACCESS_DB=$(find "${VB6_DIR}" -type f \( -iname "*.mdb" -o -iname "*.accdb" \) | head -n 1)
+
+if [ -z "$ACCESS_DB" ]; then
+  echo "❌ ERROR: No .mdb or .accdb file found in $VB6_DIR"
+  exit 1
+fi
+
+echo "🔍 Found legacy database: $ACCESS_DB"
+
 # Export ALL tables (iterate from schema analysis)
-# For each table in VB6_DATABASE.md:
-mdb-export database.mdb TableName > exports/tablename.csv
+# Wait for the DB Agent to extract the tables from the schema.json and loop over them
+# Example iteration pseudo-code:
+# for table in $(cat tables.txt); do mdb-export "$ACCESS_DB" "$table" > exports/"$table".csv; done
 ```
 
 ---
@@ -31,7 +42,7 @@ mdb-export database.mdb TableName > exports/tablename.csv
 ## Step 2: Generate Complete Prisma Schema
 
 Generate `prisma/schema.prisma` with:
-- ALL models from VB6_DATABASE.md
+- ALL models from the generic database analysis document (`[PROJECT_NAME]_DATABASE.md` or similar)
 - ALL relationships (foreign keys)
 - Proper type mappings
 - **CRITICAL:** Comply strictly with all regulations of `database-stack` (e.g. timestamps, soft deletes, index relations). Do not generate a schema without applying these strict organizational DB policies.

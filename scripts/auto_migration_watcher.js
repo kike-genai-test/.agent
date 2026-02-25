@@ -27,9 +27,8 @@ function saveProcessedProjects() {
 function isIgnored(dirName) {
     const lowerName = dirName.toLowerCase();
     if (lowerName.startsWith('.')) return true; // .agent, .git, .vscode
-    if (lowerName.startsWith('biblioteca-v')) return true; // Output folders
     if (lowerName.includes('-v')) {
-        // Generic check for versioned output folders (e.g. legacyapp_vb6-v1)
+        // Generic check for versioned output folders (e.g. legacyapp_vb6-v1, biblioteca-v2)
         // Heuristic: ends with -v\d+
         if (/.*-v\d+$/.test(lowerName)) return true;
     }

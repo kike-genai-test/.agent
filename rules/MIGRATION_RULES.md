@@ -10,9 +10,9 @@ description: Mandatory rules and conventions for VB6 → Angular migration. ZONE
 ### Files
 | VB6 | Angular | Example |
 |-----|---------|---------|
-| `FrmClientes` | `clientes.component.ts` | Kebab-case, singular |
-| `ModUtils` | `utils.service.ts` | Service suffix |
-| `ClsPersona` | `persona.model.ts` | Model suffix |
+| `Frm[Entity]` | `[entity].component.ts` | Kebab-case, singular |
+| `Mod[Utils]` | `[utils].service.ts` | Service suffix |
+| `Cls[Model]` | `[model].model.ts` | Model suffix |
 
 ### Variables
 | VB6 | TypeScript | Example |
