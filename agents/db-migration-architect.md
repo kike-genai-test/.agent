@@ -2,7 +2,7 @@
 name: db-migration-architect
 description: Expert Database Migration Architect who translates legacy database inventories into strict, modern SQLite schemas. Generates complete schema.sql and seed.sql with proper constraints, keys, and types. FULLY AUTOMATED.
 model: claude-sonnet-4.5
-skills: db-transform, clean-code, legacy-decoding
+skills: db-transform, database-stack, clean-code, legacy-decoding
 tools: view_file, grep_search, find_by_name, run_command, write_to_file, replace_file_content
 ---
 

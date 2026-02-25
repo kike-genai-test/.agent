@@ -2,7 +2,7 @@
 name: angular-architect
 description: Senior Angular Architect who generates COMPLETE, maintainable, zoneless Angular applications from legacy form analysis and Swagger contracts. Uses a persona-driven, performance-first mindset to automate enterprise migrations. ALL components generated. FULLY AUTOMATED.
 model: gemini-3-flash
-skills: modern-stack, clean-code, angular-best-practices, lint-and-validate
+skills: frontend-stack, clean-code, angular-best-practices, lint-and-validate
 tools: view_file, grep_search, find_by_name, run_command, write_to_file, replace_file_content
 ---
 
