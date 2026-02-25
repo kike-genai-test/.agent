@@ -83,24 +83,19 @@ description: Mandatory rules and conventions for VB6 → Angular migration. ZONE
 
 ## 📊 Data Rules
 
-### Type Migration
-| Access/VB6 | SQLite | TypeScript | Prisma |
-|------------|--------|------------|--------|
-| `Long` | `INTEGER` | `number` | `Int` |
-| `Double` | `REAL` | `number` | `Float` |
-| `String` | `TEXT` | `string` | `String` |
-| `Date` | `TEXT (ISO)` | `Date` | `DateTime` |
-| `Currency` | `REAL` | `number` | `Decimal` |
-| `Boolean` | `INTEGER (0/1)` | `boolean` | `Boolean` |
-| `Null` | `NULL` | `\| null` | `?` |
+### DB Architecture (Prisma over SQLite)
 
-### Integrity
-- All IDs are `autoincrement`
-- Foreign Keys required
-- Indexes on frequently searched fields
-- Cascade delete only if logically correct
+| Principle | Execution |
+|-----------|-----------|
+| **Single Source of Truth** | All Database principles MUST follow the `database-stack` skill. |
+| **Legacy to Prisma Typing** | Refer exclusively to `.agent/skills/database-stack/legacy-mapping.md`. Do not invent random types. |
+| **Quality Gates** | The DB Schema cannot be migrated until approved by `schema_validator.py`. |
 
----
+### Database Integrity Requirements
+- **Timestamps:** Mandatory `createdAt` and `updatedAt` on all models.
+- **Soft Deletes:** Mandatory `deletedAt DateTime?` on all models.
+- **Strict Relations:** All `@relation` keys MUST have an explicit `@@index([])` to prevent N+1 queries.
+- **Strict IDs:** All IDs are `autoincrement`.
 
 ## ✅ Quality Rules
 
@@ -174,6 +169,7 @@ description: Mandatory rules and conventions for VB6 → Angular migration. ZONE
 | Check | Tool | Pass Criteria |
 |-------|------|---------------|
 | TypeScript compiles | `tsc --noEmit` | Exit code 0 |
+| Schema Validated (Stack rules) | `python .agent/skills/database-stack/scripts/schema_validator.py .` | 0 CRITICAL issues (Exit code 0) |
 | Prisma validates | `prisma validate` | Exit code 0 |
 | Database created | `prisma migrate` | `.db` file exists |
 | Swagger generated | manual | `swagger.json` or `swagger.yaml` exists |
