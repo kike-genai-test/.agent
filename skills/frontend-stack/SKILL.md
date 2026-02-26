@@ -117,49 +117,92 @@ constructor() {
 > <input [ngModel]="email()" (ngModelChange)="email.set($event)">
 > ```
 
-### VB6 Pattern: Entity Pre-Validation (cmdcons_Click)
-VB6 often validates entity state before allowing operations. Migrate this pattern:
+### Reactive State Validation (Generic Pattern)
+When migrating complex legacy logic that requires computing warnings or derived states before taking an action:
 
 ```typescript
-// VB6: Check if socio has pending loans before new loan
-// cmdcons_Click() -> "Este Socio Tiene X libros no devueltos"
+// Example: Derived state warning
+activeOrders = signal<Order[]>([]);
+showOverdueWarning = computed(() => {
+  return this.activeOrders().some(order => order.isOverdue);
+});
 
-clientPendingLoans = signal<Libro[]>([]);
-showPendingWarning = signal(false);
-
-async onClientSelected(clienteId: number) {
-  this.selectedClienteId.set(clienteId);
-  
-  const pendingLoans = this.loanedBooks().filter(
-    libro => libro.socioId === clienteId
-  );
-  
-  this.clientPendingLoans.set(pendingLoans);
-  this.showPendingWarning.set(pendingLoans.length > 0);
+async onCustomerSelected(customerId: number) {
+  this.selectedCustomerId.set(customerId);
+  const orders = await this.orderService.getActive(customerId);
+  this.activeOrders.set(orders);
 }
 ```
 
 ```html
-<!-- Show warning like VB6 MsgBox -->
-@if (showPendingWarning()) {
+<!-- Show warnings based on computed signals -->
+@if (showOverdueWarning()) {
 <div class="warning-box">
-  <span>⚠️</span>
-  <strong>Este socio tiene {{ clientPendingLoans().length }} libro(s) no devuelto(s)</strong>
+  <mat-icon>warning</mat-icon>
+  <strong>This customer has overdue orders!</strong>
 </div>
 }
 ```
 
-### VB6 Pattern: DateAdd Calculation
+### Derived Calculations (Signals)
 ```typescript
-// VB6: DateAdd("d", Val(txtdias), Now())
-returnDate = computed(() => {
-  const date = new Date();
-  date.setDate(date.getDate() + this.dias());
-  return date;
+// Replace legacy imperative calculations with computed signals
+projectedEndDate = computed(() => {
+  const start = this.startDate();
+  if (!start) return null;
+  
+  const d = new Date(start);
+  d.setDate(d.getDate() + this.durationDays());
+  return d;
 });
 ```
 
-## 1.2 Angular Material + UI
+## 1.2 Angular Material M3 Theming
+
+> [!IMPORTANT]
+> Always define a custom Material 3 theme based on the Design Commitment. **NEVER use the default purple/blue.**
+
+### custom-theme.scss Pattern
+Generate a specific color palette using the 60-30-10 design principle:
+
+```scss
+@use '@angular/material' as mat;
+
+// Include the core Material styles
+@include mat.core();
+
+// Define a custom M3 theme (e.g., Emerald/Teal primary for corporate/calm)
+$my-app-theme: mat.define-theme((
+  color: (
+    theme-type: light,
+    primary: mat.$teal-palette, // 30% Key actions
+    tertiary: mat.$orange-palette // 10% Accent/CTAs
+  ),
+  typography: (
+    brand-family: 'Inter, sans-serif',
+    plain-family: 'Roboto, sans-serif',
+  ),
+  density: (
+    scale: 0 // -1 for higher density (enterprise lists)
+  )
+));
+
+// Apply the theme to the entire app
+:root {
+  @include mat.all-component-themes($my-app-theme);
+  
+  // Custom global variables inspired by the theme
+  --background-color: #f8fafc; // 60% Background
+}
+
+body {
+  background-color: var(--background-color);
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+```
+
+## 1.3 Angular Material + UI
 
 ### MatDialog for Modals (VB6 Form Replacement)
 ```typescript
@@ -210,7 +253,7 @@ Use standard Angular Material Icons (Google Fonts).
 <mat-icon>save</mat-icon>
 ```
 
-## 1.3 Reactive Forms
+## 1.4 Reactive Forms
 
 ### Form Structure
 ```typescript
@@ -268,7 +311,7 @@ export class MemberDialogComponent implements OnInit {
 </form>
 ```
 
-## 1.4 HTTP Client + Error Interceptor
+## 1.5 HTTP Client + Error Interceptor
 
 ### Service Pattern
 ```typescript
@@ -452,7 +495,7 @@ export const appConfig: ApplicationConfig = {
 ```
 
 
-## 1.5 Navigation & Layout (CRITICAL for UX)
+## 1.6 Navigation & Layout (CRITICAL for UX)
 
 > [!IMPORTANT]
 > **All VB6 migrations MUST include a proper navigation system.** VB6 apps use menus/MDI - modern apps need sidebar navigation.
@@ -472,9 +515,9 @@ export class LayoutComponent {
   
   navItems = [
     { path: '/dashboard', icon: 'dashboard', label: 'Dashboard' },
-    { path: '/clientes', icon: 'people', label: 'Clientes' },
-    { path: '/libros', icon: 'library_books', label: 'Libros' },
-    { path: '/prestamos', icon: 'swap_horiz', label: 'Préstamos' },
+    { path: '/customers', icon: 'people', label: 'Customers' },
+    { path: '/orders', icon: 'shopping_cart', label: 'Orders' },
+    { path: '/inventory', icon: 'inventory', label: 'Inventory' },
   ];
 
   logout() {
@@ -522,7 +565,7 @@ export const routes: Routes = [
     canActivate: [() => authGuard()],
     children: [
       { path: 'dashboard', loadComponent: () => import('./components/dashboard/dashboard.component').then(m => m.DashboardComponent) },
-      { path: 'clientes', loadComponent: () => import('./components/clientes/clientes-list.component').then(m => m.ClientesListComponent) },
+      { path: 'customers', loadComponent: () => import('./components/customers/customers-list.component').then(m => m.CustomersListComponent) },
       // ... more child routes
     ]
   },
@@ -533,12 +576,11 @@ export const routes: Routes = [
 > [!TIP]
 > **VB6 Menu → Sidebar Mapping:**
 > - `mnuFile` → Dashboard/Home
-> - `mnuClientes` → /clientes
-> - `mnuLibros` → /libros
-> - `mnuPrestamos` → /prestamos
+> - `mnuEntities` → /[entities]
+> - `mnuSettings` → /settings
 > - `mnuSalir` → Logout button in sidebar footer
 
-## 1.6 Internationalization (i18n)
+## 1.7 Internationalization (i18n)
 
 ```typescript
 // Add to app.config.ts
@@ -556,7 +598,7 @@ export const appConfig: ApplicationConfig = {
 };
 ```
 
-## 1.6 Feature Module Structure
+## 1.8 Feature Module Structure
 
 ```
 src/app/

@@ -22,14 +22,24 @@ description: Migrates ALL VB6 Forms to Angular Components. FULLY AUTOMATED - COM
 From `VB6_INVENTORY.md`, get complete list of forms:
 
 ```
-FrmMain.frm      → dashboard.component
-FrmSocios.frm    → members.component + member-dialog.component
-FrmLibros.frm    → books.component + book-dialog.component
-FrmPrestamos.frm → loans.component + loan-dialog.component
-FrmReportes.frm  → reports.component
+FrmDashboard.frm → dashboard.component
+FrmCustomers.frm → customers.component + customer-dialog.component
+FrmOrders.frm    → orders.component + order-dialog.component
+FrmInventory.frm → inventory.component + inventory-dialog.component
+FrmReports.frm   → reports.component
 FrmLogin.frm     → login.component
 ...              → ... (ALL forms)
 ```
+
+---
+
+## Step 1.5: Design Commitment (UX/UI)
+
+Before generating code, define the visual system:
+1. **Audience & Density**: Determine if compact (enterprise) or comfortable.
+2. **Color System**: Apply 60-30-10 rule for Material M3 palette.
+3. **Typography**: Define font families.
+4. **Output**: A documented design commitment to be injected into `styles.scss` during Scaffolding.
 
 ---
 
@@ -64,10 +74,11 @@ For EACH entity, generate:
 - Filter/search functionality
 - Actions column (edit, delete)
 - Add button opening dialog
-- Loading state with signal
+- **Loading state** (`mat-spinner`) and **Empty state** (Required by Rejection Rules)
 
 ### Dialog Component Features
 - Reactive form with ALL fields from VB6 form
+- **Visual Grouping**: Apply Miller's Law (sections of 5-7 fields max via `mat-divider` or CSS grid)
 - Validation matching VB6 logic
 - Create and Edit modes
 - Cancel and Save buttons
@@ -119,13 +130,23 @@ export const routes: Routes = [
 
 ---
 
-## Step 6: Validate (Auto)
+## Step 6: Validate Code & Formatting
 
 ```bash
 ng lint
 ng build --configuration development
 ng test --watch=false --browsers=ChromeHeadless
 ```
+
+---
+
+## Step 7: UX & Accessibility Audit
+
+1. Run Python UX Script (from `frontend-design` skill):
+```bash
+python .agent/skills/frontend-design/scripts/ux_audit.py ./
+```
+2. Apply `web-design-guidelines` skill to audit generated components for WCAG 2.1 AA compliance (ARIA labels, contrast).
 
 ---
 
@@ -138,5 +159,7 @@ Complete Angular application with:
 - ✅ Complete routing
 - ✅ Auth guard
 - ✅ Error interceptor
+- ✅ **Custom Material M3 Theme (NO defaults)**
+- ✅ **UX & Accessibility Audited**
 
 **No forms skipped. No samples. Complete migration.**
