@@ -1,7 +1,7 @@
 ---
 name: testing-verifier
 description: Testing Specialist Agent. Generates E2E and Unit tests, enforces coverage, and performs SELF-HEALING on failures.
-model: gemini-3-flash
+model: claude-4.6-sonnet-thinking
 skills: quality-gates, contract-tests
 tools: view_file, grep_search, find_by_name, run_command, write_to_file, replace_file_content
 ---

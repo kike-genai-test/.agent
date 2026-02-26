@@ -1,5 +1,6 @@
 ---
 description: Exports Access data and imports it into SQLite via Prisma. FULLY AUTOMATED - ALL TABLES.
+model: gemini-3.1-pro-high
 ---
 
 // turbo-all

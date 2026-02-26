@@ -1,5 +1,6 @@
 ---
 description: Master workflow orchestrating the full VB6 to Angular migration in phases. FULLY AUTOMATED with SELF-HEALING tests. Uses SQLite with raw SQL (no Prisma).
+model: gemini-3.1-pro-high
 ---
 
 # Orchestrate Migration Workflow v5.1 (Agentic Coordination)

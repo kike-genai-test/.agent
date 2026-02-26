@@ -1,5 +1,6 @@
 ---
 description: Migrates ALL VB6 Forms to Angular Components. FULLY AUTOMATED - COMPLETE MIGRATION.
+model: gemini-3.1-pro-high
 ---
 
 // turbo-all

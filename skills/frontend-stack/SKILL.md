@@ -1,6 +1,7 @@
 ---
 name: frontend-stack
 description: Complete specifications and patterns for the target Angular stack (Angular 21+, Zoneless, Material).
+model: gemini-3.1-pro-high
 allowed-tools: view_file, write_to_file, run_command
 ---
 

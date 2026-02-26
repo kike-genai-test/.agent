@@ -1,6 +1,7 @@
 ---
 name: database-stack
 description: Complete specifications and patterns for the target SQLite database stack using Prisma ORM.
+model: gemini-3.1-pro-high
 allowed-tools: view_file, write_to_file, run_command
 ---
 

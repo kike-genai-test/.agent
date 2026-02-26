@@ -1,6 +1,7 @@
 ---
 name: a11y-reviewer
 description: Automated accessibility audit for migrated Angular applications. WCAG 2.1 AA compliance checker.
+model: gemini-3-flash
 ---
 
 # Accessibility Reviewer Skill v1.0

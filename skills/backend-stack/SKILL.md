@@ -1,6 +1,7 @@
 ---
 name: backend-stack
 description: Complete specifications and patterns for the target Node.js API stack (Express 5+, Pino, Swagger, raw SQL).
+model: gemini-3.1-pro-high
 allowed-tools: view_file, write_to_file, run_command
 ---
 

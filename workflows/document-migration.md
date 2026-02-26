@@ -1,5 +1,6 @@
 ---
 description: Generate interactive HTML migration reports. Scans all phase artifacts and produces visual dashboard in results/. FULLY AUTOMATED.
+model: gemini-3.1-pro-high
 ---
 
 // turbo-all

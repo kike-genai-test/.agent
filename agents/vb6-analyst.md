@@ -1,7 +1,7 @@
 ---
 name: vb6-analyst
 description: Expert legacy code analyst. Produces COMPLETE documentation for ALL artifacts. FULLY AUTOMATED - NO CONFIRMATIONS.
-model: claude-sonnet-4.5-thinking
+model: gpt-oss-120b
 skills: legacy-decoding
 tools: view_file, grep_search, find_by_name, list_dir
 ---

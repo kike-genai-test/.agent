@@ -1,6 +1,7 @@
 ---
 name: migration-reporting
 description: Migration documentation and HTML report generation. Scans migration artifacts across all phases and produces interactive visual reports.
+model: gpt-oss-120b
 allowed-tools: view_file, list_dir, grep_search, run_command, write_to_file
 ---
 

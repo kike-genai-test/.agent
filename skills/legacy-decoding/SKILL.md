@@ -1,6 +1,7 @@
 ---
 name: legacy-decoding
 description: Expert techniques for parsing and decoding ALL VB6 codebase artifacts with migration-oriented analysis patterns.
+model: claude-4.6-sonnet-thinking
 allowed-tools: view_file, grep_search, find_by_name, run_command
 ---
 

@@ -1,7 +1,7 @@
 ---
 name: db-migration-architect
 description: Expert Database Migration Architect who translates legacy database inventories into strict, modern SQLite schemas over Prisma. Generates complete schema.prisma and seed.ts aligned with database-stack rules. FULLY AUTOMATED.
-model: claude-sonnet-4.5
+model: claude-4.6-sonnet-thinking
 skills: db-transform, database-stack, clean-code, legacy-decoding
 tools: view_file, grep_search, find_by_name, run_command, write_to_file, replace_file_content
 ---

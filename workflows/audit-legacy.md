@@ -1,5 +1,6 @@
 ---
 description: Deep analysis of VB6 codebase. Produces documentation artifacts. FULLY AUTOMATED.
+model: gemini-3.1-pro-high
 ---
 
 // turbo-all

@@ -1,7 +1,7 @@
 ---
 name: migration-documenter
 description: Migration documentation specialist. Scans ALL migration artifacts and generates interactive HTML reports in results/. FULLY AUTOMATED.
-model: gemini-3-flash
+model: gemini-3.1-pro-low
 skills: migration-reporting, documentation-templates
 tools: view_file, grep_search, find_by_name, list_dir, run_command, write_to_file
 ---
