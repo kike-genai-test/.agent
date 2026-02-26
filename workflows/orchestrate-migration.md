@@ -28,8 +28,34 @@ When invoking ANY subagent, you MUST include:
 
 ```bash
 // turbo-all
-# Detect VB6 project name from directory structure
-VB6_PROJECT_NAME="biblioteca"  # Change this to your project name
+# Dynamic Project Discovery
+# Usage: Set TARGET_REPO via env var before calling, OR provide it as an argument, OR default to searching for a .vbp file
+TARGET_REPO="${1:-${TARGET_REPO}}"
+
+if [ -n "$TARGET_REPO" ]; then
+  # If it's a Git URL, clone it
+  if [[ "$TARGET_REPO" == "http"* ]] || [[ "$TARGET_REPO" == "git@"* ]]; then
+    echo "📥 Cloning remote repository: $TARGET_REPO"
+    git clone "$TARGET_REPO" __downloaded_repo
+    export VB6_DIR="$(pwd)/__downloaded_repo"
+    VB6_PROJECT_NAME=$(basename "$TARGET_REPO" .git | tr '[:upper:]' '[:lower:]')
+  else
+    # It's a local path
+    export VB6_DIR="$TARGET_REPO"
+    VB6_PROJECT_NAME=$(basename "$TARGET_REPO" | tr '[:upper:]' '[:lower:]')
+  fi
+else
+  # Auto-discover mode: Find first directory with a .vbp file
+  FOUND_VBP=$(find . -maxdepth 3 -name "*.vbp" | head -n 1)
+  if [ -n "$FOUND_VBP" ]; then
+    export VB6_DIR=$(dirname "$FOUND_VBP")
+    VB6_PROJECT_NAME=$(basename "$VB6_DIR" | tr '[:upper:]' '[:lower:]')
+    echo "🔍 Auto-discovered project at: $VB6_DIR"
+  else
+    echo "❌ ERROR: No .vbp project found and no TARGET_REPO provided."
+    exit 1
+  fi
+fi
 
 # Run version manager to create next versioned directory
 VERSIONED_DIR=$(bash .agent/scripts/version_manager.sh "$VB6_PROJECT_NAME" || mkdir -p "$VB6_PROJECT_NAME-v1" && echo "$VB6_PROJECT_NAME-v1")
@@ -40,7 +66,6 @@ echo "📦 Migration will output to: $VERSIONED_DIR"
 export OUTPUT_DIR="$VERSIONED_DIR/modern-app"
 export ANALYSIS_DIR="$VERSIONED_DIR/analysis"
 export RESULTS_DIR="$VERSIONED_DIR/results"
-export VB6_DIR="Biblioteca"  # Your VB6 source directory
 
 mkdir -p "$OUTPUT_DIR" "$ANALYSIS_DIR" "$RESULTS_DIR"
 
@@ -157,7 +182,7 @@ Once all 5 phases are complete, generate a final synthesis message in the chat f
 ## 🎼 Migration Orchestration Complete
 
 ### 🚀 Target Version
-[Version directory, e.g. biblioteca-v2]
+[Version directory, e.g. project-v2]
 
 ### 🤖 Agents Delegated
 | # | Agent | Focus Area | Status |
