@@ -83,18 +83,25 @@ export default db;
 
 ## Node 24 — bindings nativos
 
-`better-sqlite3` y `bcrypt` requieren compilación de código nativo. En Node 24 los `node-gyp` builds **fallan**. Instalar siempre con:
+`better-sqlite3` requiere compilación de código nativo. En Node 24 los `node-gyp` builds **fallan**. Instalar siempre con:
 
 ```bash
 npm install better-sqlite3 --ignore-scripts
-npm install bcrypt --ignore-scripts
 ```
 
-En producción, si el binding nativo de `bcrypt` no está disponible, usar `bcryptjs` como fallback:
+Para autenticación usar siempre **`bcryptjs`** (puro JavaScript, sin bindings nativos — evita problemas en cualquier entorno):
 
 ```bash
 npm install bcryptjs
 npm install --save-dev @types/bcryptjs
+```
+
+```typescript
+// ✅ CORRECTO
+import bcrypt from "bcryptjs";
+
+// ❌ PROHIBIDO — requiere bindings nativos, falla en Node 22+
+import bcrypt from "bcrypt";
 ```
 
 ## Dev server — usar `tsx` (NO `ts-node-dev`)
