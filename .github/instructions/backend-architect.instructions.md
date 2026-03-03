@@ -60,6 +60,27 @@ prisma.clientes.findMany();
 
 - Todos los endpoints protegidos con `auth.middleware` excepto `/auth/login`
 
+## `db/database.ts` — tipo explícito obligatorio
+
+Siempre anotar el tipo de `db` explícitamente para evitar el error TS4023 cuando `declaration: true` está en tsconfig:
+
+```typescript
+import Database from "better-sqlite3";
+import type BetterSqlite3 from "better-sqlite3";
+import path from "path";
+
+const DB_PATH = path.join(__dirname, "database.db");
+const db: BetterSqlite3.Database = new Database(DB_PATH);
+
+db.pragma("foreign_keys = ON");
+db.pragma("journal_mode = WAL");
+
+export default db;
+```
+
+> ❌ `const db = new Database(DB_PATH)` → error TS4023
+> ✅ `const db: BetterSqlite3.Database = new Database(DB_PATH)`
+
 ## Node 24 — bindings nativos
 
 `better-sqlite3` y `bcrypt` requieren compilación de código nativo. En Node 24 los `node-gyp` builds **fallan**. Instalar siempre con:
@@ -75,6 +96,25 @@ En producción, si el binding nativo de `bcrypt` no está disponible, usar `bcry
 npm install bcryptjs
 npm install --save-dev @types/bcryptjs
 ```
+
+## Dev server — usar `tsx` (NO `ts-node-dev`)
+
+`ts-node-dev` es lento en el primer arranque. Usar siempre `tsx watch` que usa esbuild:
+
+```json
+"scripts": {
+  "dev": "tsx watch src/app.ts",
+  "build": "tsc -p tsconfig.build.json",
+  "start": "node dist/app.js"
+}
+```
+
+```bash
+npm install --save-dev tsx
+```
+
+> ❌ `ts-node-dev --respawn --transpile-only` → lento (~15s arranque)
+> ✅ `tsx watch` → rápido (<1s arranque)
 
 - JWT en cada request — validar expiración
 - Validación de DTOs en cada endpoint — rechazar input malformado
