@@ -1,0 +1,93 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Phase 1: Full VB6 Analysis",
+      "type": "shell",
+      "command": "python .agent/scripts/vb6_comprehensive_scanner.py \"vb_sources/Biblioteca\" -o biblioteca-v1/analysis/inventory.json --pretty && python .agent/scripts/vb6_metrics_analyzer.py \"vb_sources/Biblioteca\" -o biblioteca-v1/analysis/metrics.json --pretty && python .agent/scripts/vb6_dead_code_detector.py \"vb_sources/Biblioteca\" -o biblioteca-v1/analysis/dead_code.json --pretty && python .agent/scripts/vb6_schema_extractor.py \"vb_sources/Biblioteca\" -o biblioteca-v1/analysis/schema.json && python .agent/scripts/vb6_hardcoded_extractor.py \"vb_sources/Biblioteca\" -o biblioteca-v1/analysis/hardcoded.json --pretty && python .agent/scripts/vb6_logic_extractor.py biblioteca-v1/analysis/inventory.json -o biblioteca-v1/analysis/VB6_LOGIC_ANALYSIS.md",
+      "group": "build",
+      "presentation": {
+        "reveal": "always",
+        "panel": "new"
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "Phase 1: Generate HTML Report",
+      "type": "shell",
+      "command": "python .agent/scripts/html_report_generator.py biblioteca-v1/analysis/inventory.json -o biblioteca-v1/analysis/ANALYSIS_REPORT.html",
+      "group": "build",
+      "presentation": {
+        "reveal": "always",
+        "panel": "shared"
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "Phase 1: Pre-flight Check",
+      "type": "shell",
+      "command": "python .agent/scripts/pre_flight_check.py",
+      "group": "test",
+      "presentation": {
+        "reveal": "always",
+        "panel": "shared"
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "Phase 2: Apply SQLite Schema",
+      "type": "shell",
+      "command": "sqlite3 biblioteca-v1/modern-app/apps/backend/db/database.db < biblioteca-v1/modern-app/apps/backend/db/schema.sql && sqlite3 biblioteca-v1/modern-app/apps/backend/db/database.db < biblioteca-v1/modern-app/apps/backend/db/seed.sql && sqlite3 biblioteca-v1/modern-app/apps/backend/db/database.db \".schema\"",
+      "group": "build",
+      "presentation": {
+        "reveal": "always",
+        "panel": "shared"
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "Gate: Backend TypeScript Check",
+      "type": "shell",
+      "command": "cd biblioteca-v1/modern-app/apps/backend && npx tsc --noEmit",
+      "group": "test",
+      "presentation": {
+        "reveal": "always",
+        "panel": "shared"
+      },
+      "problemMatcher": ["$tsc"]
+    },
+    {
+      "label": "Gate: Frontend Production Build",
+      "type": "shell",
+      "command": "cd biblioteca-v1/modern-app/apps/frontend && npx ng build --configuration production",
+      "group": "build",
+      "presentation": {
+        "reveal": "always",
+        "panel": "new"
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "Generate Migration Dashboard",
+      "type": "shell",
+      "command": "python .agent/scripts/final_report_generator.py --project-dir biblioteca-v1 --analysis-dir biblioteca-v1/analysis --output biblioteca-v1/results/MIGRATION_DASHBOARD.html",
+      "group": "build",
+      "presentation": {
+        "reveal": "always",
+        "panel": "shared"
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "Run All Tests",
+      "type": "shell",
+      "command": "cd biblioteca-v1/modern-app/apps/backend && npm test -- --coverage && cd ../frontend && npm test -- --coverage",
+      "group": "test",
+      "presentation": {
+        "reveal": "always",
+        "panel": "new"
+      },
+      "problemMatcher": []
+    }
+  ]
+}

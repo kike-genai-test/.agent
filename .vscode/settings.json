@@ -1,0 +1,43 @@
+{
+  // ─── GitHub Copilot ───────────────────────────────────────────────
+  "github.copilot.enable": {
+    "*": true
+  },
+  "chat.promptFiles": true,
+  "chat.promptFilesLocations": {
+    ".github/prompts": true
+  },
+  "github.copilot.chat.codeGeneration.instructions": [
+    {
+      "file": ".github/copilot-instructions.md"
+    }
+  ],
+  "github.copilot.chat.testGeneration.instructions": [
+    {
+      "text": "Usa Jest para unit tests y Playwright para E2E. Cobertura mínima: 80% líneas, 70% ramas."
+    }
+  ],
+
+  // ─── Python ───────────────────────────────────────────────────────
+  "python.defaultInterpreterPath": "python",
+  "python.terminal.activateEnvironment": true,
+
+  // ─── TypeScript / Angular ─────────────────────────────────────────
+  "typescript.preferences.importModuleSpecifier": "relative",
+  "editor.formatOnSave": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+
+  // ─── Explorador ───────────────────────────────────────────────────
+  "files.exclude": {
+    "**/node_modules": true,
+    "**/__pycache__": true,
+    "**/.DS_Store": true,
+    "**/dist": false,
+    "**/*.pyc": true
+  },
+  "search.exclude": {
+    "**/node_modules": true,
+    "**/__pycache__": true,
+    "**/dist": true
+  }
+}
