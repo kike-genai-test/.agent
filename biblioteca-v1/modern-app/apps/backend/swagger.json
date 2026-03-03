@@ -1,0 +1,292 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Biblioteca API",
+    "description": "REST API para gestión de biblioteca. Migrada desde VB6 + MS Access.",
+    "version": "1.0.0"
+  },
+  "servers": [
+    { "url": "http://localhost:3000", "description": "Desarrollo" }
+  ],
+  "components": {
+    "securitySchemes": {
+      "bearerAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "JWT"
+      }
+    },
+    "schemas": {
+      "LoginRequest": {
+        "type": "object",
+        "required": ["username", "password"],
+        "properties": {
+          "username": { "type": "string", "example": "admin" },
+          "password": { "type": "string", "format": "password", "example": "admin123" }
+        }
+      },
+      "LoginResponse": {
+        "type": "object",
+        "properties": {
+          "token": { "type": "string" },
+          "usuario": {
+            "type": "object",
+            "properties": {
+              "id":       { "type": "integer" },
+              "username": { "type": "string" },
+              "rol":      { "type": "string" }
+            }
+          }
+        }
+      },
+      "Socio": {
+        "type": "object",
+        "properties": {
+          "id":         { "type": "integer" },
+          "apellidos":  { "type": "string" },
+          "nombres":    { "type": "string" },
+          "nro_doc":    { "type": "string", "nullable": true },
+          "domicilio":  { "type": "string", "nullable": true },
+          "telefono":   { "type": "string", "nullable": true },
+          "activo":     { "type": "integer", "enum": [0, 1] },
+          "created_at": { "type": "string", "format": "date-time" },
+          "updated_at": { "type": "string", "format": "date-time" }
+        }
+      },
+      "CreateSocioRequest": {
+        "type": "object",
+        "required": ["apellidos", "nombres"],
+        "properties": {
+          "apellidos":  { "type": "string" },
+          "nombres":    { "type": "string" },
+          "nro_doc":    { "type": "string" },
+          "domicilio":  { "type": "string" },
+          "telefono":   { "type": "string" }
+        }
+      },
+      "Libro": {
+        "type": "object",
+        "properties": {
+          "id":               { "type": "integer" },
+          "titulo":           { "type": "string" },
+          "autor":            { "type": "string" },
+          "estado":           { "type": "string", "enum": ["disponible", "prestado"] },
+          "socio_id":         { "type": "integer", "nullable": true },
+          "fecha_prestamo":   { "type": "string", "format": "date", "nullable": true },
+          "fecha_devolucion": { "type": "string", "format": "date", "nullable": true },
+          "dias":             { "type": "integer" },
+          "socio_apellidos":  { "type": "string", "nullable": true },
+          "socio_nombres":    { "type": "string", "nullable": true },
+          "activo":           { "type": "integer", "enum": [0, 1] }
+        }
+      },
+      "CreateLibroRequest": {
+        "type": "object",
+        "required": ["titulo", "autor"],
+        "properties": {
+          "titulo": { "type": "string" },
+          "autor":  { "type": "string" }
+        }
+      },
+      "CreatePrestamoRequest": {
+        "type": "object",
+        "required": ["libro_id", "socio_id", "dias"],
+        "properties": {
+          "libro_id": { "type": "integer" },
+          "socio_id": { "type": "integer" },
+          "dias":     { "type": "integer", "minimum": 1 }
+        }
+      },
+      "Error": {
+        "type": "object",
+        "properties": {
+          "error": { "type": "string" }
+        }
+      }
+    }
+  },
+  "security": [{ "bearerAuth": [] }],
+  "paths": {
+    "/auth/login": {
+      "post": {
+        "tags": ["Autenticación"],
+        "summary": "Iniciar sesión",
+        "security": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": { "schema": { "$ref": "#/components/schemas/LoginRequest" } }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Login exitoso",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/LoginResponse" } }
+            }
+          },
+          "401": { "description": "Credenciales inválidas", "content": { "application/json": { "schema": { "$ref": "#/components/schemas/Error" } } } }
+        }
+      }
+    },
+    "/socios": {
+      "get": {
+        "tags": ["Socios"],
+        "summary": "Listar socios",
+        "parameters": [
+          { "name": "search", "in": "query", "schema": { "type": "string" }, "description": "Filtrar por apellido o nombre" }
+        ],
+        "responses": {
+          "200": {
+            "description": "Lista de socios",
+            "content": { "application/json": { "schema": { "type": "array", "items": { "$ref": "#/components/schemas/Socio" } } } }
+          }
+        }
+      },
+      "post": {
+        "tags": ["Socios"],
+        "summary": "Crear socio",
+        "requestBody": {
+          "required": true,
+          "content": { "application/json": { "schema": { "$ref": "#/components/schemas/CreateSocioRequest" } } }
+        },
+        "responses": {
+          "201": { "description": "Socio creado", "content": { "application/json": { "schema": { "$ref": "#/components/schemas/Socio" } } } },
+          "400": { "description": "Datos inválidos" }
+        }
+      }
+    },
+    "/socios/{id}": {
+      "get": {
+        "tags": ["Socios"],
+        "summary": "Obtener socio por ID",
+        "parameters": [{ "name": "id", "in": "path", "required": true, "schema": { "type": "integer" } }],
+        "responses": {
+          "200": { "description": "Socio encontrado", "content": { "application/json": { "schema": { "$ref": "#/components/schemas/Socio" } } } },
+          "404": { "description": "Socio no encontrado" }
+        }
+      },
+      "put": {
+        "tags": ["Socios"],
+        "summary": "Actualizar socio",
+        "parameters": [{ "name": "id", "in": "path", "required": true, "schema": { "type": "integer" } }],
+        "requestBody": {
+          "required": true,
+          "content": { "application/json": { "schema": { "$ref": "#/components/schemas/CreateSocioRequest" } } }
+        },
+        "responses": {
+          "200": { "description": "Socio actualizado", "content": { "application/json": { "schema": { "$ref": "#/components/schemas/Socio" } } } },
+          "404": { "description": "Socio no encontrado" }
+        }
+      },
+      "delete": {
+        "tags": ["Socios"],
+        "summary": "Baja lógica de socio",
+        "parameters": [{ "name": "id", "in": "path", "required": true, "schema": { "type": "integer" } }],
+        "responses": {
+          "204": { "description": "Socio dado de baja" },
+          "404": { "description": "Socio no encontrado" }
+        }
+      }
+    },
+    "/socios/{id}/prestamos": {
+      "get": {
+        "tags": ["Socios"],
+        "summary": "Préstamos activos del socio",
+        "parameters": [{ "name": "id", "in": "path", "required": true, "schema": { "type": "integer" } }],
+        "responses": {
+          "200": { "description": "Lista de préstamos activos", "content": { "application/json": { "schema": { "type": "array", "items": { "$ref": "#/components/schemas/Libro" } } } } }
+        }
+      }
+    },
+    "/libros": {
+      "get": {
+        "tags": ["Libros"],
+        "summary": "Listar libros",
+        "parameters": [
+          { "name": "search", "in": "query", "schema": { "type": "string" }, "description": "Filtrar por título o autor" },
+          { "name": "estado", "in": "query", "schema": { "type": "string", "enum": ["disponible", "prestado", "todos"] }, "description": "Filtrar por estado" }
+        ],
+        "responses": {
+          "200": { "description": "Lista de libros", "content": { "application/json": { "schema": { "type": "array", "items": { "$ref": "#/components/schemas/Libro" } } } } }
+        }
+      },
+      "post": {
+        "tags": ["Libros"],
+        "summary": "Crear libro",
+        "requestBody": {
+          "required": true,
+          "content": { "application/json": { "schema": { "$ref": "#/components/schemas/CreateLibroRequest" } } }
+        },
+        "responses": {
+          "201": { "description": "Libro creado", "content": { "application/json": { "schema": { "$ref": "#/components/schemas/Libro" } } } }
+        }
+      }
+    },
+    "/libros/{id}": {
+      "get": {
+        "tags": ["Libros"],
+        "summary": "Obtener libro por ID",
+        "parameters": [{ "name": "id", "in": "path", "required": true, "schema": { "type": "integer" } }],
+        "responses": {
+          "200": { "description": "Libro encontrado", "content": { "application/json": { "schema": { "$ref": "#/components/schemas/Libro" } } } },
+          "404": { "description": "Libro no encontrado" }
+        }
+      },
+      "put": {
+        "tags": ["Libros"],
+        "summary": "Actualizar libro",
+        "parameters": [{ "name": "id", "in": "path", "required": true, "schema": { "type": "integer" } }],
+        "requestBody": {
+          "required": true,
+          "content": { "application/json": { "schema": { "$ref": "#/components/schemas/CreateLibroRequest" } } }
+        },
+        "responses": {
+          "200": { "description": "Libro actualizado", "content": { "application/json": { "schema": { "$ref": "#/components/schemas/Libro" } } } }
+        }
+      },
+      "delete": {
+        "tags": ["Libros"],
+        "summary": "Baja lógica de libro",
+        "parameters": [{ "name": "id", "in": "path", "required": true, "schema": { "type": "integer" } }],
+        "responses": {
+          "204": { "description": "Libro dado de baja" }
+        }
+      }
+    },
+    "/libros/{id}/devolver": {
+      "patch": {
+        "tags": ["Libros"],
+        "summary": "Registrar devolución de libro",
+        "parameters": [{ "name": "id", "in": "path", "required": true, "schema": { "type": "integer" } }],
+        "responses": {
+          "200": { "description": "Libro devuelto", "content": { "application/json": { "schema": { "$ref": "#/components/schemas/Libro" } } } },
+          "400": { "description": "El libro ya está disponible" },
+          "404": { "description": "Libro no encontrado" }
+        }
+      }
+    },
+    "/prestamos": {
+      "get": {
+        "tags": ["Préstamos"],
+        "summary": "Listar préstamos activos",
+        "responses": {
+          "200": { "description": "Lista de préstamos", "content": { "application/json": { "schema": { "type": "array", "items": { "$ref": "#/components/schemas/Libro" } } } } }
+        }
+      },
+      "post": {
+        "tags": ["Préstamos"],
+        "summary": "Registrar nuevo préstamo",
+        "requestBody": {
+          "required": true,
+          "content": { "application/json": { "schema": { "$ref": "#/components/schemas/CreatePrestamoRequest" } } }
+        },
+        "responses": {
+          "201": { "description": "Préstamo registrado", "content": { "application/json": { "schema": { "$ref": "#/components/schemas/Libro" } } } },
+          "400": { "description": "Libro no disponible o socio con préstamos pendientes" },
+          "404": { "description": "Libro o socio no encontrado" }
+        }
+      }
+    }
+  }
+}

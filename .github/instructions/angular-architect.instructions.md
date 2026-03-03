@@ -219,6 +219,26 @@ loading = signal(false); // ✅ signal
 
 ````
 
+## `tsconfig.app.json` — `rootDir` OBLIGATORIO
+
+Siempre incluir `"rootDir": "./src"` en `tsconfig.app.json`. Sin esto Angular CLI emite el error _"The common source directory is './src'. The 'rootDir' setting must be explicitly set"_:
+
+```json
+// ✅ CORRECTO
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "outDir": "./out-tsc/app",
+    "rootDir": "./src",
+    "types": []
+  },
+  "include": ["src/**/*.ts"],
+  "exclude": ["src/**/*.spec.ts"]
+}
+```
+
+> ❌ Omitir `"rootDir": "./src"` → error inmediato en `ng build` / `ng serve`
+
 ## Patrones prohibidos
 
 | ❌ Prohibido                                        | ✅ Alternativa                           |

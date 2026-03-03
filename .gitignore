@@ -1,0 +1,40 @@
+# Dependencias
+node_modules/
+.pnp
+.pnp.js
+
+# Builds
+dist/
+out-tsc/
+*.js.map
+
+# Base de datos SQLite (generada por init-db)
+*.db
+*.db-shm
+*.db-wal
+
+# Angular
+.angular/
+.angular/cache/
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+
+# Logs
+*.log
+npm-debug.log*
+
+# OS
+.DS_Store
+Thumbs.db
+
+# VS Code (workspace local, no el .vscode del kit)
+*.code-workspace
+
+# Env
+.env
+.env.local

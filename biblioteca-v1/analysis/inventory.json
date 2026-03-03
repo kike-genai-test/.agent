@@ -1,0 +1,4391 @@
+{
+  "metadata": {
+    "scan_date": "2026-03-03T17:19:27.735704",
+    "source_directory": "vb_sources\\Biblioteca",
+    "scanner_version": "2.0.0"
+  },
+  "summary": {
+    "total_files": 124,
+    "total_size_bytes": 2217144,
+    "total_size_human": "2.1 MB",
+    "projects_count": 1,
+    "forms_count": 8,
+    "modules_count": 1,
+    "classes_count": 0,
+    "total_controls": 111,
+    "total_functions": 8,
+    "crud_forms_count": 4,
+    "global_variables_count": 2,
+    "api_calls_count": 0,
+    "error_handling_issues": 0,
+    "categories": {
+      "project": 5,
+      "forms": 14,
+      "modules": 1,
+      "classes": 0,
+      "controls": 0,
+      "designers": 0,
+      "resources": 0,
+      "dependencies": 0,
+      "assets": 52,
+      "help": 0,
+      "documentation": 20,
+      "executables": 1,
+      "temporary": 1
+    }
+  },
+  "inventory": {
+    "unknown": {
+      "description": "Unknown",
+      "icon": "❓",
+      "count": 30,
+      "files": [
+        {
+          "name": ".vb6_scanner_cache.json",
+          "path": "vb_sources\\Biblioteca\\.vb6_scanner_cache.json",
+          "relative_path": ".vb6_scanner_cache.json",
+          "extension": ".json",
+          "size_bytes": 87417,
+          "category": "unknown"
+        },
+        {
+          "name": "Biblio.htm",
+          "path": "vb_sources\\Biblioteca\\Biblio.htm",
+          "relative_path": "Biblio.htm",
+          "extension": ".htm",
+          "size_bytes": 6604,
+          "category": "unknown"
+        },
+        {
+          "name": "CFDan.com - Visual Basic 6 e Internet Explorer 7.htm",
+          "path": "vb_sources\\Biblioteca\\CFDan.com - Visual Basic 6 e Internet Explorer 7.htm",
+          "relative_path": "CFDan.com - Visual Basic 6 e Internet Explorer 7.htm",
+          "extension": ".htm",
+          "size_bytes": 187589,
+          "category": "unknown"
+        },
+        {
+          "name": "a.htm",
+          "path": "vb_sources\\Biblioteca\\CFDan.com - Visual Basic 6 e Internet Explorer 7_archivos\\a.htm",
+          "relative_path": "CFDan.com - Visual Basic 6 e Internet Explorer 7_archivos\\a.htm",
+          "extension": ".htm",
+          "size_bytes": 108,
+          "category": "unknown"
+        },
+        {
+          "name": "ca-pub-8668637444854833.js",
+          "path": "vb_sources\\Biblioteca\\CFDan.com - Visual Basic 6 e Internet Explorer 7_archivos\\ca-pub-8668637444854833.js",
+          "relative_path": "CFDan.com - Visual Basic 6 e Internet Explorer 7_archivos\\ca-pub-8668637444854833.js",
+          "extension": ".js",
+          "size_bytes": 180,
+          "category": "unknown"
+        },
+        {
+          "name": "dan_Shirt.htm",
+          "path": "vb_sources\\Biblioteca\\CFDan.com - Visual Basic 6 e Internet Explorer 7_archivos\\dan_Shirt.htm",
+          "relative_path": "CFDan.com - Visual Basic 6 e Internet Explorer 7_archivos\\dan_Shirt.htm",
+          "extension": ".htm",
+          "size_bytes": 103,
+          "category": "unknown"
+        },
+        {
+          "name": "iw_sprite.css",
+          "path": "vb_sources\\Biblioteca\\CFDan.com - Visual Basic 6 e Internet Explorer 7_archivos\\iw_sprite.css",
+          "relative_path": "CFDan.com - Visual Basic 6 e Internet Explorer 7_archivos\\iw_sprite.css",
+          "extension": ".css",
+          "size_bytes": 4019,
+          "category": "unknown"
+        },
+        {
+          "name": "translate_c",
+          "path": "vb_sources\\Biblioteca\\CFDan.com - Visual Basic 6 e Internet Explorer 7_archivos\\translate_c",
+          "relative_path": "CFDan.com - Visual Basic 6 e Internet Explorer 7_archivos\\translate_c",
+          "extension": "",
+          "size_bytes": 11190,
+          "category": "unknown"
+        },
+        {
+          "name": "translate_c.css",
+          "path": "vb_sources\\Biblioteca\\CFDan.com - Visual Basic 6 e Internet Explorer 7_archivos\\translate_c.css",
+          "relative_path": "CFDan.com - Visual Basic 6 e Internet Explorer 7_archivos\\translate_c.css",
+          "extension": ".css",
+          "size_bytes": 8314,
+          "category": "unknown"
+        },
+        {
+          "name": "translate_c.htm",
+          "path": "vb_sources\\Biblioteca\\CFDan.com - Visual Basic 6 e Internet Explorer 7_archivos\\translate_c.htm",
+          "relative_path": "CFDan.com - Visual Basic 6 e Internet Explorer 7_archivos\\translate_c.htm",
+          "extension": ".htm",
+          "size_bytes": 1481,
+          "category": "unknown"
+        },
+        {
+          "name": "translate_c.js",
+          "path": "vb_sources\\Biblioteca\\CFDan.com - Visual Basic 6 e Internet Explorer 7_archivos\\translate_c.js",
+          "relative_path": "CFDan.com - Visual Basic 6 e Internet Explorer 7_archivos\\translate_c.js",
+          "extension": ".js",
+          "size_bytes": 4037,
+          "category": "unknown"
+        },
+        {
+          "name": "translate_c_002",
+          "path": "vb_sources\\Biblioteca\\CFDan.com - Visual Basic 6 e Internet Explorer 7_archivos\\translate_c_002",
+          "relative_path": "CFDan.com - Visual Basic 6 e Internet Explorer 7_archivos\\translate_c_002",
+          "extension": "",
+          "size_bytes": 26060,
+          "category": "unknown"
+        },
+        {
+          "name": "translate_c_002.htm",
+          "path": "vb_sources\\Biblioteca\\CFDan.com - Visual Basic 6 e Internet Explorer 7_archivos\\translate_c_002.htm",
+          "relative_path": "CFDan.com - Visual Basic 6 e Internet Explorer 7_archivos\\translate_c_002.htm",
+          "extension": ".htm",
+          "size_bytes": 1148,
+          "category": "unknown"
+        },
+        {
+          "name": "translate_c_002.js",
+          "path": "vb_sources\\Biblioteca\\CFDan.com - Visual Basic 6 e Internet Explorer 7_archivos\\translate_c_002.js",
+          "relative_path": "CFDan.com - Visual Basic 6 e Internet Explorer 7_archivos\\translate_c_002.js",
+          "extension": ".js",
+          "size_bytes": 3928,
+          "category": "unknown"
+        },
+        {
+          "name": "translate_c_003",
+          "path": "vb_sources\\Biblioteca\\CFDan.com - Visual Basic 6 e Internet Explorer 7_archivos\\translate_c_003",
+          "relative_path": "CFDan.com - Visual Basic 6 e Internet Explorer 7_archivos\\translate_c_003",
+          "extension": "",
+          "size_bytes": 23373,
+          "category": "unknown"
+        },
+        {
+          "name": "translate_c_003.htm",
+          "path": "vb_sources\\Biblioteca\\CFDan.com - Visual Basic 6 e Internet Explorer 7_archivos\\translate_c_003.htm",
+          "relative_path": "CFDan.com - Visual Basic 6 e Internet Explorer 7_archivos\\translate_c_003.htm",
+          "extension": ".htm",
+          "size_bytes": 1151,
+          "category": "unknown"
+        },
+        {
+          "name": "translate_c_003.js",
+          "path": "vb_sources\\Biblioteca\\CFDan.com - Visual Basic 6 e Internet Explorer 7_archivos\\translate_c_003.js",
+          "relative_path": "CFDan.com - Visual Basic 6 e Internet Explorer 7_archivos\\translate_c_003.js",
+          "extension": ".js",
+          "size_bytes": 49225,
+          "category": "unknown"
+        },
+        {
+          "name": "translate_c_004.js",
+          "path": "vb_sources\\Biblioteca\\CFDan.com - Visual Basic 6 e Internet Explorer 7_archivos\\translate_c_004.js",
+          "relative_path": "CFDan.com - Visual Basic 6 e Internet Explorer 7_archivos\\translate_c_004.js",
+          "extension": ".js",
+          "size_bytes": 94952,
+          "category": "unknown"
+        },
+        {
+          "name": "translate_c_005.js",
+          "path": "vb_sources\\Biblioteca\\CFDan.com - Visual Basic 6 e Internet Explorer 7_archivos\\translate_c_005.js",
+          "relative_path": "CFDan.com - Visual Basic 6 e Internet Explorer 7_archivos\\translate_c_005.js",
+          "extension": ".js",
+          "size_bytes": 4,
+          "category": "unknown"
+        },
+        {
+          "name": "translate_un.htm",
+          "path": "vb_sources\\Biblioteca\\CFDan.com - Visual Basic 6 e Internet Explorer 7_archivos\\translate_un.htm",
+          "relative_path": "CFDan.com - Visual Basic 6 e Internet Explorer 7_archivos\\translate_un.htm",
+          "extension": ".htm",
+          "size_bytes": 307,
+          "category": "unknown"
+        },
+        {
+          "name": "translator.css",
+          "path": "vb_sources\\Biblioteca\\CFDan.com - Visual Basic 6 e Internet Explorer 7_archivos\\translator.css",
+          "relative_path": "CFDan.com - Visual Basic 6 e Internet Explorer 7_archivos\\translator.css",
+          "extension": ".css",
+          "size_bytes": 20961,
+          "category": "unknown"
+        },
+        {
+          "name": "a.htm",
+          "path": "vb_sources\\Biblioteca\\CFDan.com - Visual Basic 6 e Internet Explorer 7_archivos\\translate_c_data\\a.htm",
+          "relative_path": "CFDan.com - Visual Basic 6 e Internet Explorer 7_archivos\\translate_c_data\\a.htm",
+          "extension": ".htm",
+          "size_bytes": 108,
+          "category": "unknown"
+        },
+        {
+          "name": "ads.htm",
+          "path": "vb_sources\\Biblioteca\\CFDan.com - Visual Basic 6 e Internet Explorer 7_archivos\\translate_c_data\\ads.htm",
+          "relative_path": "CFDan.com - Visual Basic 6 e Internet Explorer 7_archivos\\translate_c_data\\ads.htm",
+          "extension": ".htm",
+          "size_bytes": 701,
+          "category": "unknown"
+        },
+        {
+          "name": "osd.js",
+          "path": "vb_sources\\Biblioteca\\CFDan.com - Visual Basic 6 e Internet Explorer 7_archivos\\translate_c_data\\osd.js",
+          "relative_path": "CFDan.com - Visual Basic 6 e Internet Explorer 7_archivos\\translate_c_data\\osd.js",
+          "extension": ".js",
+          "size_bytes": 61909,
+          "category": "unknown"
+        },
+        {
+          "name": "zrt_lookup.htm",
+          "path": "vb_sources\\Biblioteca\\CFDan.com - Visual Basic 6 e Internet Explorer 7_archivos\\translate_c_data\\zrt_lookup.htm",
+          "relative_path": "CFDan.com - Visual Basic 6 e Internet Explorer 7_archivos\\translate_c_data\\zrt_lookup.htm",
+          "extension": ".htm",
+          "size_bytes": 9968,
+          "category": "unknown"
+        },
+        {
+          "name": "ads.htm",
+          "path": "vb_sources\\Biblioteca\\CFDan.com - Visual Basic 6 e Internet Explorer 7_archivos\\translate_c_data_002\\ads.htm",
+          "relative_path": "CFDan.com - Visual Basic 6 e Internet Explorer 7_archivos\\translate_c_data_002\\ads.htm",
+          "extension": ".htm",
+          "size_bytes": 701,
+          "category": "unknown"
+        },
+        {
+          "name": "ads.htm",
+          "path": "vb_sources\\Biblioteca\\CFDan.com - Visual Basic 6 e Internet Explorer 7_archivos\\translate_c_data_003\\ads.htm",
+          "relative_path": "CFDan.com - Visual Basic 6 e Internet Explorer 7_archivos\\translate_c_data_003\\ads.htm",
+          "extension": ".htm",
+          "size_bytes": 701,
+          "category": "unknown"
+        },
+        {
+          "name": "expansion_embed.js",
+          "path": "vb_sources\\Biblioteca\\CFDan.com - Visual Basic 6 e Internet Explorer 7_archivos\\translate_c_data_003\\expansion_embed.js",
+          "relative_path": "CFDan.com - Visual Basic 6 e Internet Explorer 7_archivos\\translate_c_data_003\\expansion_embed.js",
+          "extension": ".js",
+          "size_bytes": 156867,
+          "category": "unknown"
+        },
+        {
+          "name": "show_ads_impl.js",
+          "path": "vb_sources\\Biblioteca\\CFDan.com - Visual Basic 6 e Internet Explorer 7_archivos\\translate_c_data_003\\show_ads_impl.js",
+          "relative_path": "CFDan.com - Visual Basic 6 e Internet Explorer 7_archivos\\translate_c_data_003\\show_ads_impl.js",
+          "extension": ".js",
+          "size_bytes": 307461,
+          "category": "unknown"
+        },
+        {
+          "name": "biblioteca.mdb",
+          "path": "vb_sources\\Biblioteca\\Conexion\\biblioteca.mdb",
+          "relative_path": "Conexion\\biblioteca.mdb",
+          "extension": ".mdb",
+          "size_bytes": 348160,
+          "category": "unknown"
+        }
+      ]
+    },
+    "executables": {
+      "description": "Compiled executables",
+      "icon": "⚙️",
+      "count": 1,
+      "files": [
+        {
+          "name": "Biblioteca..exe",
+          "path": "vb_sources\\Biblioteca\\Biblioteca..exe",
+          "relative_path": "Biblioteca..exe",
+          "extension": ".exe",
+          "size_bytes": 290816,
+          "category": "executables"
+        }
+      ]
+    },
+    "project": {
+      "description": "Project and workspace files",
+      "icon": "📦",
+      "count": 5,
+      "files": [
+        {
+          "name": "Biblioteca.vbp",
+          "path": "vb_sources\\Biblioteca\\Biblioteca.vbp",
+          "relative_path": "Biblioteca.vbp",
+          "extension": ".vbp",
+          "size_bytes": 1850,
+          "category": "project"
+        },
+        {
+          "name": "Biblioteca.vbw",
+          "path": "vb_sources\\Biblioteca\\Biblioteca.vbw",
+          "relative_path": "Biblioteca.vbw",
+          "extension": ".vbw",
+          "size_bytes": 342,
+          "category": "project"
+        },
+        {
+          "name": "Bibliteca.vbw",
+          "path": "vb_sources\\Biblioteca\\Bibliteca.vbw",
+          "relative_path": "Bibliteca.vbw",
+          "extension": ".vbw",
+          "size_bytes": 235,
+          "category": "project"
+        },
+        {
+          "name": "Proyecto1.vbw",
+          "path": "vb_sources\\Biblioteca\\Proyecto1.vbw",
+          "relative_path": "Proyecto1.vbw",
+          "extension": ".vbw",
+          "size_bytes": 44,
+          "category": "project"
+        },
+        {
+          "name": "Registro de Inmobiliaria.vbw",
+          "path": "vb_sources\\Biblioteca\\Registro de Inmobiliaria.vbw",
+          "relative_path": "Registro de Inmobiliaria.vbw",
+          "extension": ".vbw",
+          "size_bytes": 234,
+          "category": "project"
+        }
+      ]
+    },
+    "assets": {
+      "description": "Image and icon assets",
+      "icon": "🎨",
+      "count": 52,
+      "files": [
+        {
+          "name": "CONS0231.ICO",
+          "path": "vb_sources\\Biblioteca\\CONS0231.ICO",
+          "relative_path": "CONS0231.ICO",
+          "extension": ".ico",
+          "size_bytes": 766,
+          "category": "assets"
+        },
+        {
+          "name": "CONS0233.ICO",
+          "path": "vb_sources\\Biblioteca\\CONS0233.ICO",
+          "relative_path": "CONS0233.ICO",
+          "extension": ".ico",
+          "size_bytes": 766,
+          "category": "assets"
+        },
+        {
+          "name": "CONS0234.ICO",
+          "path": "vb_sources\\Biblioteca\\CONS0234.ICO",
+          "relative_path": "CONS0234.ICO",
+          "extension": ".ico",
+          "size_bytes": 766,
+          "category": "assets"
+        },
+        {
+          "name": "CONS0235.ICO",
+          "path": "vb_sources\\Biblioteca\\CONS0235.ICO",
+          "relative_path": "CONS0235.ICO",
+          "extension": ".ico",
+          "size_bytes": 766,
+          "category": "assets"
+        },
+        {
+          "name": "FondoMDI.jpg",
+          "path": "vb_sources\\Biblioteca\\FondoMDI.jpg",
+          "relative_path": "FondoMDI.jpg",
+          "extension": ".jpg",
+          "size_bytes": 161966,
+          "category": "assets"
+        },
+        {
+          "name": "images.jpg",
+          "path": "vb_sources\\Biblioteca\\images.jpg",
+          "relative_path": "images.jpg",
+          "extension": ".jpg",
+          "size_bytes": 40803,
+          "category": "assets"
+        },
+        {
+          "name": "AU.gif",
+          "path": "vb_sources\\Biblioteca\\CFDan.com - Visual Basic 6 e Internet Explorer 7_archivos\\AU.gif",
+          "relative_path": "CFDan.com - Visual Basic 6 e Internet Explorer 7_archivos\\AU.gif",
+          "extension": ".gif",
+          "size_bytes": 1006,
+          "category": "assets"
+        },
+        {
+          "name": "BE.gif",
+          "path": "vb_sources\\Biblioteca\\CFDan.com - Visual Basic 6 e Internet Explorer 7_archivos\\BE.gif",
+          "relative_path": "CFDan.com - Visual Basic 6 e Internet Explorer 7_archivos\\BE.gif",
+          "extension": ".gif",
+          "size_bytes": 1003,
+          "category": "assets"
+        },
+        {
+          "name": "blinklist.gif",
+          "path": "vb_sources\\Biblioteca\\CFDan.com - Visual Basic 6 e Internet Explorer 7_archivos\\blinklist.gif",
+          "relative_path": "CFDan.com - Visual Basic 6 e Internet Explorer 7_archivos\\blinklist.gif",
+          "extension": ".gif",
+          "size_bytes": 260,
+          "category": "assets"
+        },
+        {
+          "name": "BR.gif",
+          "path": "vb_sources\\Biblioteca\\CFDan.com - Visual Basic 6 e Internet Explorer 7_archivos\\BR.gif",
+          "relative_path": "CFDan.com - Visual Basic 6 e Internet Explorer 7_archivos\\BR.gif",
+          "extension": ".gif",
+          "size_bytes": 1006,
+          "category": "assets"
+        },
+        {
+          "name": "BY.gif",
+          "path": "vb_sources\\Biblioteca\\CFDan.com - Visual Basic 6 e Internet Explorer 7_archivos\\BY.gif",
+          "relative_path": "CFDan.com - Visual Basic 6 e Internet Explorer 7_archivos\\BY.gif",
+          "extension": ".gif",
+          "size_bytes": 1006,
+          "category": "assets"
+        },
+        {
+          "name": "CA.gif",
+          "path": "vb_sources\\Biblioteca\\CFDan.com - Visual Basic 6 e Internet Explorer 7_archivos\\CA.gif",
+          "relative_path": "CFDan.com - Visual Basic 6 e Internet Explorer 7_archivos\\CA.gif",
+          "extension": ".gif",
+          "size_bytes": 1005,
+          "category": "assets"
+        },
+        {
+          "name": "CH.gif",
+          "path": "vb_sources\\Biblioteca\\CFDan.com - Visual Basic 6 e Internet Explorer 7_archivos\\CH.gif",
+          "relative_path": "CFDan.com - Visual Basic 6 e Internet Explorer 7_archivos\\CH.gif",
+          "extension": ".gif",
+          "size_bytes": 998,
+          "category": "assets"
+        },
+        {
+          "name": "CL.gif",
+          "path": "vb_sources\\Biblioteca\\CFDan.com - Visual Basic 6 e Internet Explorer 7_archivos\\CL.gif",
+          "relative_path": "CFDan.com - Visual Basic 6 e Internet Explorer 7_archivos\\CL.gif",
+          "extension": ".gif",
+          "size_bytes": 211,
+          "category": "assets"
+        },
+        {
+          "name": "comments.gif",
+          "path": "vb_sources\\Biblioteca\\CFDan.com - Visual Basic 6 e Internet Explorer 7_archivos\\comments.gif",
+          "relative_path": "CFDan.com - Visual Basic 6 e Internet Explorer 7_archivos\\comments.gif",
+          "extension": ".gif",
+          "size_bytes": 929,
+          "category": "assets"
+        },
+        {
+          "name": "delicious.gif",
+          "path": "vb_sources\\Biblioteca\\CFDan.com - Visual Basic 6 e Internet Explorer 7_archivos\\delicious.gif",
+          "relative_path": "CFDan.com - Visual Basic 6 e Internet Explorer 7_archivos\\delicious.gif",
+          "extension": ".gif",
+          "size_bytes": 96,
+          "category": "assets"
+        },
+        {
+          "name": "digg.gif",
+          "path": "vb_sources\\Biblioteca\\CFDan.com - Visual Basic 6 e Internet Explorer 7_archivos\\digg.gif",
+          "relative_path": "CFDan.com - Visual Basic 6 e Internet Explorer 7_archivos\\digg.gif",
+          "extension": ".gif",
+          "size_bytes": 245,
+          "category": "assets"
+        },
+        {
+          "name": "FR.gif",
+          "path": "vb_sources\\Biblioteca\\CFDan.com - Visual Basic 6 e Internet Explorer 7_archivos\\FR.gif",
+          "relative_path": "CFDan.com - Visual Basic 6 e Internet Explorer 7_archivos\\FR.gif",
+          "extension": ".gif",
+          "size_bytes": 1006,
+          "category": "assets"
+        },
+        {
+          "name": "furl.gif",
+          "path": "vb_sources\\Biblioteca\\CFDan.com - Visual Basic 6 e Internet Explorer 7_archivos\\furl.gif",
+          "relative_path": "CFDan.com - Visual Basic 6 e Internet Explorer 7_archivos\\furl.gif",
+          "extension": ".gif",
+          "size_bytes": 954,
+          "category": "assets"
+        },
+        {
+          "name": "GB.gif",
+          "path": "vb_sources\\Biblioteca\\CFDan.com - Visual Basic 6 e Internet Explorer 7_archivos\\GB.gif",
+          "relative_path": "CFDan.com - Visual Basic 6 e Internet Explorer 7_archivos\\GB.gif",
+          "extension": ".gif",
+          "size_bytes": 1006,
+          "category": "assets"
+        },
+        {
+          "name": "googlelogo_color_48x16dp.png",
+          "path": "vb_sources\\Biblioteca\\CFDan.com - Visual Basic 6 e Internet Explorer 7_archivos\\googlelogo_color_48x16dp.png",
+          "relative_path": "CFDan.com - Visual Basic 6 e Internet Explorer 7_archivos\\googlelogo_color_48x16dp.png",
+          "extension": ".png",
+          "size_bytes": 1154,
+          "category": "assets"
+        },
+        {
+          "name": "IE.gif",
+          "path": "vb_sources\\Biblioteca\\CFDan.com - Visual Basic 6 e Internet Explorer 7_archivos\\IE.gif",
+          "relative_path": "CFDan.com - Visual Basic 6 e Internet Explorer 7_archivos\\IE.gif",
+          "extension": ".gif",
+          "size_bytes": 1006,
+          "category": "assets"
+        },
+        {
+          "name": "IN.gif",
+          "path": "vb_sources\\Biblioteca\\CFDan.com - Visual Basic 6 e Internet Explorer 7_archivos\\IN.gif",
+          "relative_path": "CFDan.com - Visual Basic 6 e Internet Explorer 7_archivos\\IN.gif",
+          "extension": ".gif",
+          "size_bytes": 1006,
+          "category": "assets"
+        },
+        {
+          "name": "IT.gif",
+          "path": "vb_sources\\Biblioteca\\CFDan.com - Visual Basic 6 e Internet Explorer 7_archivos\\IT.gif",
+          "relative_path": "CFDan.com - Visual Basic 6 e Internet Explorer 7_archivos\\IT.gif",
+          "extension": ".gif",
+          "size_bytes": 1006,
+          "category": "assets"
+        },
+        {
+          "name": "iws_c.png",
+          "path": "vb_sources\\Biblioteca\\CFDan.com - Visual Basic 6 e Internet Explorer 7_archivos\\iws_c.png",
+          "relative_path": "CFDan.com - Visual Basic 6 e Internet Explorer 7_archivos\\iws_c.png",
+          "extension": ".png",
+          "size_bytes": 157,
+          "category": "assets"
+        },
+        {
+          "name": "iws_e.png",
+          "path": "vb_sources\\Biblioteca\\CFDan.com - Visual Basic 6 e Internet Explorer 7_archivos\\iws_e.png",
+          "relative_path": "CFDan.com - Visual Basic 6 e Internet Explorer 7_archivos\\iws_e.png",
+          "extension": ".png",
+          "size_bytes": 148,
+          "category": "assets"
+        },
+        {
+          "name": "iws_n.png",
+          "path": "vb_sources\\Biblioteca\\CFDan.com - Visual Basic 6 e Internet Explorer 7_archivos\\iws_n.png",
+          "relative_path": "CFDan.com - Visual Basic 6 e Internet Explorer 7_archivos\\iws_n.png",
+          "extension": ".png",
+          "size_bytes": 158,
+          "category": "assets"
+        },
+        {
+          "name": "iws_s.png",
+          "path": "vb_sources\\Biblioteca\\CFDan.com - Visual Basic 6 e Internet Explorer 7_archivos\\iws_s.png",
+          "relative_path": "CFDan.com - Visual Basic 6 e Internet Explorer 7_archivos\\iws_s.png",
+          "extension": ".png",
+          "size_bytes": 158,
+          "category": "assets"
+        },
+        {
+          "name": "iws_w.png",
+          "path": "vb_sources\\Biblioteca\\CFDan.com - Visual Basic 6 e Internet Explorer 7_archivos\\iws_w.png",
+          "relative_path": "CFDan.com - Visual Basic 6 e Internet Explorer 7_archivos\\iws_w.png",
+          "extension": ".png",
+          "size_bytes": 148,
+          "category": "assets"
+        },
+        {
+          "name": "iw_c.png",
+          "path": "vb_sources\\Biblioteca\\CFDan.com - Visual Basic 6 e Internet Explorer 7_archivos\\iw_c.png",
+          "relative_path": "CFDan.com - Visual Basic 6 e Internet Explorer 7_archivos\\iw_c.png",
+          "extension": ".png",
+          "size_bytes": 160,
+          "category": "assets"
+        },
+        {
+          "name": "iw_e.png",
+          "path": "vb_sources\\Biblioteca\\CFDan.com - Visual Basic 6 e Internet Explorer 7_archivos\\iw_e.png",
+          "relative_path": "CFDan.com - Visual Basic 6 e Internet Explorer 7_archivos\\iw_e.png",
+          "extension": ".png",
+          "size_bytes": 95,
+          "category": "assets"
+        },
+        {
+          "name": "iw_n.png",
+          "path": "vb_sources\\Biblioteca\\CFDan.com - Visual Basic 6 e Internet Explorer 7_archivos\\iw_n.png",
+          "relative_path": "CFDan.com - Visual Basic 6 e Internet Explorer 7_archivos\\iw_n.png",
+          "extension": ".png",
+          "size_bytes": 94,
+          "category": "assets"
+        },
+        {
+          "name": "iw_s0.png",
+          "path": "vb_sources\\Biblioteca\\CFDan.com - Visual Basic 6 e Internet Explorer 7_archivos\\iw_s0.png",
+          "relative_path": "CFDan.com - Visual Basic 6 e Internet Explorer 7_archivos\\iw_s0.png",
+          "extension": ".png",
+          "size_bytes": 95,
+          "category": "assets"
+        },
+        {
+          "name": "iw_w.png",
+          "path": "vb_sources\\Biblioteca\\CFDan.com - Visual Basic 6 e Internet Explorer 7_archivos\\iw_w.png",
+          "relative_path": "CFDan.com - Visual Basic 6 e Internet Explorer 7_archivos\\iw_w.png",
+          "extension": ".png",
+          "size_bytes": 94,
+          "category": "assets"
+        },
+        {
+          "name": "JP.gif",
+          "path": "vb_sources\\Biblioteca\\CFDan.com - Visual Basic 6 e Internet Explorer 7_archivos\\JP.gif",
+          "relative_path": "CFDan.com - Visual Basic 6 e Internet Explorer 7_archivos\\JP.gif",
+          "extension": ".gif",
+          "size_bytes": 596,
+          "category": "assets"
+        },
+        {
+          "name": "LT.gif",
+          "path": "vb_sources\\Biblioteca\\CFDan.com - Visual Basic 6 e Internet Explorer 7_archivos\\LT.gif",
+          "relative_path": "CFDan.com - Visual Basic 6 e Internet Explorer 7_archivos\\LT.gif",
+          "extension": ".gif",
+          "size_bytes": 631,
+          "category": "assets"
+        },
+        {
+          "name": "MA.gif",
+          "path": "vb_sources\\Biblioteca\\CFDan.com - Visual Basic 6 e Internet Explorer 7_archivos\\MA.gif",
+          "relative_path": "CFDan.com - Visual Basic 6 e Internet Explorer 7_archivos\\MA.gif",
+          "extension": ".gif",
+          "size_bytes": 1139,
+          "category": "assets"
+        },
+        {
+          "name": "MT.gif",
+          "path": "vb_sources\\Biblioteca\\CFDan.com - Visual Basic 6 e Internet Explorer 7_archivos\\MT.gif",
+          "relative_path": "CFDan.com - Visual Basic 6 e Internet Explorer 7_archivos\\MT.gif",
+          "extension": ".gif",
+          "size_bytes": 855,
+          "category": "assets"
+        },
+        {
+          "name": "MY.gif",
+          "path": "vb_sources\\Biblioteca\\CFDan.com - Visual Basic 6 e Internet Explorer 7_archivos\\MY.gif",
+          "relative_path": "CFDan.com - Visual Basic 6 e Internet Explorer 7_archivos\\MY.gif",
+          "extension": ".gif",
+          "size_bytes": 1006,
+          "category": "assets"
+        },
+        {
+          "name": "NL.gif",
+          "path": "vb_sources\\Biblioteca\\CFDan.com - Visual Basic 6 e Internet Explorer 7_archivos\\NL.gif",
+          "relative_path": "CFDan.com - Visual Basic 6 e Internet Explorer 7_archivos\\NL.gif",
+          "extension": ".gif",
+          "size_bytes": 1006,
+          "category": "assets"
+        },
+        {
+          "name": "NO.gif",
+          "path": "vb_sources\\Biblioteca\\CFDan.com - Visual Basic 6 e Internet Explorer 7_archivos\\NO.gif",
+          "relative_path": "CFDan.com - Visual Basic 6 e Internet Explorer 7_archivos\\NO.gif",
+          "extension": ".gif",
+          "size_bytes": 1004,
+          "category": "assets"
+        },
+        {
+          "name": "NZ.gif",
+          "path": "vb_sources\\Biblioteca\\CFDan.com - Visual Basic 6 e Internet Explorer 7_archivos\\NZ.gif",
+          "relative_path": "CFDan.com - Visual Basic 6 e Internet Explorer 7_archivos\\NZ.gif",
+          "extension": ".gif",
+          "size_bytes": 1005,
+          "category": "assets"
+        },
+        {
+          "name": "PT.gif",
+          "path": "vb_sources\\Biblioteca\\CFDan.com - Visual Basic 6 e Internet Explorer 7_archivos\\PT.gif",
+          "relative_path": "CFDan.com - Visual Basic 6 e Internet Explorer 7_archivos\\PT.gif",
+          "extension": ".gif",
+          "size_bytes": 1000,
+          "category": "assets"
+        },
+        {
+          "name": "reddit.gif",
+          "path": "vb_sources\\Biblioteca\\CFDan.com - Visual Basic 6 e Internet Explorer 7_archivos\\reddit.gif",
+          "relative_path": "CFDan.com - Visual Basic 6 e Internet Explorer 7_archivos\\reddit.gif",
+          "extension": ".gif",
+          "size_bytes": 1052,
+          "category": "assets"
+        },
+        {
+          "name": "RO.gif",
+          "path": "vb_sources\\Biblioteca\\CFDan.com - Visual Basic 6 e Internet Explorer 7_archivos\\RO.gif",
+          "relative_path": "CFDan.com - Visual Basic 6 e Internet Explorer 7_archivos\\RO.gif",
+          "extension": ".gif",
+          "size_bytes": 1006,
+          "category": "assets"
+        },
+        {
+          "name": "rss.gif",
+          "path": "vb_sources\\Biblioteca\\CFDan.com - Visual Basic 6 e Internet Explorer 7_archivos\\rss.gif",
+          "relative_path": "CFDan.com - Visual Basic 6 e Internet Explorer 7_archivos\\rss.gif",
+          "extension": ".gif",
+          "size_bytes": 154,
+          "category": "assets"
+        },
+        {
+          "name": "SE.gif",
+          "path": "vb_sources\\Biblioteca\\CFDan.com - Visual Basic 6 e Internet Explorer 7_archivos\\SE.gif",
+          "relative_path": "CFDan.com - Visual Basic 6 e Internet Explorer 7_archivos\\SE.gif",
+          "extension": ".gif",
+          "size_bytes": 1006,
+          "category": "assets"
+        },
+        {
+          "name": "tags.gif",
+          "path": "vb_sources\\Biblioteca\\CFDan.com - Visual Basic 6 e Internet Explorer 7_archivos\\tags.gif",
+          "relative_path": "CFDan.com - Visual Basic 6 e Internet Explorer 7_archivos\\tags.gif",
+          "extension": ".gif",
+          "size_bytes": 957,
+          "category": "assets"
+        },
+        {
+          "name": "technorati.gif",
+          "path": "vb_sources\\Biblioteca\\CFDan.com - Visual Basic 6 e Internet Explorer 7_archivos\\technorati.gif",
+          "relative_path": "CFDan.com - Visual Basic 6 e Internet Explorer 7_archivos\\technorati.gif",
+          "extension": ".gif",
+          "size_bytes": 162,
+          "category": "assets"
+        },
+        {
+          "name": "TR.gif",
+          "path": "vb_sources\\Biblioteca\\CFDan.com - Visual Basic 6 e Internet Explorer 7_archivos\\TR.gif",
+          "relative_path": "CFDan.com - Visual Basic 6 e Internet Explorer 7_archivos\\TR.gif",
+          "extension": ".gif",
+          "size_bytes": 995,
+          "category": "assets"
+        },
+        {
+          "name": "US.gif",
+          "path": "vb_sources\\Biblioteca\\CFDan.com - Visual Basic 6 e Internet Explorer 7_archivos\\US.gif",
+          "relative_path": "CFDan.com - Visual Basic 6 e Internet Explorer 7_archivos\\US.gif",
+          "extension": ".gif",
+          "size_bytes": 1006,
+          "category": "assets"
+        },
+        {
+          "name": "zippy_plus_sm.gif",
+          "path": "vb_sources\\Biblioteca\\CFDan.com - Visual Basic 6 e Internet Explorer 7_archivos\\zippy_plus_sm.gif",
+          "relative_path": "CFDan.com - Visual Basic 6 e Internet Explorer 7_archivos\\zippy_plus_sm.gif",
+          "extension": ".gif",
+          "size_bytes": 200,
+          "category": "assets"
+        }
+      ]
+    },
+    "forms": {
+      "description": "User interface forms and binary resources",
+      "icon": "🖼️",
+      "count": 14,
+      "files": [
+        {
+          "name": "Copia de FRMLib.FRX",
+          "path": "vb_sources\\Biblioteca\\Copia de FRMLib.FRX",
+          "relative_path": "Copia de FRMLib.FRX",
+          "extension": ".frx",
+          "size_bytes": 2080,
+          "category": "forms"
+        },
+        {
+          "name": "Form1.frm",
+          "path": "vb_sources\\Biblioteca\\Form1.frm",
+          "relative_path": "Form1.frm",
+          "extension": ".frm",
+          "size_bytes": 484,
+          "category": "forms"
+        },
+        {
+          "name": "Form2.frm",
+          "path": "vb_sources\\Biblioteca\\Form2.frm",
+          "relative_path": "Form2.frm",
+          "extension": ".frm",
+          "size_bytes": 897,
+          "category": "forms"
+        },
+        {
+          "name": "Form2.frx",
+          "path": "vb_sources\\Biblioteca\\Form2.frx",
+          "relative_path": "Form2.frx",
+          "extension": ".frx",
+          "size_bytes": 3096,
+          "category": "forms"
+        },
+        {
+          "name": "FORM7.FRM",
+          "path": "vb_sources\\Biblioteca\\FORM7.FRM",
+          "relative_path": "FORM7.FRM",
+          "extension": ".frm",
+          "size_bytes": 2506,
+          "category": "forms"
+        },
+        {
+          "name": "frmAYUDA.frm",
+          "path": "vb_sources\\Biblioteca\\frmAYUDA.frm",
+          "relative_path": "frmAYUDA.frm",
+          "extension": ".frm",
+          "size_bytes": 1702,
+          "category": "forms"
+        },
+        {
+          "name": "FRMCLI.FRM",
+          "path": "vb_sources\\Biblioteca\\FRMCLI.FRM",
+          "relative_path": "FRMCLI.FRM",
+          "extension": ".frm",
+          "size_bytes": 21767,
+          "category": "forms"
+        },
+        {
+          "name": "FRMCLI.FRX",
+          "path": "vb_sources\\Biblioteca\\FRMCLI.FRX",
+          "relative_path": "FRMCLI.FRX",
+          "extension": ".frx",
+          "size_bytes": 2858,
+          "category": "forms"
+        },
+        {
+          "name": "FRMLIB.FRM",
+          "path": "vb_sources\\Biblioteca\\FRMLIB.FRM",
+          "relative_path": "FRMLIB.FRM",
+          "extension": ".frm",
+          "size_bytes": 27045,
+          "category": "forms"
+        },
+        {
+          "name": "FRMLIB.frx",
+          "path": "vb_sources\\Biblioteca\\FRMLIB.frx",
+          "relative_path": "FRMLIB.frx",
+          "extension": ".frx",
+          "size_bytes": 778,
+          "category": "forms"
+        },
+        {
+          "name": "FrmPres.frm",
+          "path": "vb_sources\\Biblioteca\\FrmPres.frm",
+          "relative_path": "FrmPres.frm",
+          "extension": ".frm",
+          "size_bytes": 7419,
+          "category": "forms"
+        },
+        {
+          "name": "FrmPres.frx",
+          "path": "vb_sources\\Biblioteca\\FrmPres.frx",
+          "relative_path": "FrmPres.frx",
+          "extension": ".frx",
+          "size_bytes": 778,
+          "category": "forms"
+        },
+        {
+          "name": "MDIForm1.frm",
+          "path": "vb_sources\\Biblioteca\\MDIForm1.frm",
+          "relative_path": "MDIForm1.frm",
+          "extension": ".frm",
+          "size_bytes": 2091,
+          "category": "forms"
+        },
+        {
+          "name": "MDIForm1.frx",
+          "path": "vb_sources\\Biblioteca\\MDIForm1.frx",
+          "relative_path": "MDIForm1.frx",
+          "extension": ".frx",
+          "size_bytes": 162756,
+          "category": "forms"
+        }
+      ]
+    },
+    "documentation": {
+      "description": "Text documentation and logs",
+      "icon": "📝",
+      "count": 20,
+      "files": [
+        {
+          "name": "Copia de FRMLIB.log",
+          "path": "vb_sources\\Biblioteca\\Copia de FRMLIB.log",
+          "relative_path": "Copia de FRMLIB.log",
+          "extension": ".log",
+          "size_bytes": 115,
+          "category": "documentation"
+        },
+        {
+          "name": "El programa consta de dos partes.doc",
+          "path": "vb_sources\\Biblioteca\\El programa consta de dos partes.doc",
+          "relative_path": "El programa consta de dos partes.doc",
+          "extension": ".doc",
+          "size_bytes": 28160,
+          "category": "documentation"
+        },
+        {
+          "name": "frmAYUDA.log",
+          "path": "vb_sources\\Biblioteca\\frmAYUDA.log",
+          "relative_path": "frmAYUDA.log",
+          "extension": ".log",
+          "size_bytes": 103,
+          "category": "documentation"
+        },
+        {
+          "name": "a.txt",
+          "path": "vb_sources\\Biblioteca\\CFDan.com - Visual Basic 6 e Internet Explorer 7_archivos\\a.txt",
+          "relative_path": "CFDan.com - Visual Basic 6 e Internet Explorer 7_archivos\\a.txt",
+          "extension": ".txt",
+          "size_bytes": 48,
+          "category": "documentation"
+        },
+        {
+          "name": "a_002.txt",
+          "path": "vb_sources\\Biblioteca\\CFDan.com - Visual Basic 6 e Internet Explorer 7_archivos\\a_002.txt",
+          "relative_path": "CFDan.com - Visual Basic 6 e Internet Explorer 7_archivos\\a_002.txt",
+          "extension": ".txt",
+          "size_bytes": 48,
+          "category": "documentation"
+        },
+        {
+          "name": "a_003.txt",
+          "path": "vb_sources\\Biblioteca\\CFDan.com - Visual Basic 6 e Internet Explorer 7_archivos\\a_003.txt",
+          "relative_path": "CFDan.com - Visual Basic 6 e Internet Explorer 7_archivos\\a_003.txt",
+          "extension": ".txt",
+          "size_bytes": 48,
+          "category": "documentation"
+        },
+        {
+          "name": "a_004.txt",
+          "path": "vb_sources\\Biblioteca\\CFDan.com - Visual Basic 6 e Internet Explorer 7_archivos\\a_004.txt",
+          "relative_path": "CFDan.com - Visual Basic 6 e Internet Explorer 7_archivos\\a_004.txt",
+          "extension": ".txt",
+          "size_bytes": 48,
+          "category": "documentation"
+        },
+        {
+          "name": "a_005.txt",
+          "path": "vb_sources\\Biblioteca\\CFDan.com - Visual Basic 6 e Internet Explorer 7_archivos\\a_005.txt",
+          "relative_path": "CFDan.com - Visual Basic 6 e Internet Explorer 7_archivos\\a_005.txt",
+          "extension": ".txt",
+          "size_bytes": 48,
+          "category": "documentation"
+        },
+        {
+          "name": "a_006.txt",
+          "path": "vb_sources\\Biblioteca\\CFDan.com - Visual Basic 6 e Internet Explorer 7_archivos\\a_006.txt",
+          "relative_path": "CFDan.com - Visual Basic 6 e Internet Explorer 7_archivos\\a_006.txt",
+          "extension": ".txt",
+          "size_bytes": 48,
+          "category": "documentation"
+        },
+        {
+          "name": "a_007.txt",
+          "path": "vb_sources\\Biblioteca\\CFDan.com - Visual Basic 6 e Internet Explorer 7_archivos\\a_007.txt",
+          "relative_path": "CFDan.com - Visual Basic 6 e Internet Explorer 7_archivos\\a_007.txt",
+          "extension": ".txt",
+          "size_bytes": 48,
+          "category": "documentation"
+        },
+        {
+          "name": "a_008.txt",
+          "path": "vb_sources\\Biblioteca\\CFDan.com - Visual Basic 6 e Internet Explorer 7_archivos\\a_008.txt",
+          "relative_path": "CFDan.com - Visual Basic 6 e Internet Explorer 7_archivos\\a_008.txt",
+          "extension": ".txt",
+          "size_bytes": 48,
+          "category": "documentation"
+        },
+        {
+          "name": "a_009.txt",
+          "path": "vb_sources\\Biblioteca\\CFDan.com - Visual Basic 6 e Internet Explorer 7_archivos\\a_009.txt",
+          "relative_path": "CFDan.com - Visual Basic 6 e Internet Explorer 7_archivos\\a_009.txt",
+          "extension": ".txt",
+          "size_bytes": 48,
+          "category": "documentation"
+        },
+        {
+          "name": "a_010.txt",
+          "path": "vb_sources\\Biblioteca\\CFDan.com - Visual Basic 6 e Internet Explorer 7_archivos\\a_010.txt",
+          "relative_path": "CFDan.com - Visual Basic 6 e Internet Explorer 7_archivos\\a_010.txt",
+          "extension": ".txt",
+          "size_bytes": 48,
+          "category": "documentation"
+        },
+        {
+          "name": "a_011.txt",
+          "path": "vb_sources\\Biblioteca\\CFDan.com - Visual Basic 6 e Internet Explorer 7_archivos\\a_011.txt",
+          "relative_path": "CFDan.com - Visual Basic 6 e Internet Explorer 7_archivos\\a_011.txt",
+          "extension": ".txt",
+          "size_bytes": 48,
+          "category": "documentation"
+        },
+        {
+          "name": "a_012.txt",
+          "path": "vb_sources\\Biblioteca\\CFDan.com - Visual Basic 6 e Internet Explorer 7_archivos\\a_012.txt",
+          "relative_path": "CFDan.com - Visual Basic 6 e Internet Explorer 7_archivos\\a_012.txt",
+          "extension": ".txt",
+          "size_bytes": 48,
+          "category": "documentation"
+        },
+        {
+          "name": "a_013.txt",
+          "path": "vb_sources\\Biblioteca\\CFDan.com - Visual Basic 6 e Internet Explorer 7_archivos\\a_013.txt",
+          "relative_path": "CFDan.com - Visual Basic 6 e Internet Explorer 7_archivos\\a_013.txt",
+          "extension": ".txt",
+          "size_bytes": 48,
+          "category": "documentation"
+        },
+        {
+          "name": "a_014.txt",
+          "path": "vb_sources\\Biblioteca\\CFDan.com - Visual Basic 6 e Internet Explorer 7_archivos\\a_014.txt",
+          "relative_path": "CFDan.com - Visual Basic 6 e Internet Explorer 7_archivos\\a_014.txt",
+          "extension": ".txt",
+          "size_bytes": 48,
+          "category": "documentation"
+        },
+        {
+          "name": "a_015.txt",
+          "path": "vb_sources\\Biblioteca\\CFDan.com - Visual Basic 6 e Internet Explorer 7_archivos\\a_015.txt",
+          "relative_path": "CFDan.com - Visual Basic 6 e Internet Explorer 7_archivos\\a_015.txt",
+          "extension": ".txt",
+          "size_bytes": 48,
+          "category": "documentation"
+        },
+        {
+          "name": "a_016.txt",
+          "path": "vb_sources\\Biblioteca\\CFDan.com - Visual Basic 6 e Internet Explorer 7_archivos\\a_016.txt",
+          "relative_path": "CFDan.com - Visual Basic 6 e Internet Explorer 7_archivos\\a_016.txt",
+          "extension": ".txt",
+          "size_bytes": 48,
+          "category": "documentation"
+        },
+        {
+          "name": "a_017.txt",
+          "path": "vb_sources\\Biblioteca\\CFDan.com - Visual Basic 6 e Internet Explorer 7_archivos\\a_017.txt",
+          "relative_path": "CFDan.com - Visual Basic 6 e Internet Explorer 7_archivos\\a_017.txt",
+          "extension": ".txt",
+          "size_bytes": 48,
+          "category": "documentation"
+        }
+      ]
+    },
+    "modules": {
+      "description": "Standard code modules with functions and subroutines",
+      "icon": "📄",
+      "count": 1,
+      "files": [
+        {
+          "name": "Module1.bas",
+          "path": "vb_sources\\Biblioteca\\Module1.bas",
+          "relative_path": "Module1.bas",
+          "extension": ".bas",
+          "size_bytes": 2116,
+          "category": "modules"
+        }
+      ]
+    },
+    "temporary": {
+      "description": "Temporary and source control files",
+      "icon": "🗑️",
+      "count": 1,
+      "files": [
+        {
+          "name": "MSSCCPRJ.SCC",
+          "path": "vb_sources\\Biblioteca\\MSSCCPRJ.SCC",
+          "relative_path": "MSSCCPRJ.SCC",
+          "extension": ".scc",
+          "size_bytes": 506,
+          "category": "temporary"
+        }
+      ]
+    }
+  },
+  "projects": [
+    {
+      "name": "Biblioteca.vbp",
+      "path": "vb_sources\\Biblioteca\\Biblioteca.vbp",
+      "forms": [
+        "FRMCLI.FRM",
+        "FRMLIB.FRM",
+        "MDIForm1.frm",
+        "FORM7.FRM",
+        "FrmPres.frm",
+        "frmAYUDA.frm"
+      ],
+      "modules": [
+        {
+          "name": "Module1",
+          "file": "Module1.bas"
+        }
+      ],
+      "classes": [],
+      "references": [
+        {
+          "guid": "00000205-0000-0010-8000-00AA006D2EA4",
+          "version": "2.5",
+          "location": "C:\\Archivos de programa\\Archivos comunes\\system\\ado\\msado25.tlb#Microsoft ActiveX Data Objects 2.5 Library"
+        },
+        {
+          "guid": "56BF9020-7A2F-11D0-9482-00A0C91110ED",
+          "version": "1.0",
+          "location": "C:\\WINDOWS\\system32\\MSBIND.DLL#Microsoft Data Binding Collection VB 6.0 (SP4)"
+        },
+        {
+          "guid": "00020905-0000-0000-C000-000000000046",
+          "version": "8.1",
+          "location": "C:\\Archivos de programa\\Microsoft Office\\Office12\\MSWORD.OLB#Microsoft Word 9.0 Object Library"
+        },
+        {
+          "guid": "6B263850-900B-11D0-9484-00A0C91110ED",
+          "version": "1.0",
+          "location": "C:\\windows\\system32\\msstdfmt.dll#Microsoft Data Formatting Object Library"
+        },
+        {
+          "guid": "17016CEB-E118-11D0-94B8-00A0C91110ED",
+          "version": "1.0",
+          "location": "C:\\Archivos de programa\\Archivos comunes\\designer\\WBCLSDSR.OCX#WebClass ActiveX Designer"
+        },
+        {
+          "guid": "EAB22AC0-30C1-11CF-A7EB-0000C05BAE0B",
+          "version": "1.1",
+          "location": "C:\\windows\\system32\\SHDOCVW.dll#Microsoft Internet Controls"
+        }
+      ],
+      "objects": [
+        {
+          "guid": "5E9E78A0-531B-11CF-91F6-C2863C385E30",
+          "version": "1.0#0",
+          "name": " MSFLXGRD.OCX"
+        },
+        {
+          "guid": "86CF1D34-0C5F-11D2-A9FC-0000F8754DA1",
+          "version": "2.0#0",
+          "name": " MSCOMCT2.OCX"
+        },
+        {
+          "guid": "67397AA1-7FB1-11D0-B148-00A0C922E820",
+          "version": "6.0#0",
+          "name": " MSADODC.OCX"
+        },
+        {
+          "guid": "EAB22AC0-30C1-11CF-A7EB-0000C05BAE0B",
+          "version": "1.1#0",
+          "name": " SHDOCVW.dll"
+        }
+      ]
+    }
+  ],
+  "forms": [
+    {
+      "name": "Form1",
+      "path": "vb_sources\\Biblioteca\\Form1.frm",
+      "controls": [
+        {
+          "library": "VB",
+          "type": "Form",
+          "name": "Form1"
+        }
+      ],
+      "events": [],
+      "crud_operations": [],
+      "sql_queries": [],
+      "functions": [],
+      "error_handling": [],
+      "properties": [
+        {
+          "name": "Caption",
+          "value": "\"Form1\""
+        }
+      ]
+    },
+    {
+      "name": "Form2",
+      "path": "vb_sources\\Biblioteca\\Form2.frm",
+      "controls": [
+        {
+          "library": "VB",
+          "type": "Form",
+          "name": "Form2"
+        },
+        {
+          "library": "VB",
+          "type": "OLE",
+          "name": "OLE1"
+        }
+      ],
+      "events": [
+        {
+          "visibility": "Private",
+          "control": "Form",
+          "event": "Load",
+          "params": "",
+          "logic": "'OLE1.Action = 1"
+        }
+      ],
+      "crud_operations": [],
+      "sql_queries": [],
+      "functions": [],
+      "error_handling": [],
+      "properties": [
+        {
+          "name": "Caption",
+          "value": "\"BD\""
+        },
+        {
+          "name": "Height",
+          "value": "1092"
+        },
+        {
+          "name": "Left",
+          "value": "240"
+        },
+        {
+          "name": "Top",
+          "value": "120"
+        },
+        {
+          "name": "Width",
+          "value": "1572"
+        }
+      ]
+    },
+    {
+      "name": "FORM7",
+      "path": "vb_sources\\Biblioteca\\FORM7.FRM",
+      "controls": [
+        {
+          "library": "VB",
+          "type": "Form",
+          "name": "Form1"
+        },
+        {
+          "library": "VB",
+          "type": "CommandButton",
+          "name": "cmdsal"
+        },
+        {
+          "library": "VB",
+          "type": "CommandButton",
+          "name": "cmdace"
+        },
+        {
+          "library": "VB",
+          "type": "TextBox",
+          "name": "txtlog"
+        },
+        {
+          "library": "VB",
+          "type": "Label",
+          "name": "E"
+        }
+      ],
+      "events": [
+        {
+          "visibility": "Private",
+          "control": "cmdace",
+          "event": "Click",
+          "params": "",
+          "logic": "If txtlog.Tag = txtlog.Text Then\nMDIForm1.socios.Enabled = True\nMDIForm1.libros.Enabled = True\n\nMDIForm1.ayuda.Enabled = True\n\nMsgBox \"Contraseña aceptada\", vbInformation, \"ACCESO A BIBLIOTECA\"\n\nUnload Me\nElse\nMsgBox \"Contraseña Rechazada\", vbCritical, \"ACCESO A BIBLIOTECA\"\ncont = cont + 1\ntxtlog = \"\"\nMDIForm1.socios.Enabled = False\nMDIForm1.libros.Enabled = False\n\nMDIForm1.ayuda = True\nIf cont > 4 Then End\nEnd If\nfin"
+        },
+        {
+          "visibility": "Private",
+          "control": "cmdsal",
+          "event": "Click",
+          "params": "",
+          "logic": "Unload Me"
+        },
+        {
+          "visibility": "Private",
+          "control": "Form",
+          "event": "Load",
+          "params": "",
+          "logic": "ini\nrsc1.Open \"Select pass from clave\", cn, adOpenStatic, adLockBatchOptimistic\nIf rsc1.Fields(0) <> \"\" Then txtlog.Tag = rsc1.Fields(0)"
+        },
+        {
+          "visibility": "Private",
+          "control": "txtlog",
+          "event": "KeyPress",
+          "params": "KeyAscii As Integer",
+          "logic": "If KeyAscii = 13 Then cmdace_Click"
+        }
+      ],
+      "crud_operations": [
+        "READ"
+      ],
+      "sql_queries": [
+        {
+          "type": "SELECT",
+          "table": "clave"
+        }
+      ],
+      "functions": [],
+      "error_handling": [],
+      "properties": [
+        {
+          "name": "Caption",
+          "value": "\"Acceso al Programa\""
+        },
+        {
+          "name": "Caption",
+          "value": "\"Salir\""
+        },
+        {
+          "name": "Height",
+          "value": "375"
+        },
+        {
+          "name": "Left",
+          "value": "1680"
+        },
+        {
+          "name": "Top",
+          "value": "840"
+        },
+        {
+          "name": "Width",
+          "value": "1095"
+        },
+        {
+          "name": "Caption",
+          "value": "\"Aceptar\""
+        },
+        {
+          "name": "Height",
+          "value": "375"
+        },
+        {
+          "name": "Left",
+          "value": "480"
+        },
+        {
+          "name": "Top",
+          "value": "840"
+        },
+        {
+          "name": "Width",
+          "value": "975"
+        },
+        {
+          "name": "Height",
+          "value": "405"
+        },
+        {
+          "name": "Left",
+          "value": "480"
+        },
+        {
+          "name": "Top",
+          "value": "240"
+        },
+        {
+          "name": "Width",
+          "value": "2295"
+        },
+        {
+          "name": "Caption",
+          "value": "\"Ingrese su \"\"LOGUIN\"\"\""
+        },
+        {
+          "name": "Height",
+          "value": "255"
+        },
+        {
+          "name": "Left",
+          "value": "480"
+        },
+        {
+          "name": "Top",
+          "value": "0"
+        },
+        {
+          "name": "Width",
+          "value": "2295"
+        }
+      ]
+    },
+    {
+      "name": "frmAYUDA",
+      "path": "vb_sources\\Biblioteca\\frmAYUDA.frm",
+      "controls": [
+        {
+          "library": "VB",
+          "type": "Form",
+          "name": "frmAYUDA"
+        },
+        {
+          "library": "SHDocVwCtl",
+          "type": "WebBrowser",
+          "name": "WebBrowser1"
+        }
+      ],
+      "events": [
+        {
+          "visibility": "Private",
+          "control": "Form",
+          "event": "Load",
+          "params": "",
+          "logic": "WebBrowser1.Navigate App.Path & \"\\biblio.htm\""
+        }
+      ],
+      "crud_operations": [],
+      "sql_queries": [],
+      "functions": [],
+      "error_handling": [],
+      "properties": [
+        {
+          "name": "Caption",
+          "value": "\"BIBLIOTECA  - Ayuda -\""
+        },
+        {
+          "name": "Height",
+          "value": "7455"
+        },
+        {
+          "name": "Left",
+          "value": "120"
+        },
+        {
+          "name": "Top",
+          "value": "120"
+        },
+        {
+          "name": "Width",
+          "value": "4335"
+        }
+      ]
+    },
+    {
+      "name": "FRMCLI",
+      "path": "vb_sources\\Biblioteca\\FRMCLI.FRM",
+      "controls": [
+        {
+          "library": "VB",
+          "type": "Form",
+          "name": "frmCli"
+        },
+        {
+          "library": "VB",
+          "type": "CommandButton",
+          "name": "Command4"
+        },
+        {
+          "library": "VB",
+          "type": "Frame",
+          "name": "FrameABM"
+        },
+        {
+          "library": "VB",
+          "type": "CommandButton",
+          "name": "cmdnue"
+        },
+        {
+          "library": "VB",
+          "type": "CommandButton",
+          "name": "cmdbor"
+        },
+        {
+          "library": "VB",
+          "type": "CommandButton",
+          "name": "cmdcan"
+        },
+        {
+          "library": "VB",
+          "type": "CommandButton",
+          "name": "cmdreg"
+        },
+        {
+          "library": "VB",
+          "type": "CommandButton",
+          "name": "cmdsal"
+        },
+        {
+          "library": "VB",
+          "type": "CommandButton",
+          "name": "cmdmod"
+        },
+        {
+          "library": "VB",
+          "type": "Frame",
+          "name": "Frame1"
+        },
+        {
+          "library": "VB",
+          "type": "CommandButton",
+          "name": "Command3"
+        },
+        {
+          "library": "VB",
+          "type": "CommandButton",
+          "name": "Command2"
+        },
+        {
+          "library": "VB",
+          "type": "TextBox",
+          "name": "txtbleg"
+        },
+        {
+          "library": "VB",
+          "type": "TextBox",
+          "name": "txtbape"
+        },
+        {
+          "library": "VB",
+          "type": "CommandButton",
+          "name": "Command1"
+        },
+        {
+          "library": "MSFlexGridLib",
+          "type": "MSFlexGrid",
+          "name": "grilla"
+        },
+        {
+          "library": "VB",
+          "type": "Label",
+          "name": "Label5"
+        },
+        {
+          "library": "VB",
+          "type": "Label",
+          "name": "Label6"
+        },
+        {
+          "library": "VB",
+          "type": "CommandButton",
+          "name": "cmdbus"
+        },
+        {
+          "library": "VB",
+          "type": "TextBox",
+          "name": "txtDNI"
+        },
+        {
+          "library": "VB",
+          "type": "TextBox",
+          "name": "txtnom"
+        },
+        {
+          "library": "VB",
+          "type": "TextBox",
+          "name": "txtdir"
+        },
+        {
+          "library": "VB",
+          "type": "TextBox",
+          "name": "txtape"
+        },
+        {
+          "library": "VB",
+          "type": "TextBox",
+          "name": "txttel"
+        },
+        {
+          "library": "VB",
+          "type": "TextBox",
+          "name": "txtid"
+        },
+        {
+          "library": "VB",
+          "type": "Label",
+          "name": "Label2"
+        },
+        {
+          "library": "VB",
+          "type": "Label",
+          "name": "Label2"
+        },
+        {
+          "library": "VB",
+          "type": "Label",
+          "name": "Label4"
+        },
+        {
+          "library": "VB",
+          "type": "Label",
+          "name": "Label3"
+        },
+        {
+          "library": "VB",
+          "type": "Label",
+          "name": "Label2"
+        },
+        {
+          "library": "VB",
+          "type": "Label",
+          "name": "Label1"
+        }
+      ],
+      "events": [
+        {
+          "visibility": "Private",
+          "control": "cmdbus",
+          "event": "Click",
+          "params": "",
+          "logic": "mancmd Me, \"bus\"\nFrame1.Visible = True\ntxtbleg.Locked = False\ntxtbape.Locked = False\ntxtbleg.SetFocus"
+        },
+        {
+          "visibility": "Private",
+          "control": "cmdbor",
+          "event": "Click",
+          "params": "",
+          "logic": "ini\nmancmd Me, \"bor\"\nIf rsc1.State = 1 Then rsc1.Close\nIf MsgBox(\"ESTA SEGURO DE DAR DE BAJA ESTE REGISTRO???\", vbYesNo, \"PRECAUCION!! Se dar  de baja un REGISTRO\") = vbYes Then\nrsc1.Open \"Cliente\", cn, adOpenStatic, adLockOptimistic\nDo While rsc1.EOF = False\nIf rsc1!IdCliente = txtid Then\nExit Do\nEnd If\nrsc1.MoveNext\nLoop\nrsc1!Activo = \"No\"\nrsc1.Update\nrsc1.MoveLast\nrsc1.Close\nMsgBox \"La Operación se ha efectuado satifactoriamente\"\nEnd If\ncmdcan_Click\nfin"
+        },
+        {
+          "visibility": "Private",
+          "control": "cmdcan",
+          "event": "Click",
+          "params": "",
+          "logic": "limpia Me\nmancmd Me, \"can\"\nfgrilla\nFrame1.Visible = False"
+        },
+        {
+          "visibility": "Private",
+          "control": "cmdmod",
+          "event": "Click",
+          "params": "",
+          "logic": "mancmd Me, \"mod\"\nmodi = 1"
+        },
+        {
+          "visibility": "Private",
+          "control": "cmdnue",
+          "event": "Click",
+          "params": "",
+          "logic": "txtApe.SetFocus\nmancmd Me, \"nue\"\nmodi = 0\nini\nrsc1.Open \"Select * from Cliente\", cn, adOpenStatic, adLockOptimistic\ntxtid = rsc1.RecordCount + 1\nrsc1.Close\nIdCli = 1\nfin"
+        },
+        {
+          "visibility": "Private",
+          "control": "cmdreg",
+          "event": "Click",
+          "params": "",
+          "logic": "ini\n                                If rsc1.State = 1 Then rsc1.Close\n'On Error GoTo xerror\nmancmd Me, \"reg\"\nIf modi = 1 Then\ncn.Execute \"Update Cliente Set Apellidos = '\" & txtApe & \"', Nombres = '\" & _\ntxtnom & \"', NºDoc = '\" & txtDNI & \"', Domicilio = '\" & txtdir & \"', Telefono = '\" & txttel & \"' Where IdCliente = \" & txtid\n\n\n\nElse\nrsc1.Open \"Select IdCliente from Cliente order by IdCliente\", cn, adOpenStatic, adLockOptimistic\nIf rsc1.RecordCount > 0 Then\nrsc1.MoveLast\nIdCli = rsc1!IdCliente + 1\nElse\nIdCli = 1\nEnd If\n                                If rsc1.State = 1 Then rsc1.Close\ncn.Execute \"Insert Into Cliente Values(\" & IdCli & \", '\" & txtApe & \"', '\" & txtnom & _\n\"', '\" & txtDNI & \"', '\" & txtdir & \"', '\" & txttel & \"', 'Si')\"\nEnd If\nMsgBox \"Operacion exitosa\"\ncmdcan_Click\nFrameABM.Visible = False\nfin\nExit Sub\nxerror:\nIf Err.Number = -2147217900 Then\nMsgBox \"Tiene  que completar los datos faltantes\"\nfin\nExit Sub\nEnd If\nMsgBox \" No se realizó operacion por: \" & Err.Description & Err.Number\nfin"
+        },
+        {
+          "visibility": "Private",
+          "control": "cmdsal",
+          "event": "Click",
+          "params": "",
+          "logic": "Unload Me"
+        },
+        {
+          "visibility": "Private",
+          "control": "Command2",
+          "event": "Click",
+          "params": "",
+          "logic": "txtbape = \"%\"\nCommand1_Click"
+        },
+        {
+          "visibility": "Private",
+          "control": "Command3",
+          "event": "Click",
+          "params": "",
+          "logic": "Frame1.Visible = False\nFrameABM.Visible = True\ncmdnue.Enabled = True"
+        },
+        {
+          "visibility": "Private",
+          "control": "Command4",
+          "event": "Click",
+          "params": "",
+          "logic": "frmAYUDA.Show"
+        },
+        {
+          "visibility": "Private",
+          "control": "Form",
+          "event": "Activate",
+          "params": "",
+          "logic": "Me.Top = 1\nMe.Left = 1000\nini '//funcion que conecta a la base de datos\nmancmd Me, \"ini\""
+        },
+        {
+          "visibility": "Private",
+          "control": "grilla",
+          "event": "Click",
+          "params": "",
+          "logic": "With grilla\nIf .RowSel < 1 Then Exit Sub\ntxtid = .TextMatrix(.RowSel, 0)\ntxtApe = .TextMatrix(.RowSel, 1)\ntxtnom = .TextMatrix(.RowSel, 2)\ntxtDNI = .TextMatrix(.RowSel, 3)\ntxtdir = .TextMatrix(.RowSel, 4)\ntxttel = .TextMatrix(.RowSel, 5)\nEnd With\n\ncmdmod.Enabled = True\ncmdbor.Enabled = True\ncmdreg.Enabled = False\ncmdnue.Enabled = False\nFrameABM.Visible = True\nFrame1.Visible = False"
+        },
+        {
+          "visibility": "Private",
+          "control": "Command1",
+          "event": "Click",
+          "params": "",
+          "logic": "'Busca por legajo o nombre\n'//la linea siguiente hace una rutina saltando el error para\n'//que no se clave el programa, activar una vez que este todo Ok\n\n'On Error GoTo xerror\nini\nfgrilla\nIf rsc1.State = 1 Then rsc1.Close\nWith grilla\nIf txtbleg = \"\" And txtbape <> \"\" Then\nrsc1.Open \"Select * From Cliente Where Activo = 'Si' And Apellidos like '\" & txtbape & \"%'\", cn, adOpenStatic, adLockOptimistic\nDo While rsc1.EOF = False\n.AddItem rsc1.Fields(0) & vbTab & rsc1.Fields(1) & vbTab & rsc1.Fields(2) & vbTab & rsc1.Fields(3) & vbTab & rsc1.Fields(4) & vbTab & rsc1.Fields(5)\nrsc1.MoveNext\nLoop\nIf rsc1.RecordCount = 0 Then MsgBox \"No se encontró registro que coincida con las caracteristicas pedidas\", vbInformation, \"NO HAY REGISTROS QUE MOSTRAR\"\nrsc1.Close\n.Visible = True\nElseIf txtbleg <> \"\" And txtbape = \"\" Then\nrsc1.Open \"SELECT * From Cliente Where Activo = 'Si' And IdCliente = \" & txtbleg.Text, cn, adOpenStatic, adLockOptimistic\nDo While rsc1.EOF = False\n.AddItem rsc1.Fields(0) & vbTab & rsc1.Fields(1) & vbTab & rsc1.Fields(2) & vbTab & rsc1.Fields(3) & vbTab & rsc1.Fields(4) & vbTab & rsc1.Fields(5)\nrsc1.MoveNext\nLoop\nIf rsc1.RecordCount = 0 Then MsgBox \"No se encontró registro que coincida con las caracteristicas pedidas\", vbInformation, \"NO HAY REGISTROS QUE MOSTRAR\"\nrsc1.Close\n\n\n.Visible = True\n\nElse\nMsgBox \"INGRESE UN DATO PARA LA BUSQUEDA\", vbExclamation, \"FALTA O EXCESO DE DATOS INGRESADOS\"\ntxtbleg.SetFocus\ntxtbleg = \"\"\ntxtbape = \"\"\nEnd If\n\nEnd With\nfin\nExit Sub\n\nxerror:\nMsgBox \"NO SE PUDO BUSCAR POR: \" & Err.Description, vbCritical, \"NO SE EFECTUO EL PROCEDIMIENTO\"\nfin"
+        },
+        {
+          "visibility": "Private",
+          "control": "TxtTel",
+          "event": "Change",
+          "params": "",
+          "logic": "If txtApe <> \"\" And txtdir <> \"\" Then\ncmdreg.Enabled = True\nElse\ncmdreg.Enabled = False\nEnd If"
+        },
+        {
+          "visibility": "Private",
+          "control": "txtdir",
+          "event": "Change",
+          "params": "",
+          "logic": "If txtdir <> \"\" And txtApe <> \"\" Then\ncmdreg.Enabled = True\nEnd If"
+        },
+        {
+          "visibility": "Private",
+          "control": "txtDNGA",
+          "event": "KeyPress",
+          "params": "KeyAscii As Integer",
+          "logic": "KeyAscii = sinum(KeyAscii)"
+        },
+        {
+          "visibility": "Private",
+          "control": "txttel",
+          "event": "KeyPress",
+          "params": "KeyAscii As Integer",
+          "logic": "If KeyAscii = 13 Then\nSendKeys \"{Tab}\" '//permite que cambie de texto con el enter\nKeyAscii = 0\nEnd If"
+        },
+        {
+          "visibility": "Private",
+          "control": "Txtdni",
+          "event": "Change",
+          "params": "",
+          "logic": "If txtdir <> \"\" And txtApe <> \"\" Then\ncmdreg.Enabled = True\nEnd If"
+        },
+        {
+          "visibility": "Private",
+          "control": "Txtdni",
+          "event": "KeyPress",
+          "params": "KeyAscii As Integer",
+          "logic": "If KeyAscii = 13 Then\nSendKeys \"{Tab}\" '//permite que cambie de texto con el enter\nKeyAscii = 0\nEnd If\nKeyAscii = sinum(KeyAscii)"
+        },
+        {
+          "visibility": "Private",
+          "control": "TxtApe",
+          "event": "KeyPress",
+          "params": "KeyAscii As Integer",
+          "logic": "If KeyAscii = 13 Then\nSendKeys \"{Tab}\" '//permite que cambie de texto con el enter\nKeyAscii = 0\nEnd If"
+        },
+        {
+          "visibility": "Private",
+          "control": "TxtDir",
+          "event": "KeyPress",
+          "params": "KeyAscii As Integer",
+          "logic": "If KeyAscii = 13 Then\nSendKeys \"{Tab}\" '//permite que cambie de texto con el enter\nKeyAscii = 0\nEnd If\nIf txtdir <> \"\" And txtApe <> \"\" Then\ncmdreg.Enabled = True\nEnd If"
+        },
+        {
+          "visibility": "Private",
+          "control": "Txtnom",
+          "event": "Change",
+          "params": "",
+          "logic": "If txtApe <> \"\" And txtdir <> \"\" Then\ncmdreg.Enabled = True\nEnd If"
+        },
+        {
+          "visibility": "Private",
+          "control": "Txtnom",
+          "event": "KeyPress",
+          "params": "KeyAscii As Integer",
+          "logic": "If KeyAscii = 13 Then\nSendKeys \"{Tab}\" '//permite que cambie de texto con el enter\nKeyAscii = 0\nEnd If"
+        },
+        {
+          "visibility": "Private",
+          "control": "txtbape",
+          "event": "KeyPress",
+          "params": "KeyAscii As Integer",
+          "logic": "If KeyAscii = 13 Then\nCommand1_Click\nKeyAscii = 0\nEnd If"
+        },
+        {
+          "visibility": "Private",
+          "control": "txtbleg",
+          "event": "KeyPress",
+          "params": "KeyAscii As Integer",
+          "logic": "If KeyAscii = 13 Then\ntxtbape.SetFocus\nKeyAscii = 0\nEnd If"
+        }
+      ],
+      "crud_operations": [
+        "READ",
+        "UPDATE"
+      ],
+      "sql_queries": [
+        {
+          "type": "SELECT",
+          "table": "Cliente"
+        },
+        {
+          "type": "SELECT",
+          "table": "Cliente"
+        },
+        {
+          "type": "SELECT",
+          "table": "Cliente"
+        },
+        {
+          "type": "SELECT",
+          "table": "Cliente"
+        },
+        {
+          "type": "INSERT",
+          "table": "Cliente"
+        },
+        {
+          "type": "UPDATE",
+          "table": "Cliente"
+        }
+      ],
+      "functions": [
+        {
+          "visibility": "Public",
+          "type": "Sub",
+          "name": "fgrilla",
+          "params": "",
+          "logic": "With grilla\n.FormatString = \"IdCliente|Apellido|Nombres|Nº Documento|Domicilio|Telefono\"\n.ColWidth(0) = 12\n.ColWidth(1) = 1200\n.ColWidth(2) = 2000\n.ColWidth(3) = 1200\n.ColWidth(4) = 2100\n.ColWidth(5) = 1000\n.Rows = 1\nEnd With"
+        }
+      ],
+      "error_handling": [
+        "On Error GoTo xerror",
+        "On Error GoTo xerror"
+      ],
+      "properties": [
+        {
+          "name": "Caption",
+          "value": "\"Registro Clientes \""
+        },
+        {
+          "name": "Caption",
+          "value": "\"?\""
+        },
+        {
+          "name": "Height",
+          "value": "495"
+        },
+        {
+          "name": "Left",
+          "value": "7440"
+        },
+        {
+          "name": "Top",
+          "value": "0"
+        },
+        {
+          "name": "Width",
+          "value": "495"
+        },
+        {
+          "name": "Height",
+          "value": "615"
+        },
+        {
+          "name": "Left",
+          "value": "240"
+        },
+        {
+          "name": "Top",
+          "value": "3720"
+        },
+        {
+          "name": "Visible",
+          "value": "0   'False"
+        },
+        {
+          "name": "Width",
+          "value": "7935"
+        },
+        {
+          "name": "Caption",
+          "value": "\"&Nuevo\""
+        },
+        {
+          "name": "Height",
+          "value": "375"
+        },
+        {
+          "name": "Left",
+          "value": "0"
+        },
+        {
+          "name": "Top",
+          "value": "120"
+        },
+        {
+          "name": "Width",
+          "value": "1095"
+        },
+        {
+          "name": "Caption",
+          "value": "\"&Borrar\""
+        },
+        {
+          "name": "Height",
+          "value": "375"
+        },
+        {
+          "name": "Left",
+          "value": "1200"
+        },
+        {
+          "name": "Top",
+          "value": "120"
+        },
+        {
+          "name": "Width",
+          "value": "975"
+        },
+        {
+          "name": "Caption",
+          "value": "\"&Cancelar\""
+        },
+        {
+          "name": "Height",
+          "value": "375"
+        },
+        {
+          "name": "Left",
+          "value": "5160"
+        },
+        {
+          "name": "Top",
+          "value": "120"
+        },
+        {
+          "name": "Width",
+          "value": "1335"
+        },
+        {
+          "name": "Caption",
+          "value": "\"&Registrar\""
+        },
+        {
+          "name": "Height",
+          "value": "375"
+        },
+        {
+          "name": "Left",
+          "value": "3720"
+        },
+        {
+          "name": "Top",
+          "value": "120"
+        },
+        {
+          "name": "Width",
+          "value": "1335"
+        },
+        {
+          "name": "Caption",
+          "value": "\"&Salir\""
+        },
+        {
+          "name": "Height",
+          "value": "375"
+        },
+        {
+          "name": "Left",
+          "value": "6600"
+        },
+        {
+          "name": "Top",
+          "value": "120"
+        },
+        {
+          "name": "Width",
+          "value": "1335"
+        },
+        {
+          "name": "Caption",
+          "value": "\"&Modificar\""
+        },
+        {
+          "name": "Height",
+          "value": "375"
+        },
+        {
+          "name": "Left",
+          "value": "2280"
+        },
+        {
+          "name": "Top",
+          "value": "120"
+        },
+        {
+          "name": "Width",
+          "value": "1335"
+        },
+        {
+          "name": "Caption",
+          "value": "\"Busqueda\""
+        },
+        {
+          "name": "Height",
+          "value": "2655"
+        },
+        {
+          "name": "Left",
+          "value": "240"
+        },
+        {
+          "name": "Top",
+          "value": "4320"
+        },
+        {
+          "name": "Visible",
+          "value": "0   'False"
+        },
+        {
+          "name": "Width",
+          "value": "7935"
+        },
+        {
+          "name": "Caption",
+          "value": "\"No Buscar\""
+        },
+        {
+          "name": "Height",
+          "value": "255"
+        },
+        {
+          "name": "Left",
+          "value": "4680"
+        },
+        {
+          "name": "Top",
+          "value": "960"
+        },
+        {
+          "name": "Width",
+          "value": "1935"
+        },
+        {
+          "name": "Caption",
+          "value": "\"Todos los registros\""
+        },
+        {
+          "name": "Height",
+          "value": "255"
+        },
+        {
+          "name": "Left",
+          "value": "4680"
+        },
+        {
+          "name": "Top",
+          "value": "600"
+        },
+        {
+          "name": "Width",
+          "value": "1935"
+        },
+        {
+          "name": "Height",
+          "value": "285"
+        },
+        {
+          "name": "Left",
+          "value": "600"
+        },
+        {
+          "name": "Top",
+          "value": "240"
+        },
+        {
+          "name": "Width",
+          "value": "855"
+        },
+        {
+          "name": "Height",
+          "value": "285"
+        },
+        {
+          "name": "Left",
+          "value": "1800"
+        },
+        {
+          "name": "Top",
+          "value": "240"
+        },
+        {
+          "name": "Width",
+          "value": "2655"
+        },
+        {
+          "name": "Caption",
+          "value": "\"Iniciar Consulta\""
+        },
+        {
+          "name": "Height",
+          "value": "255"
+        },
+        {
+          "name": "Left",
+          "value": "4680"
+        },
+        {
+          "name": "Top",
+          "value": "240"
+        },
+        {
+          "name": "Width",
+          "value": "1935"
+        },
+        {
+          "name": "Height",
+          "value": "1335"
+        },
+        {
+          "name": "Left",
+          "value": "240"
+        },
+        {
+          "name": "Top",
+          "value": "1200"
+        },
+        {
+          "name": "Visible",
+          "value": "0   'False"
+        },
+        {
+          "name": "Width",
+          "value": "7695"
+        },
+        {
+          "name": "Caption",
+          "value": "\"Por IdCliente\""
+        },
+        {
+          "name": "Height",
+          "value": "255"
+        },
+        {
+          "name": "Left",
+          "value": "360"
+        },
+        {
+          "name": "Top",
+          "value": "600"
+        },
+        {
+          "name": "Width",
+          "value": "1095"
+        },
+        {
+          "name": "Caption",
+          "value": "\"Por letras ó Apellido Completo   Si ingresa  % verá todos los registros\""
+        },
+        {
+          "name": "Height",
+          "value": "375"
+        },
+        {
+          "name": "Left",
+          "value": "1800"
+        },
+        {
+          "name": "Top",
+          "value": "600"
+        },
+        {
+          "name": "Width",
+          "value": "2655"
+        },
+        {
+          "name": "Caption",
+          "value": "\"&Buscar\""
+        },
+        {
+          "name": "Height",
+          "value": "375"
+        },
+        {
+          "name": "Left",
+          "value": "2040"
+        },
+        {
+          "name": "Top",
+          "value": "600"
+        },
+        {
+          "name": "Width",
+          "value": "1095"
+        },
+        {
+          "name": "Height",
+          "value": "375"
+        },
+        {
+          "name": "Left",
+          "value": "5400"
+        },
+        {
+          "name": "Top",
+          "value": "2160"
+        },
+        {
+          "name": "Width",
+          "value": "1815"
+        },
+        {
+          "name": "Height",
+          "value": "375"
+        },
+        {
+          "name": "Left",
+          "value": "2760"
+        },
+        {
+          "name": "Top",
+          "value": "2160"
+        },
+        {
+          "name": "Width",
+          "value": "2415"
+        },
+        {
+          "name": "Height",
+          "value": "375"
+        },
+        {
+          "name": "Left",
+          "value": "360"
+        },
+        {
+          "name": "Top",
+          "value": "3120"
+        },
+        {
+          "name": "Width",
+          "value": "4815"
+        },
+        {
+          "name": "Height",
+          "value": "375"
+        },
+        {
+          "name": "Left",
+          "value": "360"
+        },
+        {
+          "name": "Top",
+          "value": "2160"
+        },
+        {
+          "name": "Width",
+          "value": "2055"
+        },
+        {
+          "name": "Height",
+          "value": "375"
+        },
+        {
+          "name": "Left",
+          "value": "5400"
+        },
+        {
+          "name": "Top",
+          "value": "3120"
+        },
+        {
+          "name": "Width",
+          "value": "2655"
+        },
+        {
+          "name": "Height",
+          "value": "375"
+        },
+        {
+          "name": "Left",
+          "value": "720"
+        },
+        {
+          "name": "Top",
+          "value": "600"
+        },
+        {
+          "name": "Width",
+          "value": "1095"
+        },
+        {
+          "name": "Caption",
+          "value": "\"Nº Documento del Socio\""
+        },
+        {
+          "name": "Height",
+          "value": "195"
+        },
+        {
+          "name": "Left",
+          "value": "5400"
+        },
+        {
+          "name": "Top",
+          "value": "1680"
+        },
+        {
+          "name": "Width",
+          "value": "2100"
+        },
+        {
+          "name": "Caption",
+          "value": "\"Nombres del Socio\""
+        },
+        {
+          "name": "Height",
+          "value": "195"
+        },
+        {
+          "name": "Left",
+          "value": "2880"
+        },
+        {
+          "name": "Top",
+          "value": "1680"
+        },
+        {
+          "name": "Width",
+          "value": "1605"
+        },
+        {
+          "name": "Caption",
+          "value": "\"Direccion del Socio\""
+        },
+        {
+          "name": "Height",
+          "value": "195"
+        },
+        {
+          "name": "Left",
+          "value": "360"
+        },
+        {
+          "name": "Top",
+          "value": "2760"
+        },
+        {
+          "name": "Width",
+          "value": "1680"
+        },
+        {
+          "name": "Caption",
+          "value": "\" Teléfono del Socio\""
+        },
+        {
+          "name": "Height",
+          "value": "195"
+        },
+        {
+          "name": "Left",
+          "value": "5400"
+        },
+        {
+          "name": "Top",
+          "value": "2760"
+        },
+        {
+          "name": "Width",
+          "value": "1680"
+        },
+        {
+          "name": "Caption",
+          "value": "\"Apellidos Socio\""
+        },
+        {
+          "name": "Height",
+          "value": "195"
+        },
+        {
+          "name": "Left",
+          "value": "360"
+        },
+        {
+          "name": "Top",
+          "value": "1800"
+        },
+        {
+          "name": "Width",
+          "value": "1320"
+        },
+        {
+          "name": "Caption",
+          "value": "\"Id Socio\""
+        },
+        {
+          "name": "Height",
+          "value": "195"
+        },
+        {
+          "name": "Left",
+          "value": "720"
+        },
+        {
+          "name": "Top",
+          "value": "360"
+        },
+        {
+          "name": "Width",
+          "value": "720"
+        }
+      ]
+    },
+    {
+      "name": "FRMLIB",
+      "path": "vb_sources\\Biblioteca\\FRMLIB.FRM",
+      "controls": [
+        {
+          "library": "VB",
+          "type": "Form",
+          "name": "frmLib"
+        },
+        {
+          "library": "VB",
+          "type": "CommandButton",
+          "name": "Command6"
+        },
+        {
+          "library": "VB",
+          "type": "CommandButton",
+          "name": "cmdpres"
+        },
+        {
+          "library": "VB",
+          "type": "Frame",
+          "name": "Frame2"
+        },
+        {
+          "library": "VB",
+          "type": "CommandButton",
+          "name": "Command5"
+        },
+        {
+          "library": "VB",
+          "type": "CommandButton",
+          "name": "Command4"
+        },
+        {
+          "library": "VB",
+          "type": "TextBox",
+          "name": "txtIdSo"
+        },
+        {
+          "library": "VB",
+          "type": "TextBox",
+          "name": "txtfecp"
+        },
+        {
+          "library": "VB",
+          "type": "TextBox",
+          "name": "txtfecd"
+        },
+        {
+          "library": "VB",
+          "type": "TextBox",
+          "name": "txtdias"
+        },
+        {
+          "library": "VB",
+          "type": "Label",
+          "name": "Label3"
+        },
+        {
+          "library": "VB",
+          "type": "Label",
+          "name": "Label4"
+        },
+        {
+          "library": "VB",
+          "type": "Label",
+          "name": "Label4"
+        },
+        {
+          "library": "VB",
+          "type": "Label",
+          "name": "Label7"
+        },
+        {
+          "library": "VB",
+          "type": "TextBox",
+          "name": "txtesta"
+        },
+        {
+          "library": "VB",
+          "type": "Frame",
+          "name": "FrameABM"
+        },
+        {
+          "library": "VB",
+          "type": "CommandButton",
+          "name": "cmdnue"
+        },
+        {
+          "library": "VB",
+          "type": "CommandButton",
+          "name": "cmdbor"
+        },
+        {
+          "library": "VB",
+          "type": "CommandButton",
+          "name": "cmdcan"
+        },
+        {
+          "library": "VB",
+          "type": "CommandButton",
+          "name": "cmdreg"
+        },
+        {
+          "library": "VB",
+          "type": "CommandButton",
+          "name": "cmdsal"
+        },
+        {
+          "library": "VB",
+          "type": "CommandButton",
+          "name": "cmdmod"
+        },
+        {
+          "library": "VB",
+          "type": "Frame",
+          "name": "Frame1"
+        },
+        {
+          "library": "VB",
+          "type": "TextBox",
+          "name": "txtnombre"
+        },
+        {
+          "library": "VB",
+          "type": "CommandButton",
+          "name": "Command3"
+        },
+        {
+          "library": "VB",
+          "type": "CommandButton",
+          "name": "Command2"
+        },
+        {
+          "library": "VB",
+          "type": "TextBox",
+          "name": "txtbleg"
+        },
+        {
+          "library": "VB",
+          "type": "TextBox",
+          "name": "txtbape"
+        },
+        {
+          "library": "VB",
+          "type": "CommandButton",
+          "name": "Command1"
+        },
+        {
+          "library": "MSFlexGridLib",
+          "type": "MSFlexGrid",
+          "name": "grilla"
+        },
+        {
+          "library": "VB",
+          "type": "Label",
+          "name": "Label8"
+        },
+        {
+          "library": "VB",
+          "type": "Label",
+          "name": "Label5"
+        },
+        {
+          "library": "VB",
+          "type": "Label",
+          "name": "Label6"
+        },
+        {
+          "library": "VB",
+          "type": "CommandButton",
+          "name": "cmdbus"
+        },
+        {
+          "library": "VB",
+          "type": "TextBox",
+          "name": "txtnom"
+        },
+        {
+          "library": "VB",
+          "type": "TextBox",
+          "name": "txtape"
+        },
+        {
+          "library": "VB",
+          "type": "TextBox",
+          "name": "txtid"
+        },
+        {
+          "library": "VB",
+          "type": "Label",
+          "name": "Label2"
+        },
+        {
+          "library": "VB",
+          "type": "Label",
+          "name": "Label2"
+        },
+        {
+          "library": "VB",
+          "type": "Label",
+          "name": "Label2"
+        },
+        {
+          "library": "VB",
+          "type": "Label",
+          "name": "Label1"
+        }
+      ],
+      "events": [
+        {
+          "visibility": "Public",
+          "control": "cmdbus",
+          "event": "Click",
+          "params": "",
+          "logic": "mancmd Me, \"bus\"\nFrame1.Visible = True\ntxtbleg.Locked = False\ntxtbape.Locked = False\ntxtbleg.SetFocus"
+        },
+        {
+          "visibility": "Private",
+          "control": "cmdbor",
+          "event": "Click",
+          "params": "",
+          "logic": "mancmd Me, \"bor\"\nini\nIf rsc1.State = 1 Then rsc1.Close\nIf MsgBox(\"ESTA SEGURO DE DAR DE BAJA ESTE REGISTRO???\", vbYesNo, \"PRECAUCION!! Se dar  de baja un REGISTRO\") = vbYes Then\nrsc1.Open \"Libros\", cn, adOpenStatic, adLockOptimistic\nDo While rsc1.EOF = False\nIf rsc1!IdLibro = txtid Then\nExit Do\nEnd If\nrsc1.MoveNext\nLoop\nrsc1!Activo = \"No\"\nrsc1.Update\nrsc1.MoveLast\nrsc1.Close\nMsgBox \"La Operación se ha efectuado satifactoriamente\"\nEnd If\ncmdcan_Click\nfin"
+        },
+        {
+          "visibility": "Public",
+          "control": "cmdcan",
+          "event": "Click",
+          "params": "",
+          "logic": "limpia Me\nmancmd Me, \"can\"\nfgrilla\nFrame1.Visible = False"
+        },
+        {
+          "visibility": "Private",
+          "control": "cmdmod",
+          "event": "Click",
+          "params": "",
+          "logic": "mancmd Me, \"mod\"\nmodi = 1"
+        },
+        {
+          "visibility": "Private",
+          "control": "cmdnue",
+          "event": "Click",
+          "params": "",
+          "logic": "txtApe.SetFocus\nmancmd Me, \"nue\"\nmodi = 0\nini\nrsc1.Open \"Select * from Libros\", cn, adOpenStatic, adLockOptimistic\ntxtid = rsc1.RecordCount + 1\nrsc1.Close\nIdCli = 1\nfin"
+        },
+        {
+          "visibility": "Private",
+          "control": "cmdpres",
+          "event": "Click",
+          "params": "",
+          "logic": "FrmPres.txtidL = txtid\nFrmPres.txttit = txtnom\nFrmPres.Show\nUnload Me"
+        },
+        {
+          "visibility": "Private",
+          "control": "cmdreg",
+          "event": "Click",
+          "params": "",
+          "logic": "ini\n                                If rsc1.State = 1 Then rsc1.Close\nOn Error GoTo xerror\nmancmd Me, \"reg\"\nIf modi = 1 Then\ncn.Execute \"Update Libros Set Titulo = '\" & txtApe & \"', Autor = '\" & _\ntxtnom & \"', Estado = '\" & txtesta & \"', Socio = \" & txtIdSo & \", FecPres = #\" & txtfecp & _\n\"#, FecDev = #\" & txtfecd & \"#, dias = \" & txtdias & \" Where IdLibro = \" & txtid\n\nElse\nrsc1.Open \"Select IdLibro from Libros order by IdLibro\", cn, adOpenStatic, adLockOptimistic\nIf rsc1.RecordCount > 0 Then\nrsc1.MoveLast\nIdCli = rsc1!IdLibro + 1\nElse\nIdCli = 1\nEnd If\n                                If rsc1.State = 1 Then rsc1.Close\ncn.Execute \"Insert Into Libros Values(\" & IdCli & \", '\" & txtApe & \"', '\" & txtnom & _\n\"', '\" & txtesta & \"', \" & txtIdSo & \", #\" & txtfecp & \"#, #\" & txtfecd & \"#, \" & txtdias & \", 'Si' )\"\nEnd If\nMsgBox \"Operacion exitosa\"\ncmdcan_Click\ncmdbus.Enabled = False\nFrameABM.Visible = False\nFrame2.Visible = False\nfin\nExit Sub\nxerror:\nIf Err.Number = -2147217900 Then\nMsgBox \"Tiene  que completar los datos faltantes\"\nfin\nExit Sub\nEnd If\nMsgBox \" No se realizó operacion por: \" & Err.Description & Err.Number\nfin"
+        },
+        {
+          "visibility": "Private",
+          "control": "cmdsal",
+          "event": "Click",
+          "params": "",
+          "logic": "Unload Me"
+        },
+        {
+          "visibility": "Private",
+          "control": "Command2",
+          "event": "Click",
+          "params": "",
+          "logic": "txtbape = \"%\"\nCommand1_Click"
+        },
+        {
+          "visibility": "Private",
+          "control": "Command3",
+          "event": "Click",
+          "params": "",
+          "logic": "Frame1.Visible = False\nFrameABM.Visible = True\ncmdnue.Enabled = True"
+        },
+        {
+          "visibility": "Private",
+          "control": "Command4",
+          "event": "Click",
+          "params": "",
+          "logic": "ini\nIf rsc1.State = 1 Then rsc1.Close\nrsc1.Open \"Select Apellidos, Nombres, Domicilio, Telefono From Cliente where IdCliente = \" & _\ntxtIdSo, cn, adOpenStatic, adLockOptimistic\nMsgBox \"Socio: \" & rsc1.Fields(0) & \"; \" & rsc1.Fields(1) & \"; Dir: \" & rsc1.Fields(2) & _\n\"; Tel: \" & rsc1.Fields(3), vbInformation, \"[BIBLIOTECA] Datos del Socio \"\nIf rsc1.State = 1 Then rsc1.Close\nfin"
+        },
+        {
+          "visibility": "Private",
+          "control": "Command5",
+          "event": "Click",
+          "params": "",
+          "logic": "ini\nIf MsgBox(\"ESTA SEGUO REGISTRAR ESTE\" & Chr(13) & _\n\"LIBRO COMO DEVUELTO?\", vbYesNo, \"[BIBLIOTECA]Devolucion Libros\") = vbYes Then\n\ncn.Execute \"Update Libros Set  Estado = 'Si' Where IdLibro = \" & txtid\ntxtesta = \"Si\"\nFrame2.Visible = False\nEnd If\nfin"
+        },
+        {
+          "visibility": "Private",
+          "control": "Command6",
+          "event": "Click",
+          "params": "",
+          "logic": "frmAYUDA.Show"
+        },
+        {
+          "visibility": "Private",
+          "control": "Form",
+          "event": "Activate",
+          "params": "",
+          "logic": "Me.Top = 1\nMe.Left = 1000\nini '//funcion que conecta a la base de datos\n'mancmd Me, \"ini\""
+        },
+        {
+          "visibility": "Private",
+          "control": "grilla",
+          "event": "Click",
+          "params": "",
+          "logic": "With grilla\nIf .RowSel < 1 Then Exit Sub\ntxtid = .TextMatrix(.RowSel, 0)\ntxtApe = .TextMatrix(.RowSel, 1)\ntxtnom = .TextMatrix(.RowSel, 2)\ntxtesta = .TextMatrix(.RowSel, 3)\nIf .TextMatrix(.RowSel, 3) = \"No\" Then\nFrame2.Visible = True\ncmdpres.Visible = False\nElse:\nFrame2.Visible = False\ncmdpres.Visible = True\nEnd If\n\ntxtIdSo = .TextMatrix(.RowSel, 4)\ntxtfecp = .TextMatrix(.RowSel, 5)\ntxtfecd = .TextMatrix(.RowSel, 6)\ntxtdias = .TextMatrix(.RowSel, 7)\nEnd With\n\ncmdmod.Enabled = True\ncmdbor.Enabled = True\ncmdreg.Enabled = False\ncmdnue.Enabled = False\n'FrameABM.Visible = True\nFrame1.Visible = False"
+        },
+        {
+          "visibility": "Private",
+          "control": "Command1",
+          "event": "Click",
+          "params": "",
+          "logic": "'Busca por legajo o nombre\n'//la linea siguiente hace una rutina saltando el error para\n'//que no se clave el programa, activar una vez que este todo Ok\n\n'On Error GoTo xerror\nini\nfgrilla\nIf rsc1.State = 1 Then rsc1.Close\nWith grilla\nIf txtbleg = \"\" And txtbape <> \"\" And txtnombre = \"\" Then\n    rsc1.Open \"Select * From Libros Where Activo = 'Si' And Titulo like '\" & txtbape & \"%'\", cn, adOpenStatic, adLockOptimistic\n    Do While rsc1.EOF = False\n    .AddItem rsc1.Fields(0) & vbTab & rsc1.Fields(1) & vbTab & rsc1.Fields(2) & vbTab & rsc1.Fields(3) & vbTab & rsc1.Fields(4) & vbTab & rsc1.Fields(5) & _\n    vbTab & rsc1.Fields(6) & vbTab & rsc1.Fields(7)\n    rsc1.MoveNext\n    Loop\n    If rsc1.RecordCount = 0 Then MsgBox \"No se encontró registro que coincida con las caracteristicas pedidas\", vbInformation, \"NO HAY REGISTROS QUE MOSTRAR\"\n    rsc1.Close\n    .Visible = True\nElseIf txtbleg = \"\" And txtbape = \"\" And txtnombre <> \"\" Then\n    rsc1.Open \"Select * From Libros Where Activo = 'Si' And Autor like '\" & txtnombre & \"%'\", cn, adOpenStatic, adLockOptimistic\n    Do While rsc1.EOF = False\n    .AddItem rsc1.Fields(0) & vbTab & rsc1.Fields(1) & vbTab & rsc1.Fields(2) & vbTab & rsc1.Fields(3) & vbTab & rsc1.Fields(4) & vbTab & rsc1.Fields(5) & _\n    vbTab & rsc1.Fields(6) & vbTab & rsc1.Fields(7)\n    rsc1.MoveNext\n    Loop\n    If rsc1.RecordCount = 0 Then MsgBox \"No se encontró registro que coincida con las caracteristicas pedidas\", vbInformation, \"NO HAY REGISTROS QUE MOSTRAR\"\n    rsc1.Close\n    .Visible = True\nElseIf txtbleg <> \"\" And txtbape = \"\" And txtnombre = \"\" Then\n    rsc1.Open \"SELECT * From Libros Where Activo = 'Si' And IdLibro = \" & txtbleg.Text, cn, adOpenStatic, adLockOptimistic\n    Do While rsc1.EOF = False\n    .AddItem rsc1.Fields(0) & vbTab & rsc1.Fields(1) & vbTab & rsc1.Fields(2) & vbTab & rsc1.Fields(3) & vbTab & rsc1.Fields(4) & vbTab & rsc1.Fields(5) & _\n    vbTab & rsc1.Fields(6) & vbTab & rsc1.Fields(7)\n    rsc1.MoveNext\n    Loop\n    If rsc1.RecordCount = 0 Then MsgBox \"No se encontró registro que coincida con las caracteristicas pedidas\", vbInformation, \"NO HAY REGISTROS QUE MOSTRAR\"\n    rsc1.Close\n.Visible = True\n\nElse\nMsgBox \"INGRESE UN DATO PARA LA BUSQUEDA\", vbExclamation, \"FALTA O EXCESO DE DATOS INGRESADOS\"\ntxtbleg.SetFocus\ntxtbleg = \"\"\ntxtbape = \"\"\nEnd If\n\nEnd With\nfin\nExit Sub\nxerror:\nMsgBox \"NO SE PUDO BUSCAR POR: \" & Err.Description, vbCritical, \"NO SE EFECTUO EL PROCEDIMIENTO\"\nfin"
+        },
+        {
+          "visibility": "Private",
+          "control": "TxtApe",
+          "event": "KeyPress",
+          "params": "KeyAscii As Integer",
+          "logic": "If KeyAscii = 13 Then\nSendKeys \"{Tab}\" '//permite que cambie de texto con el enter\nKeyAscii = 0\nEnd If"
+        },
+        {
+          "visibility": "Private",
+          "control": "TxtDir",
+          "event": "KeyPress",
+          "params": "KeyAscii As Integer",
+          "logic": "If KeyAscii = 13 Then\nSendKeys \"{Tab}\" '//permite que cambie de texto con el enter\nKeyAscii = 0\nEnd If\nIf txtdir <> \"\" And txtApe <> \"\" Then\ncmdreg.Enabled = True\nEnd If"
+        },
+        {
+          "visibility": "Private",
+          "control": "txtesta",
+          "event": "Change",
+          "params": "",
+          "logic": "If txtApe <> \"\" And txtnom <> \"\" And txtesta = No Then\nFrame2.Visible = True\nElse\ncmdpres.Visible = True\nEnd If"
+        },
+        {
+          "visibility": "Private",
+          "control": "txtesta",
+          "event": "KeyPress",
+          "params": "KeyAscii As Integer",
+          "logic": "If KeyAscii = 13 And txtesta = \"Si\" Then\ncmdpres.Visible = False\nFrame2.Visible = True\ncmdreg.Enabled = True\ntxtfecp = Format(Now, \"dd/mm/yyyy\")\ntxtfecd = Format(Now, \"dd/mm/yyyy\")\ntxtdias = 0\ntxtIdSo = -1\nEnd If"
+        },
+        {
+          "visibility": "Private",
+          "control": "Txtnom",
+          "event": "Change",
+          "params": "",
+          "logic": "If txtApe <> \"\" And txtdir <> \"\" Then\ncmdreg.Enabled = True\nEnd If"
+        },
+        {
+          "visibility": "Private",
+          "control": "Txtnom",
+          "event": "KeyPress",
+          "params": "KeyAscii As Integer",
+          "logic": "If KeyAscii = 13 Then\nSendKeys \"{Tab}\" '//permite que cambie de texto con el enter\nKeyAscii = 0\nEnd If"
+        },
+        {
+          "visibility": "Private",
+          "control": "txtbape",
+          "event": "KeyPress",
+          "params": "KeyAscii As Integer",
+          "logic": "If KeyAscii = 13 Then\nCommand1_Click\nKeyAscii = 0\nEnd If"
+        },
+        {
+          "visibility": "Private",
+          "control": "txtbleg",
+          "event": "KeyPress",
+          "params": "KeyAscii As Integer",
+          "logic": "If KeyAscii = 13 Then\ntxtbape.SetFocus\nKeyAscii = 0\nEnd If"
+        }
+      ],
+      "crud_operations": [
+        "READ",
+        "UPDATE"
+      ],
+      "sql_queries": [
+        {
+          "type": "SELECT",
+          "table": "Libros"
+        },
+        {
+          "type": "SELECT",
+          "table": "Libros"
+        },
+        {
+          "type": "SELECT",
+          "table": "Cliente"
+        },
+        {
+          "type": "SELECT",
+          "table": "Libros"
+        },
+        {
+          "type": "SELECT",
+          "table": "Libros"
+        },
+        {
+          "type": "SELECT",
+          "table": "Libros"
+        },
+        {
+          "type": "INSERT",
+          "table": "Libros"
+        },
+        {
+          "type": "UPDATE",
+          "table": "Libros"
+        },
+        {
+          "type": "UPDATE",
+          "table": "Libros"
+        }
+      ],
+      "functions": [
+        {
+          "visibility": "Public",
+          "type": "Sub",
+          "name": "fgrilla",
+          "params": "",
+          "logic": "With grilla\n.FormatString = \"IdL|Titulo |Autor |Está|Socio|Fecha Prestamo|Fecha Devolucion|Dias\"\n.ColWidth(0) = 12\n.ColWidth(1) = 2000\n.ColWidth(2) = 2000\n.ColWidth(3) = 500\n.ColWidth(4) = 500\n.ColWidth(5) = 1000\n.ColWidth(6) = 1000\n.ColWidth(7) = 500\n\n.Rows = 1\nEnd With"
+        }
+      ],
+      "error_handling": [
+        "On Error GoTo xerror",
+        "On Error GoTo xerror"
+      ],
+      "properties": [
+        {
+          "name": "Caption",
+          "value": "\"Registro Libros \""
+        },
+        {
+          "name": "Caption",
+          "value": "\"?\""
+        },
+        {
+          "name": "Height",
+          "value": "495"
+        },
+        {
+          "name": "Left",
+          "value": "7680"
+        },
+        {
+          "name": "Top",
+          "value": "0"
+        },
+        {
+          "name": "Width",
+          "value": "495"
+        },
+        {
+          "name": "Caption",
+          "value": "\"PRESTAR\""
+        },
+        {
+          "name": "Height",
+          "value": "375"
+        },
+        {
+          "name": "Left",
+          "value": "7200"
+        },
+        {
+          "name": "Top",
+          "value": "2040"
+        },
+        {
+          "name": "Visible",
+          "value": "0   'False"
+        },
+        {
+          "name": "Width",
+          "value": "975"
+        },
+        {
+          "name": "Caption",
+          "value": "\"Ultimo Usuario\""
+        },
+        {
+          "name": "Height",
+          "value": "975"
+        },
+        {
+          "name": "Left",
+          "value": "360"
+        },
+        {
+          "name": "Top",
+          "value": "2640"
+        },
+        {
+          "name": "Visible",
+          "value": "0   'False"
+        },
+        {
+          "name": "Width",
+          "value": "7695"
+        },
+        {
+          "name": "Caption",
+          "value": "\"Devolver\""
+        },
+        {
+          "name": "Height",
+          "value": "315"
+        },
+        {
+          "name": "Left",
+          "value": "6720"
+        },
+        {
+          "name": "Top",
+          "value": "240"
+        },
+        {
+          "name": "Width",
+          "value": "855"
+        },
+        {
+          "name": "Caption",
+          "value": "\"Ver\""
+        },
+        {
+          "name": "Height",
+          "value": "315"
+        },
+        {
+          "name": "Left",
+          "value": "6720"
+        },
+        {
+          "name": "Top",
+          "value": "600"
+        },
+        {
+          "name": "Width",
+          "value": "855"
+        },
+        {
+          "name": "Height",
+          "value": "375"
+        },
+        {
+          "name": "Left",
+          "value": "5760"
+        },
+        {
+          "name": "Top",
+          "value": "480"
+        },
+        {
+          "name": "Width",
+          "value": "735"
+        },
+        {
+          "name": "Height",
+          "value": "375"
+        },
+        {
+          "name": "Left",
+          "value": "120"
+        },
+        {
+          "name": "Top",
+          "value": "480"
+        },
+        {
+          "name": "Width",
+          "value": "2295"
+        },
+        {
+          "name": "Height",
+          "value": "375"
+        },
+        {
+          "name": "Left",
+          "value": "2640"
+        },
+        {
+          "name": "Top",
+          "value": "480"
+        },
+        {
+          "name": "Width",
+          "value": "2295"
+        },
+        {
+          "name": "Height",
+          "value": "375"
+        },
+        {
+          "name": "Left",
+          "value": "5040"
+        },
+        {
+          "name": "Top",
+          "value": "480"
+        },
+        {
+          "name": "Width",
+          "value": "495"
+        },
+        {
+          "name": "Caption",
+          "value": "\"Id Socio \""
+        },
+        {
+          "name": "Height",
+          "value": "195"
+        },
+        {
+          "name": "Left",
+          "value": "5760"
+        },
+        {
+          "name": "Top",
+          "value": "240"
+        },
+        {
+          "name": "Width",
+          "value": "780"
+        },
+        {
+          "name": "Caption",
+          "value": "\"Fecha de prestamo de libro\""
+        },
+        {
+          "name": "Height",
+          "value": "195"
+        },
+        {
+          "name": "Left",
+          "value": "120"
+        },
+        {
+          "name": "Top",
+          "value": "240"
+        },
+        {
+          "name": "Width",
+          "value": "2445"
+        },
+        {
+          "name": "Caption",
+          "value": "\"Fecha de devolucion\""
+        },
+        {
+          "name": "Height",
+          "value": "195"
+        },
+        {
+          "name": "Left",
+          "value": "2640"
+        },
+        {
+          "name": "Top",
+          "value": "240"
+        },
+        {
+          "name": "Width",
+          "value": "1800"
+        },
+        {
+          "name": "Caption",
+          "value": "\"Dias\""
+        },
+        {
+          "name": "Height",
+          "value": "255"
+        },
+        {
+          "name": "Left",
+          "value": "5040"
+        },
+        {
+          "name": "Top",
+          "value": "240"
+        },
+        {
+          "name": "Width",
+          "value": "495"
+        },
+        {
+          "name": "Height",
+          "value": "375"
+        },
+        {
+          "name": "Left",
+          "value": "5640"
+        },
+        {
+          "name": "Top",
+          "value": "2040"
+        },
+        {
+          "name": "Width",
+          "value": "1335"
+        },
+        {
+          "name": "Height",
+          "value": "615"
+        },
+        {
+          "name": "Left",
+          "value": "240"
+        },
+        {
+          "name": "Top",
+          "value": "3720"
+        },
+        {
+          "name": "Visible",
+          "value": "0   'False"
+        },
+        {
+          "name": "Width",
+          "value": "7935"
+        },
+        {
+          "name": "Caption",
+          "value": "\"&Nuevo\""
+        },
+        {
+          "name": "Height",
+          "value": "375"
+        },
+        {
+          "name": "Left",
+          "value": "0"
+        },
+        {
+          "name": "Top",
+          "value": "120"
+        },
+        {
+          "name": "Width",
+          "value": "1095"
+        },
+        {
+          "name": "Caption",
+          "value": "\"&Borrar\""
+        },
+        {
+          "name": "Height",
+          "value": "375"
+        },
+        {
+          "name": "Left",
+          "value": "1200"
+        },
+        {
+          "name": "Top",
+          "value": "120"
+        },
+        {
+          "name": "Width",
+          "value": "975"
+        },
+        {
+          "name": "Caption",
+          "value": "\"&Cancelar\""
+        },
+        {
+          "name": "Height",
+          "value": "375"
+        },
+        {
+          "name": "Left",
+          "value": "5160"
+        },
+        {
+          "name": "Top",
+          "value": "120"
+        },
+        {
+          "name": "Width",
+          "value": "1335"
+        },
+        {
+          "name": "Caption",
+          "value": "\"&Registrar\""
+        },
+        {
+          "name": "Height",
+          "value": "375"
+        },
+        {
+          "name": "Left",
+          "value": "3720"
+        },
+        {
+          "name": "Top",
+          "value": "120"
+        },
+        {
+          "name": "Width",
+          "value": "1335"
+        },
+        {
+          "name": "Caption",
+          "value": "\"&Salir\""
+        },
+        {
+          "name": "Height",
+          "value": "375"
+        },
+        {
+          "name": "Left",
+          "value": "6600"
+        },
+        {
+          "name": "Top",
+          "value": "120"
+        },
+        {
+          "name": "Width",
+          "value": "1335"
+        },
+        {
+          "name": "Caption",
+          "value": "\"&Modificar\""
+        },
+        {
+          "name": "Height",
+          "value": "375"
+        },
+        {
+          "name": "Left",
+          "value": "2280"
+        },
+        {
+          "name": "Top",
+          "value": "120"
+        },
+        {
+          "name": "Width",
+          "value": "1335"
+        },
+        {
+          "name": "Caption",
+          "value": "\"Busqueda\""
+        },
+        {
+          "name": "Height",
+          "value": "3135"
+        },
+        {
+          "name": "Left",
+          "value": "240"
+        },
+        {
+          "name": "Top",
+          "value": "4440"
+        },
+        {
+          "name": "Visible",
+          "value": "0   'False"
+        },
+        {
+          "name": "Width",
+          "value": "7935"
+        },
+        {
+          "name": "Height",
+          "value": "285"
+        },
+        {
+          "name": "Left",
+          "value": "3480"
+        },
+        {
+          "name": "Top",
+          "value": "240"
+        },
+        {
+          "name": "Width",
+          "value": "2055"
+        },
+        {
+          "name": "Caption",
+          "value": "\"No Buscar\""
+        },
+        {
+          "name": "Height",
+          "value": "255"
+        },
+        {
+          "name": "Left",
+          "value": "5880"
+        },
+        {
+          "name": "Top",
+          "value": "960"
+        },
+        {
+          "name": "Width",
+          "value": "1935"
+        },
+        {
+          "name": "Caption",
+          "value": "\"Todos los registros\""
+        },
+        {
+          "name": "Height",
+          "value": "255"
+        },
+        {
+          "name": "Left",
+          "value": "5880"
+        },
+        {
+          "name": "Top",
+          "value": "600"
+        },
+        {
+          "name": "Width",
+          "value": "1935"
+        },
+        {
+          "name": "Height",
+          "value": "285"
+        },
+        {
+          "name": "Left",
+          "value": "120"
+        },
+        {
+          "name": "Top",
+          "value": "240"
+        },
+        {
+          "name": "Width",
+          "value": "855"
+        },
+        {
+          "name": "Height",
+          "value": "285"
+        },
+        {
+          "name": "Left",
+          "value": "1200"
+        },
+        {
+          "name": "Top",
+          "value": "240"
+        },
+        {
+          "name": "Width",
+          "value": "2055"
+        },
+        {
+          "name": "Caption",
+          "value": "\"Iniciar Consulta\""
+        },
+        {
+          "name": "Height",
+          "value": "255"
+        },
+        {
+          "name": "Left",
+          "value": "5880"
+        },
+        {
+          "name": "Top",
+          "value": "240"
+        },
+        {
+          "name": "Width",
+          "value": "1935"
+        },
+        {
+          "name": "Height",
+          "value": "1815"
+        },
+        {
+          "name": "Left",
+          "value": "240"
+        },
+        {
+          "name": "Top",
+          "value": "1200"
+        },
+        {
+          "name": "Visible",
+          "value": "0   'False"
+        },
+        {
+          "name": "Width",
+          "value": "7695"
+        },
+        {
+          "name": "Caption",
+          "value": "\"Por letras ó Autor Completo\""
+        },
+        {
+          "name": "Height",
+          "value": "255"
+        },
+        {
+          "name": "Left",
+          "value": "3480"
+        },
+        {
+          "name": "Top",
+          "value": "600"
+        },
+        {
+          "name": "Width",
+          "value": "2055"
+        },
+        {
+          "name": "Caption",
+          "value": "\"Por IdLibro\""
+        },
+        {
+          "name": "Height",
+          "value": "255"
+        },
+        {
+          "name": "Left",
+          "value": "120"
+        },
+        {
+          "name": "Top",
+          "value": "600"
+        },
+        {
+          "name": "Width",
+          "value": "855"
+        },
+        {
+          "name": "Caption",
+          "value": "\"Por letras ó Titulo Completo\""
+        },
+        {
+          "name": "Height",
+          "value": "255"
+        },
+        {
+          "name": "Left",
+          "value": "1200"
+        },
+        {
+          "name": "Top",
+          "value": "600"
+        },
+        {
+          "name": "Width",
+          "value": "2055"
+        },
+        {
+          "name": "Caption",
+          "value": "\"&Buscar\""
+        },
+        {
+          "name": "Height",
+          "value": "375"
+        },
+        {
+          "name": "Left",
+          "value": "2040"
+        },
+        {
+          "name": "Top",
+          "value": "720"
+        },
+        {
+          "name": "Width",
+          "value": "1095"
+        },
+        {
+          "name": "Height",
+          "value": "375"
+        },
+        {
+          "name": "Left",
+          "value": "2880"
+        },
+        {
+          "name": "Top",
+          "value": "2040"
+        },
+        {
+          "name": "Width",
+          "value": "2415"
+        },
+        {
+          "name": "Height",
+          "value": "375"
+        },
+        {
+          "name": "Left",
+          "value": "360"
+        },
+        {
+          "name": "Top",
+          "value": "2040"
+        },
+        {
+          "name": "Width",
+          "value": "2295"
+        },
+        {
+          "name": "Height",
+          "value": "375"
+        },
+        {
+          "name": "Left",
+          "value": "360"
+        },
+        {
+          "name": "Top",
+          "value": "720"
+        },
+        {
+          "name": "Width",
+          "value": "1095"
+        },
+        {
+          "name": "Caption",
+          "value": "\"Esta Disponible\""
+        },
+        {
+          "name": "Height",
+          "value": "195"
+        },
+        {
+          "name": "Left",
+          "value": "5640"
+        },
+        {
+          "name": "Top",
+          "value": "1800"
+        },
+        {
+          "name": "Width",
+          "value": "1335"
+        },
+        {
+          "name": "Caption",
+          "value": "\"Autor del Libro\""
+        },
+        {
+          "name": "Height",
+          "value": "195"
+        },
+        {
+          "name": "Left",
+          "value": "2880"
+        },
+        {
+          "name": "Top",
+          "value": "1800"
+        },
+        {
+          "name": "Width",
+          "value": "1260"
+        },
+        {
+          "name": "Caption",
+          "value": "\"Titulo del Libro\""
+        },
+        {
+          "name": "Height",
+          "value": "195"
+        },
+        {
+          "name": "Left",
+          "value": "360"
+        },
+        {
+          "name": "Top",
+          "value": "1800"
+        },
+        {
+          "name": "Width",
+          "value": "1290"
+        },
+        {
+          "name": "Caption",
+          "value": "\"Id Libro\""
+        },
+        {
+          "name": "Height",
+          "value": "195"
+        },
+        {
+          "name": "Left",
+          "value": "360"
+        },
+        {
+          "name": "Top",
+          "value": "360"
+        },
+        {
+          "name": "Width",
+          "value": "1140"
+        }
+      ]
+    },
+    {
+      "name": "FrmPres",
+      "path": "vb_sources\\Biblioteca\\FrmPres.frm",
+      "controls": [
+        {
+          "library": "VB",
+          "type": "Form",
+          "name": "FrmPres"
+        },
+        {
+          "library": "VB",
+          "type": "CommandButton",
+          "name": "Command4"
+        },
+        {
+          "library": "VB",
+          "type": "CommandButton",
+          "name": "Command1"
+        },
+        {
+          "library": "MSFlexGridLib",
+          "type": "MSFlexGrid",
+          "name": "Grilla1"
+        },
+        {
+          "library": "VB",
+          "type": "CommandButton",
+          "name": "cmdreg"
+        },
+        {
+          "library": "VB",
+          "type": "TextBox",
+          "name": "txttit"
+        },
+        {
+          "library": "VB",
+          "type": "TextBox",
+          "name": "txtdias"
+        },
+        {
+          "library": "VB",
+          "type": "TextBox",
+          "name": "txtidL"
+        },
+        {
+          "library": "VB",
+          "type": "TextBox",
+          "name": "txtApe"
+        },
+        {
+          "library": "VB",
+          "type": "CommandButton",
+          "name": "cmdcons"
+        },
+        {
+          "library": "VB",
+          "type": "TextBox",
+          "name": "txtsocio"
+        },
+        {
+          "library": "MSComCtl2",
+          "type": "MonthView",
+          "name": "MonthView1"
+        },
+        {
+          "library": "VB",
+          "type": "Label",
+          "name": "Label5"
+        },
+        {
+          "library": "VB",
+          "type": "Label",
+          "name": "Label4"
+        },
+        {
+          "library": "VB",
+          "type": "Label",
+          "name": "Label3"
+        },
+        {
+          "library": "VB",
+          "type": "Label",
+          "name": "Label2"
+        },
+        {
+          "library": "VB",
+          "type": "Label",
+          "name": "Label1"
+        }
+      ],
+      "events": [
+        {
+          "visibility": "Private",
+          "control": "cmdcons",
+          "event": "Click",
+          "params": "",
+          "logic": "Grilla1.Clear\nGrilla1.Visible = False\nIf txtsocio <> \"\" And txtApe <> \"\" Then\nini\nIf rsc1.State = 1 Then rsc1.Close\nrsc1.Open \"Select Cliente.* From Cliente Where Cliente.IdCliente = \" & _\ntxtsocio & \" And Cliente.Apellidos = '\" & txtApe & \"'\", cn, adOpenStatic, adLockOptimistic\nIf rsc1.RecordCount = 0 Then\nMsgBox \"Los Datos Ingresados NO SON VALIDOS\", vbCritical, \"BIBLIOTECA ADVIERTE\"\nfin\nExit Sub\nEnd If\n\nIf rsc1.State = 1 Then rsc1.Close\nrsc1.Open \"Select Cliente.*, Libros.* From Cliente, Libros Where Cliente.IdCliente = Libros.Socio And Cliente.IdCliente = \" & _\ntxtsocio & \" And Cliente.Apellidos = '\" & txtApe & \"' And Libros.Estado = 'No'\", cn, adOpenStatic, adLockOptimistic\nIf rsc1.RecordCount > 0 Then\nMsgBox \"Este Socio Tiene \" & rsc1.RecordCount & \" libros no devueltos\", vbCritical, \"BIBLIOTECA ADVIERTE\"\nWith Grilla1\n\n.Visible = True\n.FormatString = \" Titulo | Dia Prestamo |Dia Devolucion\"\n.ColWidth(0) = 2000\n.ColWidth(1) = 1100\n.ColWidth(2) = 1100\n\n.Rows = 1\n\nDo While rsc1.EOF = False\n.AddItem rsc1.Fields(8) & vbTab & rsc1.Fields(12) & vbTab & rsc1.Fields(13)\nrsc1.MoveNext\nLoop\nEnd With\nfin\nElse\ncmdreg.Enabled = True\ntxtsocio.Locked = True\ntxtApe.Locked = True\nEnd If\nElse\nMsgBox \"Tiene que poner los datos requeridos para verificar\", vbCritical, \"[BIBLIOECA] ADVIERTE\"\nExit Sub\nEnd If"
+        },
+        {
+          "visibility": "Private",
+          "control": "cmdreg",
+          "event": "Click",
+          "params": "",
+          "logic": "Dim suma$\nsuma = Format(DateAdd(\"d\", Val(txtdias), Now()), \"dd/mm/yyyy\")\nini\nIf Grilla1.Visible = False And txtidL <> \"\" And txtdias <> \"\" And txtsocio.Locked = True Then\ncn.Execute \"Update Libros Set  Estado = 'No', Socio = \" & txtsocio & \", FecPres = #\" & Format(Now(), \"dd/mm/yyyy\") & _\n\"#, FecDev = #\" & suma & \"#, dias = \" & txtdias & \"  Where IdLibro = \" & txtidL\nElse\nMsgBox \"FALTAN DATOS REQUERIDOS\", vbCritical, \"[BIBLIOTECA] Informa \"\nfin\nExit Sub\nEnd If\nMsgBox \"Datos Registrados\", vbInformation, \"[BIBLIOTECA]Informa \"\nDim ct As Control\nFor Each ct In FrmPres\nIf TypeOf ct Is TextBox Then ct = \"\"\nNext\nfin\nUnload Me"
+        },
+        {
+          "visibility": "Private",
+          "control": "Command1",
+          "event": "Click",
+          "params": "",
+          "logic": "Unload Me"
+        },
+        {
+          "visibility": "Private",
+          "control": "Command4",
+          "event": "Click",
+          "params": "",
+          "logic": "frmAYUDA.Show"
+        }
+      ],
+      "crud_operations": [
+        "READ"
+      ],
+      "sql_queries": [
+        {
+          "type": "SELECT",
+          "table": "Cliente"
+        },
+        {
+          "type": "SELECT",
+          "table": "Cliente"
+        },
+        {
+          "type": "UPDATE",
+          "table": "Libros"
+        }
+      ],
+      "functions": [],
+      "error_handling": [],
+      "properties": [
+        {
+          "name": "Caption",
+          "value": "\"PRESTAMO DE LIBROS\""
+        },
+        {
+          "name": "Caption",
+          "value": "\"?\""
+        },
+        {
+          "name": "Height",
+          "value": "375"
+        },
+        {
+          "name": "Left",
+          "value": "7440"
+        },
+        {
+          "name": "Top",
+          "value": "0"
+        },
+        {
+          "name": "Width",
+          "value": "375"
+        },
+        {
+          "name": "Caption",
+          "value": "\"Salir\""
+        },
+        {
+          "name": "Height",
+          "value": "375"
+        },
+        {
+          "name": "Left",
+          "value": "6720"
+        },
+        {
+          "name": "Top",
+          "value": "3120"
+        },
+        {
+          "name": "Width",
+          "value": "855"
+        },
+        {
+          "name": "Height",
+          "value": "1815"
+        },
+        {
+          "name": "Left",
+          "value": "360"
+        },
+        {
+          "name": "Top",
+          "value": "1560"
+        },
+        {
+          "name": "Visible",
+          "value": "0   'False"
+        },
+        {
+          "name": "Width",
+          "value": "4455"
+        },
+        {
+          "name": "Caption",
+          "value": "\"Registrar Prestamo\""
+        },
+        {
+          "name": "Enabled",
+          "value": "0   'False"
+        },
+        {
+          "name": "Height",
+          "value": "375"
+        },
+        {
+          "name": "Left",
+          "value": "5040"
+        },
+        {
+          "name": "Top",
+          "value": "3120"
+        },
+        {
+          "name": "Width",
+          "value": "1575"
+        },
+        {
+          "name": "Height",
+          "value": "285"
+        },
+        {
+          "name": "Left",
+          "value": "1200"
+        },
+        {
+          "name": "Top",
+          "value": "1080"
+        },
+        {
+          "name": "Width",
+          "value": "2415"
+        },
+        {
+          "name": "Height",
+          "value": "285"
+        },
+        {
+          "name": "Left",
+          "value": "3840"
+        },
+        {
+          "name": "Top",
+          "value": "1080"
+        },
+        {
+          "name": "Width",
+          "value": "615"
+        },
+        {
+          "name": "Height",
+          "value": "285"
+        },
+        {
+          "name": "Left",
+          "value": "360"
+        },
+        {
+          "name": "Top",
+          "value": "1080"
+        },
+        {
+          "name": "Width",
+          "value": "615"
+        },
+        {
+          "name": "Height",
+          "value": "285"
+        },
+        {
+          "name": "Left",
+          "value": "1800"
+        },
+        {
+          "name": "Top",
+          "value": "360"
+        },
+        {
+          "name": "Width",
+          "value": "1815"
+        },
+        {
+          "name": "Caption",
+          "value": "\"Consulta\""
+        },
+        {
+          "name": "Height",
+          "value": "255"
+        },
+        {
+          "name": "Left",
+          "value": "3720"
+        },
+        {
+          "name": "Top",
+          "value": "360"
+        },
+        {
+          "name": "Width",
+          "value": "975"
+        },
+        {
+          "name": "Height",
+          "value": "285"
+        },
+        {
+          "name": "Left",
+          "value": "360"
+        },
+        {
+          "name": "Top",
+          "value": "360"
+        },
+        {
+          "name": "Width",
+          "value": "1095"
+        },
+        {
+          "name": "Height",
+          "value": "2256"
+        },
+        {
+          "name": "Left",
+          "value": "5040"
+        },
+        {
+          "name": "Top",
+          "value": "480"
+        },
+        {
+          "name": "Width",
+          "value": "2496"
+        },
+        {
+          "name": "Caption",
+          "value": "\"Dias Prestamo\""
+        },
+        {
+          "name": "Height",
+          "value": "255"
+        },
+        {
+          "name": "Left",
+          "value": "3720"
+        },
+        {
+          "name": "Top",
+          "value": "840"
+        },
+        {
+          "name": "Width",
+          "value": "1095"
+        },
+        {
+          "name": "Caption",
+          "value": "\"Apellido del Socio\""
+        },
+        {
+          "name": "Height",
+          "value": "255"
+        },
+        {
+          "name": "Left",
+          "value": "1800"
+        },
+        {
+          "name": "Top",
+          "value": "120"
+        },
+        {
+          "name": "Width",
+          "value": "1455"
+        },
+        {
+          "name": "Caption",
+          "value": "\"Titulo del Libro\""
+        },
+        {
+          "name": "Height",
+          "value": "255"
+        },
+        {
+          "name": "Left",
+          "value": "1200"
+        },
+        {
+          "name": "Top",
+          "value": "840"
+        },
+        {
+          "name": "Width",
+          "value": "2055"
+        },
+        {
+          "name": "Caption",
+          "value": "\"IdLibro\""
+        },
+        {
+          "name": "Height",
+          "value": "255"
+        },
+        {
+          "name": "Left",
+          "value": "360"
+        },
+        {
+          "name": "Top",
+          "value": "840"
+        },
+        {
+          "name": "Width",
+          "value": "615"
+        },
+        {
+          "name": "Caption",
+          "value": "\"Nro Socio\""
+        },
+        {
+          "name": "Height",
+          "value": "255"
+        },
+        {
+          "name": "Left",
+          "value": "360"
+        },
+        {
+          "name": "Top",
+          "value": "120"
+        },
+        {
+          "name": "Width",
+          "value": "1095"
+        }
+      ]
+    },
+    {
+      "name": "MDIForm1",
+      "path": "vb_sources\\Biblioteca\\MDIForm1.frm",
+      "controls": [
+        {
+          "library": "VB",
+          "type": "MDIForm",
+          "name": "MDIForm1"
+        },
+        {
+          "library": "VB",
+          "type": "Menu",
+          "name": "ingreso"
+        },
+        {
+          "library": "VB",
+          "type": "Menu",
+          "name": "pass"
+        },
+        {
+          "library": "VB",
+          "type": "Menu",
+          "name": "Sep0"
+        },
+        {
+          "library": "VB",
+          "type": "Menu",
+          "name": "cerses"
+        },
+        {
+          "library": "VB",
+          "type": "Menu",
+          "name": "socios"
+        },
+        {
+          "library": "VB",
+          "type": "Menu",
+          "name": "libros"
+        },
+        {
+          "library": "VB",
+          "type": "Menu",
+          "name": "BuscaL"
+        },
+        {
+          "library": "VB",
+          "type": "Menu",
+          "name": "Separa1"
+        },
+        {
+          "library": "VB",
+          "type": "Menu",
+          "name": "cargal"
+        },
+        {
+          "library": "VB",
+          "type": "Menu",
+          "name": "ayuda"
+        },
+        {
+          "library": "VB",
+          "type": "Menu",
+          "name": "salir"
+        }
+      ],
+      "events": [
+        {
+          "visibility": "Private",
+          "control": "ayuda",
+          "event": "Click",
+          "params": "",
+          "logic": "frmAYUDA.Show"
+        },
+        {
+          "visibility": "Private",
+          "control": "bd",
+          "event": "Click",
+          "params": "",
+          "logic": "Form2.Show"
+        },
+        {
+          "visibility": "Private",
+          "control": "BuscaL",
+          "event": "Click",
+          "params": "",
+          "logic": "frmLib.Show"
+        },
+        {
+          "visibility": "Private",
+          "control": "cargal",
+          "event": "Click",
+          "params": "",
+          "logic": "frmLib.FrameABM.Visible = True\nfrmLib.cmdcan_Click\nfrmLib.cmdbus.Enabled = False\n\nfrmLib.Show"
+        },
+        {
+          "visibility": "Private",
+          "control": "cerses",
+          "event": "Click",
+          "params": "",
+          "logic": "MDIForm1.socios = False\nMDIForm1.libros.Enabled = False"
+        },
+        {
+          "visibility": "Private",
+          "control": "pass",
+          "event": "Click",
+          "params": "",
+          "logic": "Form1.Show"
+        },
+        {
+          "visibility": "Private",
+          "control": "salir",
+          "event": "Click",
+          "params": "",
+          "logic": "End"
+        },
+        {
+          "visibility": "Private",
+          "control": "socios",
+          "event": "Click",
+          "params": "",
+          "logic": "frmCli.Show"
+        }
+      ],
+      "crud_operations": [],
+      "sql_queries": [],
+      "functions": [],
+      "error_handling": [],
+      "properties": [
+        {
+          "name": "Caption",
+          "value": "\"BIBLIOTECA\""
+        },
+        {
+          "name": "Caption",
+          "value": "\"Ingreso\""
+        },
+        {
+          "name": "Caption",
+          "value": "\"Password\""
+        },
+        {
+          "name": "Caption",
+          "value": "\"-\""
+        },
+        {
+          "name": "Caption",
+          "value": "\"Cerrar Sesion\""
+        },
+        {
+          "name": "Caption",
+          "value": "\"| Socios\""
+        },
+        {
+          "name": "Enabled",
+          "value": "0   'False"
+        },
+        {
+          "name": "Caption",
+          "value": "\"|Libros\""
+        },
+        {
+          "name": "Enabled",
+          "value": "0   'False"
+        },
+        {
+          "name": "Caption",
+          "value": "\"Buscar Libro\""
+        },
+        {
+          "name": "Caption",
+          "value": "\"-\""
+        },
+        {
+          "name": "Caption",
+          "value": "\"Cargar Libros\""
+        },
+        {
+          "name": "Caption",
+          "value": "\"| Ayuda \""
+        },
+        {
+          "name": "Enabled",
+          "value": "0   'False"
+        },
+        {
+          "name": "Caption",
+          "value": "\" | Salir |\""
+        }
+      ]
+    }
+  ],
+  "modules": [
+    {
+      "name": "Module1",
+      "path": "vb_sources\\Biblioteca\\Module1.bas",
+      "functions": [
+        {
+          "visibility": "Public",
+          "type": "Function",
+          "name": "sinum",
+          "params": "tx As Integer",
+          "logic": "Dim C$\nC = Chr(tx)\nIf InStr(\"0123456789,\" & Chr(8), C) = 0 Then\nsinum = 0\nElse\nsinum = tx\nEnd If"
+        },
+        {
+          "visibility": "Public",
+          "type": "Function",
+          "name": "limpia",
+          "params": "fr As Form",
+          "logic": "Dim ct As Control\nFor Each ct In fr\nIf TypeOf ct Is TextBox Then ct.Text = \"\"\nNext"
+        },
+        {
+          "visibility": "Public",
+          "type": "Sub",
+          "name": "ini",
+          "params": "",
+          "logic": "If cn.State = 1 Then cn.Close\ncn.Open \"Provider=Microsoft.Jet.OLEDB.4.0;Data Source=\" & App.Path & \"\\Conexion\\biblioteca.mdb;Persist Security Info=False\""
+        },
+        {
+          "visibility": "Public",
+          "type": "Sub",
+          "name": "fin",
+          "params": "",
+          "logic": "cn.Close"
+        },
+        {
+          "visibility": "Public",
+          "type": "Function",
+          "name": "silet",
+          "params": "C As Integer",
+          "logic": "As Integer\nDim a$\na = Chr(C)\nIf InStr(\"abcdefghijklmnopqrstuvwxyzáéíóúABCDEFGHYJKLMNOPQRSTUVWXYZ, \" & Chr(8), a) = 0 Then\nletra = 0\nElse\nletra = C\nEnd If"
+        },
+        {
+          "visibility": "Public",
+          "type": "Function",
+          "name": "mancmd",
+          "params": "Parform As Form, hace As String",
+          "logic": "With Parform\nSelect Case hace\nCase \"ini\"\n.cmdnue.Enabled = True\n.cmdmod.Enabled = False\n.cmdreg.Enabled = False\n.cmdbus.Enabled = True\n.cmdcan.Enabled = False\n.cmdbor.Enabled = False\n\nCase \"ver\"\n.cmdnue.Enabled = True\n.cmdmod.Enabled = True\n.cmdreg.Enabled = False\n.cmdbus.Enabled = True\n.cmdcan.Enabled = False\n.cmdbor.Enabled = True\n\nCase \"nue\"\n.cmdnue.Enabled = False\n.cmdmod.Enabled = False\n.cmdreg.Enabled = False\n.cmdbus.Enabled = False\n.cmdcan.Enabled = True\n.cmdbor.Enabled = False\n\nCase \"mod\"\n.cmdnue.Enabled = False\n.cmdmod.Enabled = False\n.cmdreg.Enabled = True\n.cmdbus.Enabled = False\n.cmdcan.Enabled = True\n.cmdbor.Enabled = False\n\nCase \"reg\"\n.cmdnue.Enabled = True\n.cmdmod.Enabled = False\n.cmdreg.Enabled = True\n.cmdbus.Enabled = False\n.cmdcan.Enabled = True\n.cmdbor.Enabled = False\n\nCase \"can\"\n.cmdnue.Enabled = True\n.cmdmod.Enabled = False\n.cmdreg.Enabled = False\n.cmdbus.Enabled = True\n.cmdcan.Enabled = False\n.cmdbor.Enabled = False\n\nCase \"bus\"\n.cmdnue.Enabled = False\n.cmdmod.Enabled = False\n.cmdreg.Enabled = False\n.cmdbus.Enabled = False\n.cmdcan.Enabled = True\n.cmdbor.Enabled = False\n\nEnd Select\nEnd With"
+        }
+      ],
+      "global_variables": [
+        {
+          "visibility": "Public",
+          "name": "cn",
+          "type": "New",
+          "source": "Module1"
+        },
+        {
+          "visibility": "Public",
+          "name": "rsc1",
+          "type": "New",
+          "source": "Module1"
+        }
+      ],
+      "api_declarations": []
+    }
+  ],
+  "classes": [],
+  "dependencies": [],
+  "crud_operations": [
+    {
+      "source": "FORM7",
+      "operations": [
+        "READ"
+      ]
+    },
+    {
+      "source": "FRMCLI",
+      "operations": [
+        "READ",
+        "UPDATE"
+      ]
+    },
+    {
+      "source": "FRMLIB",
+      "operations": [
+        "READ",
+        "UPDATE"
+      ]
+    },
+    {
+      "source": "FrmPres",
+      "operations": [
+        "READ"
+      ]
+    }
+  ],
+  "call_graph": {
+    "nodes": [
+      "FORM7",
+      "FRMLIB",
+      "FrmPres",
+      "Form1",
+      "FRMCLI",
+      "Module1",
+      "Form2",
+      "MDIForm1",
+      "frmAYUDA"
+    ],
+    "edges": []
+  },
+  "global_variables": [
+    {
+      "visibility": "Public",
+      "name": "cn",
+      "type": "New",
+      "source": "Module1"
+    },
+    {
+      "visibility": "Public",
+      "name": "rsc1",
+      "type": "New",
+      "source": "Module1"
+    }
+  ],
+  "api_calls": [],
+  "error_handling": [
+    {
+      "source": "FRMCLI",
+      "pattern": "On Error GoTo xerror"
+    },
+    {
+      "source": "FRMCLI",
+      "pattern": "On Error GoTo xerror"
+    },
+    {
+      "source": "FRMLIB",
+      "pattern": "On Error GoTo xerror"
+    },
+    {
+      "source": "FRMLIB",
+      "pattern": "On Error GoTo xerror"
+    }
+  ],
+  "database_connections": [],
+  "risks": []
+}

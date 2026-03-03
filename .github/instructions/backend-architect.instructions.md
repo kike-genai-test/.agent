@@ -9,7 +9,7 @@ Eres un Senior Backend Architect especializado en migrar lógica de negocio VB6 
 ## Mandatos absolutos
 
 - Genera controladores, servicios y rutas para **TODAS** las entidades del schema
-- **Raw SQL con `better-sqlite3`** — Prisma está prohibido
+- **Raw SQL con `node:sqlite`** — Prisma y `better-sqlite3` están prohibidos
 - Arquitectura en capas estricta: `Controller → Service → DB`
 - Genera `swagger.json` completo — el frontend depende de él
 - Nunca uses `console.log` — usa Pino para logging
@@ -60,34 +60,29 @@ prisma.clientes.findMany();
 
 - Todos los endpoints protegidos con `auth.middleware` excepto `/auth/login`
 
-## `db/database.ts` — tipo explícito obligatorio
+## SQLite — usar `node:sqlite` (builtin, sin dependencias)
 
-Siempre anotar el tipo de `db` explícitamente para evitar el error TS4023 cuando `declaration: true` está en tsconfig:
+Nunca usar `better-sqlite3` — requiere bindings nativos que fallan en Node v22/v24. Usar el módulo SQLite integrado en Node v22+:
 
 ```typescript
-import Database from "better-sqlite3";
-import type BetterSqlite3 from "better-sqlite3";
+// db/database.ts
+import { DatabaseSync } from "node:sqlite";
 import path from "path";
 
 const DB_PATH = path.join(__dirname, "database.db");
-const db: BetterSqlite3.Database = new Database(DB_PATH);
+const db = new DatabaseSync(DB_PATH);
 
-db.pragma("foreign_keys = ON");
-db.pragma("journal_mode = WAL");
+db.exec("PRAGMA foreign_keys = ON");
+db.exec("PRAGMA journal_mode = WAL");
+db.exec("PRAGMA synchronous = NORMAL");
 
 export default db;
 ```
 
-> ❌ `const db = new Database(DB_PATH)` → error TS4023
-> ✅ `const db: BetterSqlite3.Database = new Database(DB_PATH)`
+La API es idéntica: `db.prepare()`, `.get()`, `.all()`, `.run()` funcionan igual.
 
-## Node 24 — bindings nativos
-
-`better-sqlite3` requiere compilación de código nativo. En Node 24 los `node-gyp` builds **fallan**. Instalar siempre con:
-
-```bash
-npm install better-sqlite3 --ignore-scripts
-```
+> ❌ `better-sqlite3` → falla en Node v22/v24 por bindings nativos
+> ✅ `node:sqlite` → builtin desde Node v22.5, sin dependencias, funciona siempre
 
 Para autenticación usar siempre **`bcryptjs`** (puro JavaScript, sin bindings nativos — evita problemas en cualquier entorno):
 
@@ -104,26 +99,120 @@ import bcrypt from "bcryptjs";
 import bcrypt from "bcrypt";
 ```
 
-## Dev server — usar `tsx` (NO `ts-node-dev`)
-
-`ts-node-dev` es lento en el primer arranque. Usar siempre `tsx watch` que usa esbuild:
+## `package.json` — scripts y dependencias obligatorias
 
 ```json
 "scripts": {
-  "dev": "tsx watch src/app.ts",
-  "build": "tsc -p tsconfig.build.json",
-  "start": "node dist/app.js"
+  "dev":      "tsx watch src/app.ts",
+  "init-db":  "tsx scripts/init-db.ts",
+  "build":    "tsc -p tsconfig.build.json",
+  "start":    "node dist/app.js",
+  "test":     "jest --passWithNoTests",
+  "test:coverage": "jest --coverage --passWithNoTests"
+},
+"dependencies": {
+  "bcryptjs": "^2.4.3"
+},
+"devDependencies": {
+  "@types/bcryptjs": "^2.4.6",
+  "@types/node": "^22.15.0",
+  "tsx": "^4.7.0"
 }
 ```
 
-```bash
-npm install --save-dev tsx
-```
+> ❌ `node ./node_modules/.bin/tsx` → falla en Windows (ejecuta el wrapper bash)
+> ✅ `tsx watch src/app.ts` → npm scripts añaden `node_modules/.bin` al PATH automáticamente
 
-> ❌ `ts-node-dev --respawn --transpile-only` → lento (~15s arranque)
+> ❌ `ts-node-dev` → lento (~15s arranque), no incluir
 > ✅ `tsx watch` → rápido (<1s arranque)
 
-- JWT en cada request — validar expiración
+> ❌ `@types/node@20` → no incluye tipos de `node:sqlite`
+> ✅ `@types/node@^22.15.0` → incluye `DatabaseSync` y toda la API de `node:sqlite`
+
+## `tsconfig.json` — configuración obligatoria
+
+El `tsconfig.json` raíz debe incluir los spec files (para que VS Code reconozca jest globals) y el directorio `scripts/`:
+
+```json
+{
+  "compilerOptions": {
+    "types": ["node", "jest"]
+  },
+  "include": ["src/**/*", "db/**/*", "scripts/**/*"],
+  "exclude": ["node_modules", "dist"]
+}
+```
+
+El `tsconfig.build.json` (para producción) sí excluye los spec files:
+
+```json
+{
+  "extends": "./tsconfig.json",
+  "exclude": ["node_modules", "dist", "**/*.spec.ts"]
+}
+```
+
+> ❌ Poner `"**/*.spec.ts"` en `exclude` de `tsconfig.json` → VS Code pierde los tipos de jest en los spec files
+> ✅ Excluir specs solo en `tsconfig.build.json`
+
+## `scripts/init-db.ts` — OBLIGATORIO generar siempre
+
+El seed.sql con hashes bcrypt hardcodeados falla (el hash no corresponde a la contraseña real). Siempre generar `scripts/init-db.ts` que calcule los hashes en runtime:
+
+```typescript
+import { DatabaseSync } from "node:sqlite";
+import bcrypt from "bcryptjs";
+import fs from "fs";
+import path from "path";
+
+const DB_PATH = path.join(__dirname, "..", "db", "database.db");
+const SCHEMA_PATH = path.join(__dirname, "..", "db", "schema.sql");
+
+const db = new DatabaseSync(DB_PATH);
+db.exec("PRAGMA foreign_keys = OFF");
+db.exec(fs.readFileSync(SCHEMA_PATH, "utf-8"));
+db.exec("PRAGMA foreign_keys = ON");
+
+const hash = bcrypt.hashSync("admin123", 10);
+db.prepare(
+  "INSERT OR IGNORE INTO usuarios (username, password, rol) VALUES (?, ?, ?)",
+).run("admin", hash, "admin");
+
+// ... resto de seed data
+console.log("✅ Base de datos inicializada");
+```
+
+Ejecutar siempre tras generar el proyecto:
+
+```bash
+npm run init-db
+```
+
+> ❌ Hash bcrypt hardcodeado en seed.sql → login siempre falla
+> ✅ `scripts/init-db.ts` con `bcrypt.hashSync()` en runtime → siempre válido
+
+## Tipo `SQLVal` — arrays de parámetros dinámicos
+
+Cuando se construyen queries dinámicas (UPDATE con campos variables), TypeScript con `@types/node@22` requiere que el array de valores sea del tipo correcto para `node:sqlite`:
+
+```typescript
+// Al inicio de cualquier service que use arrays de valores dinámicos:
+type SQLVal = string | number | bigint | null | Uint8Array;
+
+// En update dinámico:
+const values: SQLVal[] = [];
+if (dto.nombre !== undefined) {
+  fields.push("nombre = ?");
+  values.push(dto.nombre);
+}
+db.prepare(`UPDATE tabla SET ${fields.join(", ")} WHERE id = ?`).run(...values);
+```
+
+> ❌ `values: unknown[]` → error TS2345 con `@types/node@22`
+> ✅ `values: SQLVal[]` → compila sin errores
+
+## Dev server — JWT en cada request — validar expiración
+
 - Validación de DTOs en cada endpoint — rechazar input malformado
 - Queries siempre parametrizadas — nunca concatenar strings en SQL
 
