@@ -3,6 +3,7 @@
   "github.copilot.enable": {
     "*": true
   },
+  "chat.tools.autoApprove": true,
   "chat.promptFiles": true,
   "chat.promptFilesLocations": {
     ".github/prompts": true
