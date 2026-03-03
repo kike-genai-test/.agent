@@ -509,9 +509,15 @@
                 </div>
                 <div class="flow-arrow">→</div>
                 <div class="flow-step">
-                    <span class="flow-icon">🧱</span>
-                    <h3>2. Backend</h3>
-                    <p>Generación de base de datos y APIs seguras en Node.js.</p>
+                    <span class="flow-icon">🗄️</span>
+                    <h3>2. BD &amp; API</h3>
+                    <p>Migración del esquema a SQLite y generación de APIs REST en Node.js.</p>
+                </div>
+                <div class="flow-arrow">→</div>
+                <div class="flow-step" style="border-color: #f59e0b;">
+                    <span class="flow-icon">🚦</span>
+                    <h3>CI Gate</h3>
+                    <p>Validación de compilación, tipos y lint antes de continuar.</p>
                 </div>
                 <div class="flow-arrow">→</div>
                 <div class="flow-step">
@@ -558,7 +564,32 @@
                 </div>
             </div>
 
-            <!-- Agent 2: Backend Architect -->
+            <!-- Agent 2a: DB Migration Architect -->
+            <div class="agent-card">
+                <div class="agent-avatar">🗄️</div>
+                <div class="agent-content">
+                    <div class="agent-role">Fase 2a: El Arquitecto de Datos</div>
+                    <h3>DB Migration Architect</h3>
+                    <p>Traduce el esquema de base de datos legacy (Access, SQL Server) en un modelo moderno y estricto
+                        de SQLite con Prisma ORM. Genera el contrato de datos del que dependen el backend y los demás
+                        agentes.</p>
+                    <div class="agent-workflow">
+                        <small style="display: block; margin-bottom: 0.5rem; color: #64748b; font-weight: 600;">FLUJO DE
+                            TRABAJO:</small>
+                        <div class="workflow-steps">
+                            <div class="wf-step">Análisis de BD Legacy</div>
+                            <span class="wf-arrow">→</span>
+                            <div class="wf-step">schema.prisma</div>
+                            <span class="wf-arrow">→</span>
+                            <div class="wf-step">seed.ts</div>
+                            <span class="wf-arrow">→</span>
+                            <div class="wf-step">Migración Ejecutada</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Agent 2b: Backend Architect -->
             <div class="agent-card">
                 <div class="agent-avatar">🏗️</div>
                 <div class="agent-content">
@@ -577,6 +608,31 @@
                             <div class="wf-step">API REST</div>
                             <span class="wf-arrow">→</span>
                             <div class="wf-step">Documentación Swagger</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Build-CI Gate -->
+            <div class="agent-card" style="border-color: #f59e0b; background: #fffbeb;">
+                <div class="agent-avatar" style="background: #fef3c7; color: #d97706;">🚦</div>
+                <div class="agent-content">
+                    <div class="agent-role" style="color: #d97706;">Entre Fases: El Guardián</div>
+                    <h3>Build / CI Gate</h3>
+                    <p>Actúa como puerta de calidad entre las fases de construcción y las de interfaz. Verifica que el
+                        código generado compile sin errores, pase el análisis de tipos y el lint antes de permitir que
+                        el proceso continúe.</p>
+                    <div class="agent-workflow">
+                        <small
+                            style="display: block; margin-bottom: 0.5rem; color: #64748b; font-weight: 600;">COMPROBACIONES:</small>
+                        <div class="workflow-steps">
+                            <div class="wf-step">TypeScript Check</div>
+                            <span class="wf-arrow">→</span>
+                            <div class="wf-step">ESLint</div>
+                            <span class="wf-arrow">→</span>
+                            <div class="wf-step">npm run build</div>
+                            <span class="wf-arrow">→</span>
+                            <div class="wf-step" style="border-color: #10b981; color: #059669;">✅ Gate Passed</div>
                         </div>
                     </div>
                 </div>
@@ -660,19 +716,53 @@
                     </div>
                 </div>
 
-                <!-- Step 2 -->
+                <!-- Step 2a -->
                 <div class="timeline-item">
                     <div class="timeline-content">
                         <span class="timeline-tag auto">Automático</span>
-                        <h3>🏗️ Fase 2: Construcción Backend</h3>
-                        <p>El agente <code>backend-architect</code> genera la base de datos y la API.
+                        <h3>🗄️ Fase 2a: Migración de Base de Datos</h3>
+                        <p>El agente <code>db-migration-architect</code> traduce el esquema legacy a SQLite moderno.
                             <br><br>
                             <strong>Operaciones:</strong>
                         <ul style="margin-left: 20px; font-size: 0.95rem; margin-top: 5px;">
-                            <li>Crea esquema SQLite</li>
+                            <li>Genera <code>schema.prisma</code> completo</li>
+                            <li>Valida integridad referencial</li>
+                            <li>Genera y ejecuta <code>seed.ts</code> con datos legacy</li>
+                        </ul>
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Step 2b -->
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <span class="timeline-tag auto">Automático</span>
+                        <h3>🏗️ Fase 2b: Construcción Backend API</h3>
+                        <p>El agente <code>backend-architect</code> genera la API REST sobre el esquema migrado.
+                            <br><br>
+                            <strong>Operaciones:</strong>
+                        <ul style="margin-left: 20px; font-size: 0.95rem; margin-top: 5px;">
                             <li>Genera DTOs (Tipos de datos)</li>
                             <li>Escribe Controladores y Servicios</li>
                             <li>Documenta API con Swagger</li>
+                        </ul>
+                        </p>
+                    </div>
+                </div>
+
+                <!-- CI Gate -->
+                <div class="timeline-item">
+                    <div class="timeline-content" style="border-color: #f59e0b;">
+                        <span class="timeline-tag check">CI Gate</span>
+                        <h3>🚦 Puerta de Validación (Build-CI)</h3>
+                        <p>El agente <code>build-ci</code> valida que el código generado sea correcto antes de continuar
+                            al Frontend.
+                            <br><br>
+                            <strong>Comprobaciones:</strong>
+                        <ul style="margin-left: 20px; font-size: 0.95rem; margin-top: 5px;">
+                            <li>TypeScript sin errores (<code>tsc --noEmit</code>)</li>
+                            <li>0 errores de ESLint</li>
+                            <li>Build de producción exitoso</li>
                         </ul>
                         </p>
                     </div>
@@ -712,17 +802,7 @@
                     </div>
                 </div>
 
-                <!-- Step 5 -->
-                <div class="timeline-item">
-                    <div class="timeline-content">
-                        <span class="timeline-tag auto">Finalización</span>
-                        <h3>📊 Fase 5: Reporte Final</h3>
-                        <p>Generación de documentación final y dashboard de resultados.
-                            <br><br>
-                            <strong>Entrega:</strong> Código fuente completo + Reporte HTML de migración.
-                        </p>
-                    </div>
-                </div>
+
             </div>
         </section>
 

@@ -45,7 +45,7 @@ El sistema debería verse así:
 ```
 
 #### 2. Iniciar la Migración
-1.  Abre tu herramienta de **Gemini Agent Manager**.
+1.  Abre tu herramienta de **Agente IA** compatible (p.ej. Antigravity, Cursor, Copilot, etc.).
 2.  En el chat o línea de comandos, escribe el siguiente comando mágico:
 
     `/orchestrate-migration`
