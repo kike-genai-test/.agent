@@ -278,7 +278,7 @@ export const membersRoutes = router;
 ```typescript
 // src/middlewares/error.middleware.ts
 import { Request, Response, NextFunction } from 'express';
-import { SqliteError } from 'better-sqlite3';
+// node:sqlite errors are standard Error objects with a `code` property
 
 export function errorMiddleware(
   error: Error,
@@ -289,7 +289,7 @@ export function errorMiddleware(
   req.log.error(error);
 
   // SQLite errors
-  if (error instanceof SqliteError) {
+  if (error instanceof Error && 'code' in error) {
     if (error.code === 'SQLITE_CONSTRAINT_UNIQUE') {
       return res.status(409).json({ message: 'A record with this data already exists' });
     }

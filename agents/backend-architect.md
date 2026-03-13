@@ -135,8 +135,138 @@ Verify your output against these **Automatic Rejection Triggers**. If ANY are tr
 | **The "Fat Controller"** | Putting SQL queries directly in route handlers. | **ACTION:** Move SQL to the Service layer. |
 | **The "Trusting Input"** | Endpoints accepting raw `req.body` without DTOs. | **ACTION:** Add validation middleware. |
 | **The "Silent Error"** | Unhandled promise rejections or naked try/catch. | **ACTION:** Centralize error handling middleware. |
+| **The "Broken Seed"** | `seed.sql` with hardcoded bcrypt hash → login always fails. | **ACTION:** Generate `scripts/init-db.ts` that computes hashes at runtime with `bcryptjs`. |
+| **The "Native Binding Trap"** | Using `better-sqlite3` or `bcrypt` which require native bindings that fail on Node v22+. | **ACTION:** Use `node:sqlite` (builtin) and `bcryptjs` (pure JS). |
 
 > **🔴 MAESTRO RULE:** "If the code wouldn't pass a strict core team security and architecture review, I have failed."
+
+---
+
+## 🔧 Mandatory Tech Stack
+
+### SQLite — Use `node:sqlite` (builtin, zero dependencies)
+
+Never use `better-sqlite3` — it requires native bindings that fail on Node v22/v24. Use the builtin SQLite module in Node v22+:
+
+```typescript
+// db/database.ts
+import { DatabaseSync } from "node:sqlite";
+import path from "path";
+
+const DB_PATH = path.join(__dirname, "database.db");
+const db = new DatabaseSync(DB_PATH);
+
+db.exec("PRAGMA foreign_keys = ON");
+db.exec("PRAGMA journal_mode = WAL");
+db.exec("PRAGMA synchronous = NORMAL");
+
+export default db;
+```
+
+> ❌ `better-sqlite3` → fails on Node v22/v24 due to native bindings
+> ✅ `node:sqlite` → builtin since Node v22.5, zero dependencies, always works
+
+### Authentication — Use `bcryptjs` (pure JS)
+
+```bash
+npm install bcryptjs
+npm install --save-dev @types/bcryptjs
+```
+
+> ❌ `bcrypt` (native) → requires native bindings, fails on Node 22+
+> ✅ `bcryptjs` → pure JavaScript, works everywhere
+
+### Dev Server — Use `tsx` (fast, zero config)
+
+> ❌ `ts-node` / `ts-node-dev` → slow (~15s startup), complex config
+> ✅ `tsx watch src/app.ts` → fast (<1s startup), works out of the box
+
+### Seed Data — Use `scripts/init-db.ts` (runtime hashes)
+
+A `seed.sql` with hardcoded bcrypt hashes always fails (the hash doesn't match the actual password). Always generate `scripts/init-db.ts` that computes hashes at runtime:
+
+```typescript
+import { DatabaseSync } from "node:sqlite";
+import bcrypt from "bcryptjs";
+import fs from "fs";
+import path from "path";
+
+const DB_PATH = path.join(__dirname, "..", "db", "database.db");
+const SCHEMA_PATH = path.join(__dirname, "..", "db", "schema.sql");
+
+const db = new DatabaseSync(DB_PATH);
+db.exec("PRAGMA foreign_keys = OFF");
+db.exec(fs.readFileSync(SCHEMA_PATH, "utf-8"));
+db.exec("PRAGMA foreign_keys = ON");
+
+const hash = bcrypt.hashSync("admin123", 10);
+db.prepare(
+  "INSERT OR IGNORE INTO usuarios (username, password, rol) VALUES (?, ?, ?)"
+).run("admin", hash, "admin");
+
+console.log("✅ Database initialized");
+```
+
+> ❌ Hardcoded bcrypt hash in seed.sql → login always fails
+> ✅ `scripts/init-db.ts` with `bcrypt.hashSync()` at runtime → always valid
+
+### TypeScript — Dynamic query parameter type
+
+When building dynamic queries (UPDATE with variable fields), TypeScript with `@types/node@22` requires the correct type:
+
+```typescript
+type SQLVal = string | number | bigint | null | Uint8Array;
+const values: SQLVal[] = [];
+```
+
+> ❌ `values: unknown[]` → TS2345 error with `@types/node@22`
+> ✅ `values: SQLVal[]` → compiles without errors
+
+### `package.json` — Required scripts and dependencies
+
+```json
+"scripts": {
+  "dev":      "tsx watch src/app.ts",
+  "init-db":  "tsx scripts/init-db.ts",
+  "build":    "tsc -p tsconfig.build.json",
+  "start":    "node dist/app.js",
+  "test":     "jest --passWithNoTests",
+  "test:coverage": "jest --coverage --passWithNoTests"
+},
+"dependencies": {
+  "bcryptjs": "^2.4.3"
+},
+"devDependencies": {
+  "@types/bcryptjs": "^2.4.6",
+  "@types/node": "^22.15.0",
+  "tsx": "^4.7.0"
+}
+```
+
+> ❌ `@types/node@20` → does not include `node:sqlite` types
+> ✅ `@types/node@^22.15.0` → includes `DatabaseSync` and the full `node:sqlite` API
+
+### `tsconfig.json` / `tsconfig.build.json` — Mandatory separation
+
+`tsconfig.json` (root, includes specs for VS Code):
+```json
+{
+  "compilerOptions": { "types": ["node", "jest"] },
+  "include": ["src/**/*", "db/**/*", "scripts/**/*"],
+  "exclude": ["node_modules", "dist"]
+}
+```
+
+`tsconfig.build.json` (production, excludes specs):
+```json
+{
+  "extends": "./tsconfig.json",
+  "exclude": ["node_modules", "dist", "**/*.spec.ts"]
+}
+```
+
+> ❌ Putting `"**/*.spec.ts"` in `exclude` of `tsconfig.json` → VS Code loses jest types in spec files
+> ✅ Exclude specs only in `tsconfig.build.json`
 
 ---
 

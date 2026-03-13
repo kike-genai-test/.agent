@@ -78,17 +78,22 @@ When you execute a frontend migration, you think:
 // 10% → accent/secondary palette (CTAs, highlights)
 @use '@angular/material' as mat;
 
-$theme: mat.define-theme((
-  color: (
-    theme-type: light,           // or dark
-    primary: mat.$azure-palette, // Replace with chosen palette
-  ),
-  typography: (
-    brand-family: 'Inter, sans-serif', // Choose from frontend-design typography guide
-    plain-family: 'Roboto, sans-serif',
-  ),
-  density: (scale: 0) // -1 = compact, 0 = standard, +1 = comfortable
-));
+// ✅ CORRECT — Angular Material M3 API (mat.theme)
+html {
+  @include mat.theme((
+    color: (
+      primary: mat.$azure-palette,    // Replace with chosen palette
+      tertiary: mat.$blue-palette,
+    ),
+    typography: Roboto,
+    density: 0,                        // -1 = compact, 0 = standard, +1 = comfortable
+  ));
+}
+
+// ❌ PROHIBITED — APIs removed in Angular Material 17+:
+// mat.define-palette(...)
+// mat.define-light-theme(...)
+// mat.define-theme(...)  ← deprecated, use mat.theme() instead
 ```
 
 > 🔴 **COMMITMENT RULE:** Once defined, this theme is generated in Phase 2 Scaffolding. Do NOT leave it as Angular Material's purple default.
@@ -178,7 +183,7 @@ Verify your output against these **Automatic Rejection Triggers**. If ANY are tr
 
 | 🚨 Rejection Trigger | Description (Why it fails) | Corrective Action |
 | :--- | :--- | :--- |
-| **The "Partial Setup"** | Skipping the core `app.config.ts` Zoneless provider setup. | **ACTION:** Inject `provideExperimentalZonelessChangeDetection()`. |
+| **The "Partial Setup"** | Skipping the core `app.config.ts` Zoneless provider setup. | **ACTION:** Inject `provideZonelessChangeDetection()`. |
 | **The "Old Angular"** | Using `NgModule` instead of `standalone: true`. | **ACTION:** Refactor to Standalone components and direct imports. |
 | **The "Zone Leak"** | Omitting `ChangeDetectionStrategy.OnPush`. | **ACTION:** Add OnPush to every component decorator. |
 | **The "Static UI"** | Forgetting to map CRUD dialogs to endpoints. | **ACTION:** Ensure every Entity has a MatDialog for Create/Edit. |
@@ -186,6 +191,8 @@ Verify your output against these **Automatic Rejection Triggers**. If ANY are tr
 | **The "Wall of Fields"** | A form with >8 fields in a single column without visual grouping. | **ACTION:** Split into 2-column grid or use `mat-divider` sections following Miller's Law. |
 | **The "Invisible Loading"** | HTTP calls with no skeleton/spinner feedback — blank screen while fetching. | **ACTION:** Add `@if (loading()) { <mat-spinner> }` and empty state `@if (!data().length)` to every list. |
 | **The "Inaccessible Form"** | Inputs missing `aria-label`, error messages without `role="alert"`, or contrast < 4.5:1. | **ACTION:** Add ARIA attributes per WCAG 2.1 AA. Run `web-design-guidelines` audit. |
+| **The "rootDir Olvidado"** | Omitting `"rootDir": "./src"` in `tsconfig.app.json` → `ng build` fails immediately with _"The common source directory is './src'"_. | **ACTION:** Add `"rootDir": "./src"` in `compilerOptions` of `tsconfig.app.json`. |
+| **The "Old Zoneless API"** | Using `provideExperimentalZonelessChangeDetection()` which was removed in Angular 21+. | **ACTION:** Use `provideZonelessChangeDetection()` — the stable, non-experimental version. |
 
 > **🔴 MAESTRO RULE:** "If the code wouldn't pass a strict Angular 17+ core team code review, I have failed."
 

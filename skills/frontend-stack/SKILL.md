@@ -16,7 +16,7 @@ allowed-tools: view_file, write_to_file, run_command
 | **Material Icons** | Latest | `Material Symbols / Icons` |
 
 > [!IMPORTANT]
-> **ZONELESS ANGULAR**: This stack uses `provideExperimentalZonelessChangeDetection()` - NO Zone.js required!
+> **ZONELESS ANGULAR**: This stack uses `provideZonelessChangeDetection()` - NO Zone.js required! (Angular 21+: the `Experimental` variant was removed)
 
 # 1. ⚙️ Frontend Specifications
 
@@ -61,7 +61,7 @@ bootstrapApplication(App, appConfig)
 ### app.config.ts (ZONELESS Configuration)
 ```typescript
 // app.config.ts - CRITICAL: Zoneless Setup
-import { ApplicationConfig, provideExperimentalZonelessChangeDetection } from '@angular/core';
+import { ApplicationConfig, provideZonelessChangeDetection } from '@angular/core';
 import { provideRouter } from '@angular/router';
 import { provideHttpClient, withInterceptors } from '@angular/common/http';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
@@ -71,7 +71,7 @@ import { errorInterceptor } from './interceptors/error.interceptor';
 export const appConfig: ApplicationConfig = {
   providers: [
     // ⚠️ CRITICAL: Enable Zoneless Change Detection
-    provideExperimentalZonelessChangeDetection(),
+    provideZonelessChangeDetection(),
     
     provideRouter(routes),
     provideHttpClient(withInterceptors([errorInterceptor])),

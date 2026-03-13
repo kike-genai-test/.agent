@@ -35,7 +35,7 @@ description: Mandatory rules and conventions for VB6 → Angular migration. ZONE
 | ❌ NO | ✅ YES | Reason |
 |-------|--------|--------|
 | Hardcoded credentials | Environment variables | Security |
-| Dynamic SQL with concatenation | Prisma parameterized | SQL Injection |
+| Dynamic SQL with concatenation | Parameterized queries (`node:sqlite` `?` placeholders) | SQL Injection |
 | `On Error Resume Next` | Explicit `try/catch` | Debugging |
 | Hardcoded `App.Path` | Relative configuration | Portability |
 
@@ -52,7 +52,7 @@ description: Mandatory rules and conventions for VB6 → Angular migration. ZONE
 ### Frontend (Angular 21 - Zoneless)
 | Rule | Description |
 |------|-------------|
-| **Zoneless Change Detection** | Use `provideExperimentalZonelessChangeDetection()` - NO Zone.js! |
+| **Zoneless Change Detection** | Use `provideZonelessChangeDetection()` - NO Zone.js! (Angular 21+: the `Experimental` variant was removed) |
 | **OnPush MANDATORY** | Every component MUST use `changeDetection: ChangeDetectionStrategy.OnPush` |
 | **Standalone Components** | NEVER use NgModules |
 | **Signals for ALL state** | Never use plain variables for component state |
@@ -63,17 +63,22 @@ description: Mandatory rules and conventions for VB6 → Angular migration. ZONE
 ### Zoneless Prohibited
 | ❌ Prohibited | ✅ Alternative |
 |---------------|----------------|
-| `import 'zone.js'` | `provideExperimentalZonelessChangeDetection()` |
+| `import 'zone.js'` | `provideZonelessChangeDetection()` |
+| `provideExperimentalZonelessChangeDetection()` | `provideZonelessChangeDetection()` (Angular 21+) |
 | `ChangeDetectionStrategy.Default` | `ChangeDetectionStrategy.OnPush` |
 | Plain variables for state | `signal()` |
 | `ngOnInit` for data loading | Constructor + `effect()` |
 | `setTimeout` / `setInterval` | `signal.set()` + `effect()` |
 | `implements OnInit` | Direct constructor initialization |
 
-### Backend (Express)
+### Backend (Express + Raw SQL)
 | Rule | Description |
 |------|-------------|
-| Prisma required | No raw SQL |
+| **Raw SQL with `node:sqlite`** | Use the builtin `node:sqlite` module (Node v22+). **NO Prisma, NO `better-sqlite3`** |
+| **`bcryptjs` for hashing** | Pure JS, no native bindings. **`bcrypt` (native) is PROHIBITED** |
+| **`tsx` for dev server** | `tsx watch src/app.ts`. **`ts-node` / `ts-node-dev` are PROHIBITED** |
+| **Separate tsconfig for build** | `tsconfig.json` (includes specs) + `tsconfig.build.json` (excludes specs) |
+| **`scripts/init-db.ts`** | Seed data with bcrypt hashes computed at runtime. **Hardcoded hashes in seed.sql are PROHIBITED** |
 | Thin controllers | Logic in Services |
 | Centralized error handling | `errorMiddleware` |
 | Pino for logging | `console.log` prohibited |
@@ -83,19 +88,32 @@ description: Mandatory rules and conventions for VB6 → Angular migration. ZONE
 
 ## 📊 Data Rules
 
-### DB Architecture (Prisma over SQLite)
+### DB Architecture (SQLite with Raw SQL)
 
 | Principle | Execution |
 |-----------|-----------|
 | **Single Source of Truth** | All Database principles MUST follow the `database-stack` skill. |
-| **Legacy to Prisma Typing** | Refer exclusively to `.agent/skills/database-stack/legacy-mapping.md`. Do not invent random types. |
-| **Quality Gates** | The DB Schema cannot be migrated until approved by `schema_validator.py`. |
+| **Legacy Type Mapping** | Refer exclusively to the type mapping table below and `.agent/skills/database-stack/legacy-mapping.md`. Do not invent random types. |
+| **Quality Gates** | The DB Schema cannot be migrated until validated with `sqlite3 db/database.db ".schema"`. |
+
+### Type Migration (Access/VB6 → SQLite → TypeScript)
+
+| Access/VB6 | SQLite          | TypeScript |
+|------------|-----------------|------------|
+| `Long`     | `INTEGER`       | `number`   |
+| `Double`   | `REAL`          | `number`   |
+| `String`   | `TEXT`          | `string`   |
+| `Date`     | `TEXT (ISO)`    | `Date`     |
+| `Currency` | `REAL`          | `number`   |
+| `Boolean`  | `INTEGER (0/1)` | `boolean`  |
+| `Null`     | `NULL`          | `| null`   |
 
 ### Database Integrity Requirements
-- **Timestamps:** Mandatory `createdAt` and `updatedAt` on all models.
-- **Soft Deletes:** Mandatory `deletedAt DateTime?` on all models.
-- **Strict Relations:** All `@relation` keys MUST have an explicit `@@index([])` to prevent N+1 queries.
-- **Strict IDs:** All IDs are `autoincrement`.
+- **Timestamps:** Mandatory `created_at` and `updated_at` on all tables (use `datetime('now')`).
+- **Soft Deletes:** Mandatory `activo INTEGER DEFAULT 1` or `deleted_at TEXT` on all tables.
+- **Foreign Keys:** All FK constraints enforced with `PRAGMA foreign_keys = ON`.
+- **Indexes:** On frequently searched fields to prevent slow queries.
+- **Strict IDs:** All IDs are `INTEGER PRIMARY KEY AUTOINCREMENT`.
 
 ## ✅ Quality Rules
 
@@ -139,7 +157,8 @@ description: Mandatory rules and conventions for VB6 → Angular migration. ZONE
 
 | ❌ Prohibited | ✅ Alternative |
 |---------------|----------------|
-| `import 'zone.js'` | `provideExperimentalZonelessChangeDetection()` |
+| `import 'zone.js'` | `provideZonelessChangeDetection()` |
+| `provideExperimentalZonelessChangeDetection()` | `provideZonelessChangeDetection()` (removed in Angular 21) |
 | `@NgModule` | Standalone components |
 | `any` in TypeScript | Explicit types |
 | `innerHTML` with user input | Angular binding `[innerText]` |
@@ -148,6 +167,10 @@ description: Mandatory rules and conventions for VB6 → Angular migration. ZONE
 | Global variables | Services with `providedIn: 'root'` |
 | `implements OnInit` for data | Constructor initialization |
 | Plain class properties for state | `signal()` |
+| `better-sqlite3` | `node:sqlite` (builtin Node v22+, no native bindings) |
+| `bcrypt` (native) | `bcryptjs` (pure JS, no native bindings) |
+| `ts-node` / `ts-node-dev` | `tsx watch` (fast startup, no config) |
+| Hardcoded bcrypt hash in seed.sql | `scripts/init-db.ts` with `bcrypt.hashSync()` at runtime |
 
 ---
 
@@ -169,9 +192,8 @@ description: Mandatory rules and conventions for VB6 → Angular migration. ZONE
 | Check | Tool | Pass Criteria |
 |-------|------|---------------|
 | TypeScript compiles | `tsc --noEmit` | Exit code 0 |
-| Schema Validated (Stack rules) | `python .agent/skills/database-stack/scripts/schema_validator.py .` | 0 CRITICAL issues (Exit code 0) |
-| Prisma validates | `prisma validate` | Exit code 0 |
-| Database created | `prisma migrate` | `.db` file exists |
+| Schema applies | `sqlite3 db/database.db < schema.sql` | Exit code 0 |
+| Database created | `sqlite3` | `.db` file exists with correct schema |
 | Swagger generated | manual | `swagger.json` or `swagger.yaml` exists |
 | Security audit | `security_audit.py` | 0 CRITICAL findings |
 

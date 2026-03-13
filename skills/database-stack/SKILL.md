@@ -1,18 +1,18 @@
 ---
 name: database-stack
-description: Complete specifications and patterns for the target SQLite database stack using Prisma ORM.
+description: Complete specifications and patterns for the target SQLite database stack using raw SQL via node:sqlite.
 model: gemini-3.1-pro-high
 allowed-tools: view_file, write_to_file, run_command
 ---
 
-# Database Stack Manual v5.0 (SQLite + Prisma)
+# Database Stack Manual v6.0 (SQLite + Raw SQL via node:sqlite)
 
 ## 📦 Version Requirements
 
 | Technology | Version | Package |
 |------------|---------|---------|
-| **SQLite** | 3       | `better-sqlite3` |
-| **ORM**    | 5.x     | `prisma`, `@prisma/client` |
+| **SQLite** | 3       | `node:sqlite` (builtin Node v22+) |
+| **ORM**    | None    | Raw SQL with parameterized queries — **NO Prisma, NO `better-sqlite3`** |
 
 ## 🤔 Why SQLite for this Stack?
 
