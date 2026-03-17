@@ -1,11 +1,10 @@
 ---
-description: Master workflow orchestrating the full VB6 to Angular migration in phases. FULLY AUTOMATED with SELF-HEALING tests. Uses SQLite with raw SQL (no Prisma).
-model: gemini-3.1-pro-high
+description: Master workflow that detects legacy technology and routes to the correct migration pipeline. Supports VB6, AngularJS, and future legacy stacks. FULLY AUTOMATED.
 ---
 
-# Orchestrate Migration Workflow v5.1 (Agentic Coordination)
+# Orchestrate Migration Workflow v6.0 (Multi-Technology Router)
 
-You are now in **ORCHESTRATION MODE**. Your task is to act as the primary Project Manager coordinating specialized agents to execute a complex legacy migration from VB6 to a Modern Stack (Angular Zoneless + Node.js/SQLite).
+You are now in **ORCHESTRATION MODE**. Your task is to act as the primary Project Manager. Before running any migration, you **detect the legacy technology** and route to the appropriate specialized pipeline.
 
 > [!IMPORTANT]
 > This workflow runs **FULLY AUTOMATED**.
@@ -23,47 +22,79 @@ When invoking ANY subagent, you MUST include:
 
 ---
 
-## Phase 0: Version Initialization 🔖
+## Phase 0: Technology Detection & Version Initialization 🔖
 
-**Your Action:** Execute this block to set up the workspace.
+**Your Action:** Detect the legacy technology, then set up the workspace.
 
 ```bash
 // turbo-all
 # Dynamic Project Discovery
-# Usage: Set TARGET_REPO via env var before calling, OR provide it as an argument, OR default to searching for a .vbp file
 TARGET_REPO="${1:-${TARGET_REPO}}"
 
 if [ -n "$TARGET_REPO" ]; then
-  # If it's a Git URL, clone it
   if [[ "$TARGET_REPO" == "http"* ]] || [[ "$TARGET_REPO" == "git@"* ]]; then
     echo "📥 Cloning remote repository: $TARGET_REPO"
     git clone "$TARGET_REPO" __downloaded_repo
-    export VB6_DIR="$(pwd)/__downloaded_repo"
-    VB6_PROJECT_NAME=$(basename "$TARGET_REPO" .git | tr '[:upper:]' '[:lower:]')
+    export LEGACY_DIR="$(pwd)/__downloaded_repo"
+    PROJECT_NAME=$(basename "$TARGET_REPO" .git | tr '[:upper:]' '[:lower:]')
   else
-    # It's a local path
-    export VB6_DIR="$TARGET_REPO"
-    VB6_PROJECT_NAME=$(basename "$TARGET_REPO" | tr '[:upper:]' '[:lower:]')
+    export LEGACY_DIR="$TARGET_REPO"
+    PROJECT_NAME=$(basename "$TARGET_REPO" | tr '[:upper:]' '[:lower:]')
   fi
 else
-  # Auto-discover mode: Find first directory with a .vbp file
-  FOUND_VBP=$(find . -maxdepth 3 -name "*.vbp" | head -n 1)
-  if [ -n "$FOUND_VBP" ]; then
-    export VB6_DIR=$(dirname "$FOUND_VBP")
-    VB6_PROJECT_NAME=$(basename "$VB6_DIR" | tr '[:upper:]' '[:lower:]')
-    echo "🔍 Auto-discovered project at: $VB6_DIR"
-  else
-    echo "❌ ERROR: No .vbp project found and no TARGET_REPO provided."
-    exit 1
+  # Auto-discover mode: scan for known legacy project signatures
+  export LEGACY_DIR="."
+  PROJECT_NAME=$(basename "$(pwd)" | tr '[:upper:]' '[:lower:]')
+fi
+
+# ──────────────────────────────────────────────────────
+# TECHNOLOGY DETECTION
+# ──────────────────────────────────────────────────────
+DETECTED_TECH="unknown"
+
+# Check for VB6
+FOUND_VBP=$(find "$LEGACY_DIR" -maxdepth 3 -name "*.vbp" 2>/dev/null | head -n 1)
+if [ -n "$FOUND_VBP" ]; then
+  DETECTED_TECH="vb6"
+  echo "🔍 Detected: VB6 project (.vbp found)"
+fi
+
+# Check for AngularJS (1.x)
+if [ "$DETECTED_TECH" = "unknown" ]; then
+  # Look for angular.js or angular.min.js, or angular 1.x in bower.json/package.json
+  FOUND_ANGULARJS=$(find "$LEGACY_DIR" -maxdepth 5 \( -name "angular.js" -o -name "angular.min.js" \) 2>/dev/null | head -n 1)
+  if [ -z "$FOUND_ANGULARJS" ]; then
+    # Check bower.json or package.json for angular 1.x dependency
+    FOUND_ANGULARJS=$(grep -rl '"angular"' "$LEGACY_DIR"/{bower.json,package.json} 2>/dev/null | head -n 1)
+  fi
+  if [ -z "$FOUND_ANGULARJS" ]; then
+    # Check for angular.module() pattern in JS files
+    FOUND_ANGULARJS=$(grep -rl "angular\.module(" "$LEGACY_DIR" --include="*.js" 2>/dev/null | head -n 1)
+  fi
+  if [ -n "$FOUND_ANGULARJS" ]; then
+    DETECTED_TECH="angularjs"
+    echo "🔍 Detected: AngularJS (1.x) project"
   fi
 fi
 
+# Future: Add more detection blocks here
+# Check for jQuery-only, React legacy, COBOL, etc.
+
+if [ "$DETECTED_TECH" = "unknown" ]; then
+  echo "❌ ERROR: Could not detect legacy technology in $LEGACY_DIR"
+  echo "   Supported: VB6 (.vbp), AngularJS (angular.module)"
+  echo "   Provide TARGET_REPO or place legacy source in current directory."
+  exit 1
+fi
+
+echo "🏷️  Technology: $DETECTED_TECH"
+echo "📁 Source: $LEGACY_DIR"
+
 # Run version manager to create next versioned directory
-VERSIONED_DIR=$(bash .agent/scripts/version_manager.sh "$VB6_PROJECT_NAME" || mkdir -p "$VB6_PROJECT_NAME-v1" && echo "$VB6_PROJECT_NAME-v1")
+VERSIONED_DIR=$(bash .agent/scripts/version_manager.sh "$PROJECT_NAME" || mkdir -p "$PROJECT_NAME-v1" && echo "$PROJECT_NAME-v1")
 
 echo "📦 Migration will output to: $VERSIONED_DIR"
 
-# Set up directory variables for this migration run
 export OUTPUT_DIR="$VERSIONED_DIR/modern-app"
 export ANALYSIS_DIR="$VERSIONED_DIR/analysis"
 export RESULTS_DIR="$VERSIONED_DIR/results"
@@ -71,6 +102,7 @@ export RESULTS_DIR="$VERSIONED_DIR/results"
 mkdir -p "$OUTPUT_DIR" "$ANALYSIS_DIR" "$RESULTS_DIR"
 
 echo "✅ Version initialized"
+echo "   🏷️  Tech: $DETECTED_TECH"
 echo "   📂 Output: $OUTPUT_DIR"
 echo "   📊 Analysis: $ANALYSIS_DIR"
 echo "   📈 Results: $RESULTS_DIR"
@@ -78,12 +110,23 @@ echo "   📈 Results: $RESULTS_DIR"
 
 ---
 
-## 🔴 STRICT 5-PHASE ORCHESTRATION
+## 🔀 TECHNOLOGY ROUTER
 
-You must execute these phases **sequentially**. Do not move to the next phase until the verification/gate script succeeds.
+Based on the detected technology, follow the corresponding migration pipeline:
 
-### PHASE 1: COMPREHENSIVE ANALYSIS
-**Focus:** Codebase discovery, metrics, and flow extraction.
+| Detected Tech | Pipeline | Phases |
+|---------------|----------|--------|
+| `vb6` | [VB6 → Angular Full-Stack](#vb6-pipeline) | Analysis → DB → Backend → Frontend → Testing (5 phases) |
+| `angularjs` | [AngularJS → Angular Modern](#angularjs-pipeline) | Analysis → Frontend → Testing (3 phases, backend optional) |
+
+> **Future technologies** can be added by creating a new detection block in Phase 0 and a new pipeline section below.
+
+---
+
+## VB6 Pipeline
+
+### PHASE 1: COMPREHENSIVE ANALYSIS (VB6)
+**Focus:** VB6 codebase discovery, metrics, and flow extraction.
 
 **Your Action:** Execute the extraction scripts.
 
@@ -92,10 +135,10 @@ You must execute these phases **sequentially**. Do not move to the next phase un
 python3 .agent/scripts/pre_flight_check.py || true
 
 # Run parallel extraction
-python3 .agent/scripts/vb6_comprehensive_scanner.py "${VB6_DIR}" -o ${ANALYSIS_DIR}/inventory.json --pretty &
-python3 .agent/scripts/vb6_metrics_analyzer.py "${VB6_DIR}" -o ${ANALYSIS_DIR}/metrics.json --pretty &
-python3 .agent/scripts/vb6_dead_code_detector.py "${VB6_DIR}" -o ${ANALYSIS_DIR}/dead_code.json --pretty &
-python3 .agent/scripts/vb6_schema_extractor.py "${VB6_DIR}" -o ${ANALYSIS_DIR}/schema.json &
+python3 .agent/scripts/vb6_comprehensive_scanner.py "${LEGACY_DIR}" -o ${ANALYSIS_DIR}/inventory.json --pretty &
+python3 .agent/scripts/vb6_metrics_analyzer.py "${LEGACY_DIR}" -o ${ANALYSIS_DIR}/metrics.json --pretty &
+python3 .agent/scripts/vb6_dead_code_detector.py "${LEGACY_DIR}" -o ${ANALYSIS_DIR}/dead_code.json --pretty &
+python3 .agent/scripts/vb6_schema_extractor.py "${LEGACY_DIR}" -o ${ANALYSIS_DIR}/schema.json &
 wait
 
 # Generate summaries
@@ -106,7 +149,9 @@ python3 .agent/scripts/html_report_generator.py ${ANALYSIS_DIR}/inventory.json -
 test -f ${ANALYSIS_DIR}/inventory.json && echo "✅ inventory.json exists"
 ```
 
-### PHASE 2: DATABASE MIGRATION
+**Agent:** Invoke `vb6-analyst` to generate 8 documentation artifacts from analysis data.
+
+### PHASE 2: DATABASE MIGRATION (VB6)
 **Focus:** Translating legacy schema to strict SQLite.
 
 **Your Action:**
@@ -121,7 +166,7 @@ sqlite3 db/database.db ".schema" > ${ANALYSIS_DIR}/gate-db-schema.txt || echo "�
 echo "🚦 Phase 2 Gate: PASSED"
 ```
 
-### PHASE 3: BACKEND API ARCHITECTURE
+### PHASE 3: BACKEND API ARCHITECTURE (VB6)
 **Focus:** Generating Services, Controllers, and DTOs.
 
 **Your Action:**
@@ -137,7 +182,7 @@ npm run build 2>&1 | tee ${ANALYSIS_DIR}/gate-backend-build.txt || true
 echo "🚦 Phase 3 Gate: PASSED"
 ```
 
-### PHASE 4: FRONTEND ARCHITECTURE (ZONELESS)
+### PHASE 4: FRONTEND ARCHITECTURE (VB6 → ZONELESS)
 **Focus:** Generating Angular 21 Zoneless components and Services.
 
 **Your Action:**
@@ -154,7 +199,7 @@ npx ng build --configuration production 2>&1 | tee ${ANALYSIS_DIR}/gate-frontend
 echo "🚦 Phase 4 Gate: PASSED"
 ```
 
-### PHASE 5: QUALITY, TESTING & SELF-HEALING 🔄
+### PHASE 5: QUALITY, TESTING & SELF-HEALING (VB6)
 **Focus:** Generate unit tests and auto-repair failures.
 
 **Your Action:**
@@ -163,24 +208,94 @@ echo "🚦 Phase 4 Gate: PASSED"
 
 ```bash
 // turbo-all
-# Testing Gate (Run repeatedly during self-healing loop)
+# Testing Gate
 (cd ${OUTPUT_DIR}/apps/backend && npm test -- --coverage > ${ANALYSIS_DIR}/unit-output-backend.txt) &
 (cd ${OUTPUT_DIR}/apps/frontend && npm test -- --coverage > ${ANALYSIS_DIR}/unit-output-frontend.txt) &
 wait
 
 # Final Audit & Dashboards
 python3 .agent/skills/security-reviewer/scripts/security_audit.py --frontend ${OUTPUT_DIR}/apps/frontend/src --backend ${OUTPUT_DIR}/apps/backend/src --output ${ANALYSIS_DIR}/security-final.json || true
-python3 .agent/scripts/final_report_generator.py --project-dir . --analysis-dir ${ANALYSIS_DIR} --output ${OUTPUT_DIR}/results/MIGRATION_DASHBOARD.html || true
+python3 .agent/scripts/final_report_generator.py --project-dir . --analysis-dir ${ANALYSIS_DIR} --output ${RESULTS_DIR}/MIGRATION_DASHBOARD.html || true
+```
+
+---
+
+## AngularJS Pipeline
+
+### PHASE 1: COMPREHENSIVE ANALYSIS (AngularJS)
+**Focus:** AngularJS codebase discovery, patterns, routes, and dependency mapping.
+
+**Your Action:** Execute the AngularJS extraction scripts.
+
+```bash
+// turbo-all
+python3 .agent/scripts/pre_flight_check.py || true
+
+# Run parallel extraction
+python3 .agent/scripts/angularjs_comprehensive_scanner.py "${LEGACY_DIR}" -o ${ANALYSIS_DIR}/inventory.json --pretty &
+python3 .agent/scripts/angularjs_metrics_analyzer.py "${LEGACY_DIR}" -o ${ANALYSIS_DIR}/metrics.json --pretty &
+python3 .agent/scripts/angularjs_dead_code_detector.py "${LEGACY_DIR}" -o ${ANALYSIS_DIR}/dead_code.json --pretty &
+python3 .agent/scripts/angularjs_pattern_extractor.py "${LEGACY_DIR}" -o ${ANALYSIS_DIR}/patterns.json --pretty &
+python3 .agent/scripts/angularjs_dependency_graph.py "${LEGACY_DIR}" -o ${ANALYSIS_DIR}/dependencies.json --html ${ANALYSIS_DIR}/DEPENDENCY_GRAPH.html &
+python3 .agent/scripts/angularjs_route_extractor.py "${LEGACY_DIR}" -o ${ANALYSIS_DIR}/routes.json --pretty &
+wait
+
+# Generate HTML report
+python3 .agent/scripts/html_report_generator.py ${ANALYSIS_DIR}/inventory.json -o ${ANALYSIS_DIR}/REPORT.html || true
+
+# Exit Gate check
+test -f ${ANALYSIS_DIR}/inventory.json && echo "✅ inventory.json exists"
+```
+
+**Agent:** Invoke `angularjs-analyst` to generate 7 documentation artifacts from analysis data.
+
+### PHASE 2: FRONTEND MIGRATION (AngularJS → Angular 21 Zoneless)
+**Focus:** Generating Angular 21 Zoneless standalone components from AngularJS controllers, services, and directives.
+
+**Your Action:**
+1. Invoke the `angular-architect` agent.
+2. **Context to pass:** "This is an **AngularJS migration** (not VB6). Read `${ANALYSIS_DIR}/inventory.json`, `${ANALYSIS_DIR}/patterns.json`, and `${ANALYSIS_DIR}/routes.json`. The source is AngularJS 1.x — map controllers to components, services/factories to injectables, directives to standalone components, filters to pipes, routes to app.routes.ts. Generate full Angular 21 Zoneless frontend using `standalone: true`, `OnPush`, and `signal()`. Migrate ALL controllers and services, no samples."
+
+> **Note:** If the AngularJS app has its own backend API, you may optionally invoke `backend-architect` before this phase to generate a new backend. If the existing backend is kept, skip the backend phase and point the Angular services directly at the existing API URLs.
+
+```bash
+// turbo-all
+# Validation Gate (Run AFTER angular-architect finishes)
+cd ${OUTPUT_DIR}/apps/frontend
+npx tsc --noEmit 2>&1 | tee ${ANALYSIS_DIR}/gate-frontend-tsc.txt || true
+npx ng lint || true
+npx ng build --configuration production 2>&1 | tee ${ANALYSIS_DIR}/gate-frontend-build.txt || true
+echo "🚦 Phase 2 Gate: PASSED"
+```
+
+### PHASE 3: QUALITY, TESTING & SELF-HEALING (AngularJS)
+**Focus:** Generate unit tests and auto-repair failures.
+
+**Your Action:**
+1. Invoke the `testing-verifier` agent to generate unit tests.
+2. If tests fail, invoke `testing-verifier` again multiple times (up to 5 loops) to auto-fix the errors based on the output logs.
+
+```bash
+// turbo-all
+# Testing Gate
+(cd ${OUTPUT_DIR}/apps/frontend && npm test -- --coverage > ${ANALYSIS_DIR}/unit-output-frontend.txt)
+
+# Final Audit & Dashboards
+python3 .agent/skills/security-reviewer/scripts/security_audit.py --frontend ${OUTPUT_DIR}/apps/frontend/src --output ${ANALYSIS_DIR}/security-final.json || true
+python3 .agent/scripts/final_report_generator.py --project-dir . --analysis-dir ${ANALYSIS_DIR} --output ${RESULTS_DIR}/MIGRATION_DASHBOARD.html || true
 ```
 
 ---
 
 ## Output Format
 
-Once all 5 phases are complete, generate a final synthesis message in the chat for the user:
+Once all phases are complete, generate a final synthesis message in the chat for the user:
 
 ```markdown
 ## 🎼 Migration Orchestration Complete
+
+### 🏷️ Source Technology
+[VB6 | AngularJS | ...]
 
 ### 🚀 Target Version
 [Version directory, e.g. project-v2]
@@ -188,20 +303,21 @@ Once all 5 phases are complete, generate a final synthesis message in the chat f
 ### 🤖 Agents Delegated
 | # | Agent | Focus Area | Status |
 |---|-------|------------|--------|
-| 1 | db-migration-architect | SQLite Schema Generation | ✅ |
-| 2 | backend-architect | Express API & DTOs | ✅ |
-| 3 | angular-architect | Zoneless Signals UI | ✅ |
-| 4 | testing-verifier | Self-Healing Tests | ✅ (X loops) |
+| 1 | [analyst agent] | Legacy Analysis | ✅ |
+| 2 | [optional: db-migration-architect] | SQLite Schema Generation | ✅ |
+| 3 | [optional: backend-architect] | Express API & DTOs | ✅ |
+| 4 | angular-architect | Zoneless Signals UI | ✅ |
+| 5 | testing-verifier | Self-Healing Tests | ✅ (X loops) |
 
 ### 📊 Verification Results
-- [x] Backend TypeScript Compilation
 - [x] Frontend Production Build
 - [x] Security Audit Completed
+- [x] Test Coverage Met
 
 ### 🎉 Dashboard
-The interactive migration report is available at: 
+The interactive migration report is available at:
 `[VersionDir]/results/MIGRATION_DASHBOARD.html`
 ```
 
---- 
-**Begin execution. Perform Phase 0, then proceed sequentially through all 5 phases, invoking specific agents for each domain constraint.**
+---
+**Begin execution. Perform Phase 0 (detection + init), then follow the pipeline matching the detected technology, invoking specific agents for each domain constraint.**

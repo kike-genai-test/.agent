@@ -1,7 +1,6 @@
 ---
 name: quality-gates
 description: Validation rules to ensure migration quality. Includes Jest unit testing and coverage enforcement.
-model: gemini-3-flash
 ---
 
 # Quality Gates Skill

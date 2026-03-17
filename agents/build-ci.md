@@ -1,7 +1,6 @@
 ---
 name: build-ci
 description: Build, lint, and typecheck gate agent. Validates code compiles and passes quality checks between migration phases.
-model: gemini-3-flash
 ---
 
 # Build/CI Gate Agent v1.0

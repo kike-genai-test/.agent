@@ -1,6 +1,5 @@
 ---
-description: Generate interactive HTML migration reports. Scans all phase artifacts and produces visual dashboard in results/. FULLY AUTOMATED.
-model: gemini-3.1-pro-high
+description: Generate interactive HTML migration reports for any legacy technology (VB6, AngularJS, etc.). Scans all phase artifacts and produces visual dashboard in results/. FULLY AUTOMATED.
 ---
 
 // turbo-all
@@ -31,9 +30,9 @@ Agent `migration-documenter` scans:
 
 | Phase | Directory | Artifacts |
 |-------|-----------|-----------|
-| Analysis | `analysis/` | `*.json`, `VB6_*.md` |
-| Database | `prisma/` | `schema.prisma` |
-| Backend | `backend/src/` | services, controllers, routes |
+| Analysis | `analysis/` | `*.json`, `VB6_*.md` or `ANGULARJS_*.md` |
+| Database (if applicable) | `backend/db/` | `schema.sql` |
+| Backend (if applicable) | `backend/src/` | services, controllers, routes |
 | Frontend | `src/app/` | components, services |
 | Testing | `analysis/` | test output, coverage JSON |
 

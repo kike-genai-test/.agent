@@ -1,7 +1,6 @@
 ---
 name: clean-code
 description: Pragmatic coding standards - concise, direct, no over-engineering, no unnecessary comments
-model: gemini-3-flash
 allowed-tools: Read, Write, Edit
 version: 2.0
 priority: CRITICAL

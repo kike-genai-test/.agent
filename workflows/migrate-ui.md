@@ -1,6 +1,5 @@
 ---
-description: Migrates ALL VB6 Forms to Angular Components. FULLY AUTOMATED - COMPLETE MIGRATION.
-model: gemini-3.1-pro-high
+description: Migrates ALL legacy UI artifacts (VB6 Forms or AngularJS controllers/directives) to Angular Components. FULLY AUTOMATED - COMPLETE MIGRATION.
 ---
 
 // turbo-all
@@ -18,18 +17,30 @@ model: gemini-3.1-pro-high
 
 ---
 
-## Step 1: Identify ALL Forms
+## Step 1: Identify ALL UI Artifacts
 
-From `VB6_INVENTORY.md`, get complete list of forms:
+From the legacy inventory (`VB6_INVENTORY.md` or `ANGULARJS_INVENTORY.md`), get the complete list:
 
+### VB6 Source
 ```
 FrmDashboard.frm → dashboard.component
 FrmCustomers.frm → customers.component + customer-dialog.component
 FrmOrders.frm    → orders.component + order-dialog.component
-FrmInventory.frm → inventory.component + inventory-dialog.component
 FrmReports.frm   → reports.component
 FrmLogin.frm     → login.component
 ...              → ... (ALL forms)
+```
+
+### AngularJS Source
+```
+CustomerListCtrl    → customer-list.component (standalone, signals)
+CustomerDetailCtrl  → customer-detail.component or customer-dialog.component
+OrderCtrl           → order.component + order-dialog.component
+DashboardCtrl       → dashboard.component
+LoginCtrl           → login.component
+customerCard (dir)  → customer-card.component (standalone)
+capitalize (filter) → capitalize.pipe (standalone)
+...                 → ... (ALL controllers, directives, filters)
 ```
 
 ---
@@ -108,9 +119,9 @@ export const routes: Routes = [
 
 ---
 
-## Step 5: VB6 → Angular Mapping (Complete)
+## Step 5: Legacy → Angular Mapping (Complete)
 
-### Controls
+### VB6 Controls
 | VB6 Control | Angular Material | Generated |
 |-------------|------------------|-----------|
 | TextBox | mat-form-field + input | ✅ All |
@@ -121,13 +132,27 @@ export const routes: Routes = [
 | Label | span / mat-label | ✅ All |
 | DateTimePicker | mat-datepicker | ✅ All |
 
-### Events
+### VB6 Events
 | VB6 Event | Angular | Generated |
 |-----------|---------|-----------|
-| Form_Load | ngOnInit() | ✅ All |
+| Form_Load | constructor + effect() | ✅ All |
 | Click | (click) | ✅ All |
 | Change | (input) / reactive | ✅ All |
 | LostFocus | (blur) | ✅ All |
+
+### AngularJS Patterns
+| AngularJS Pattern | Angular Modern | Generated |
+|-------------------|---------------|-----------|
+| `$scope.prop` | `prop = signal()` | ✅ All |
+| `$scope.$watch()` | `effect()` / `computed()` | ✅ All |
+| `$scope.method()` | Component method | ✅ All |
+| `$http.get/post` | `HttpClient` typed | ✅ All |
+| `ng-repeat` | `@for (track)` | ✅ All |
+| `ng-if` / `ng-show` | `@if` | ✅ All |
+| `ng-model` | `formControl` | ✅ All |
+| `ng-click` | `(click)` | ✅ All |
+| `.directive()` (E) | Standalone component | ✅ All |
+| `.filter()` | Standalone pipe | ✅ All |
 
 ---
 

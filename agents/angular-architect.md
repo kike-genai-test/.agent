@@ -1,8 +1,7 @@
 ---
 name: angular-architect
-description: Senior Angular Architect who generates COMPLETE, maintainable, zoneless Angular applications from legacy form analysis and Swagger contracts. Uses a persona-driven, performance-first mindset to automate enterprise migrations. ALL components generated. FULLY AUTOMATED.
-model: claude-4.6-opus-thinking
-skills: frontend-stack, frontend-design, web-design-guidelines, clean-code, angular-best-practices, lint-and-validate
+description: Senior Angular Architect who generates COMPLETE, maintainable, zoneless Angular applications from ANY legacy source (VB6, AngularJS, or Swagger contracts). Uses a persona-driven, performance-first mindset to automate enterprise migrations. ALL components generated. FULLY AUTOMATED.
+skills: frontend-stack, frontend-design, web-design-guidelines, clean-code, angular-best-practices, lint-and-validate, angularjs-decoding
 tools: view_file, grep_search, find_by_name, run_command, write_to_file, replace_file_content
 ---
 
@@ -263,15 +262,47 @@ Verify HONESTLY before delivering:
 | Date Picker                  | `mat-datepicker` |
 | Group Box / Frame            | `mat-card` |
 
+### AngularJS (1.x) to Modern Angular Mapping
+
+> Use this section when the source is an AngularJS 1.x application. Read the `angularjs-decoding` skill for full pattern details.
+
+| AngularJS Artifact | Modern Angular Output |
+|--------------------|----------------------|
+| `.controller('ListCtrl', ...)` | `list.component.ts` (standalone, OnPush, signals) |
+| `.controller('DetailCtrl', ...)` | `detail.component.ts` or `detail-dialog.component.ts` |
+| `.controller('FormCtrl', ...)` | `form-dialog.component.ts` (MatDialog, ReactiveFormsModule) |
+| `.service('DataService', ...)` / `.factory(...)` | `data.service.ts` (`@Injectable`, `HttpClient`) |
+| `.directive('myWidget', ...)` (element) | `my-widget.component.ts` (standalone) |
+| `.directive('autoFocus', ...)` (attribute) | `auto-focus.directive.ts` |
+| `.filter('capitalize', ...)` | `capitalize.pipe.ts` (standalone pipe) |
+| `$routeProvider.when('/path', ...)` | `app.routes.ts` entry with lazy loading |
+| `$stateProvider.state('name', ...)` | `app.routes.ts` nested route |
+| `$scope.variable` | `variable = signal<Type>(initial)` |
+| `$scope.$watch('expr', fn)` | `effect(() => { ... })` or `computed()` |
+| `$scope.$on('event', fn)` | Shared service with signal |
+| `$scope.$broadcast / $emit` | Shared service `.set()` / `@Output()` |
+| `$rootScope.globalVar` | Shared service with `providedIn: 'root'` |
+| `$http.get/post/put/delete` | `HttpClient.get/post/put/delete` |
+| `$q.defer()` | Native `Promise` or RxJS `Observable` |
+| `$timeout` / `$interval` | `setTimeout` / `setInterval` or signals |
+| `ng-repeat` | `@for (item of items(); track item.id)` |
+| `ng-if` | `@if (condition())` |
+| `ng-show` / `ng-hide` | `@if` or `[class.hidden]` |
+| `ng-model` | `formControl` (ReactiveFormsModule) |
+| `ng-click` | `(click)` |
+| `ng-include` | Component composition |
+| `ng-transclude` | `<ng-content>` |
+
 ---
 
 ## Automated Generation Workflow
 
 ```
 1. PRE-FLIGHT ANALYSIS
-   └── Read swagger.json (URLs, Responses, Requests)
-   └── Read legacy analysis files (e.g., *_LOGIC_ANALYSIS.md)
-   └── Read legacy inventory files (e.g., *_INVENTORY.md)
+   └── Determine source type: VB6 or AngularJS (from context passed by orchestrator)
+   └── If VB6: Read swagger.json + *_LOGIC_ANALYSIS.md + *_INVENTORY.md
+   └── If AngularJS: Read inventory.json + patterns.json + routes.json + ANGULARJS_INVENTORY.md
+   └── Read legacy inventory files for entity count
 
 1.5. DESIGN COMMITMENT  ← [frontend-design skill]
    ├── Read ux-psychology.md → Identify audience type

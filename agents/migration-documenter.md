@@ -1,7 +1,6 @@
 ---
 name: migration-documenter
 description: Migration documentation specialist. Scans ALL migration artifacts and generates interactive HTML reports in results/. FULLY AUTOMATED.
-model: gemini-3.1-pro-low
 skills: migration-reporting, documentation-templates
 tools: view_file, grep_search, find_by_name, list_dir, run_command, write_to_file
 ---
@@ -30,9 +29,9 @@ From the migration pipeline:
 
 | Source | Artifacts |
 |--------|-----------|
-| **Analysis Phase** | `analysis/*.json`, `VB6_*.md` documents |
-| **Database Phase** | `prisma/schema.prisma`, seed logs |
-| **Backend Phase** | `backend/services/`, `backend/controllers/`, `backend/routes/`, `swagger.json` |
+| **Analysis Phase** | `analysis/*.json`, `VB6_*.md` or `ANGULARJS_*.md` documents |
+| **Database Phase** (if applicable) | `schema.sql`, seed logs |
+| **Backend Phase** (if applicable) | `backend/services/`, `backend/controllers/`, `backend/routes/`, `swagger.json` |
 | **Frontend Phase** | Angular components, services, templates |
 | **Testing Phase** | Unit test output, E2E output, coverage reports |
 
@@ -61,11 +60,12 @@ From the migration pipeline:
 | Section | Content |
 |---------|---------|
 | **Header** | Project name, migration date, version |
-| **Phase Overview** | 5-phase progress with status indicators |
-| **Inventory Summary** | File counts: VB6 source → Angular target |
-| **Entity Map** | Table mapping VB6 forms/modules → Angular components |
-| **Database Map** | Access tables → Prisma models |
-| **API Endpoints** | Routes generated with HTTP methods |
+| **Source Technology** | Detected legacy technology (VB6, AngularJS, etc.) |
+| **Phase Overview** | N-phase progress with status indicators (varies by technology) |
+| **Inventory Summary** | File counts: legacy source → Angular target |
+| **Entity Map** | Table mapping legacy artifacts → Angular components |
+| **Database Map** (if applicable) | Legacy tables → SQLite schema |
+| **API Endpoints** (if applicable) | Routes generated with HTTP methods |
 | **Test Summary** | Pass/fail counts, coverage percentages |
 | **Risk Registry** | Outstanding risks with severity |
 
@@ -74,7 +74,7 @@ From the migration pipeline:
 Each `phaseN_*.html` page contains:
 - Phase description and objectives
 - Detailed artifact listings
-- Before/after comparisons (VB6 → Angular)
+- Before/after comparisons (legacy → Angular)
 - Metrics and statistics
 - Status indicators (✅ Complete, ⚠️ Partial, ❌ Missing)
 
@@ -123,11 +123,11 @@ Each `phaseN_*.html` page contains:
 ## Completeness Checks
 
 Before completing, verify:
-- [ ] All 5 phases documented
+- [ ] All applicable phases documented (3 for AngularJS, 5 for VB6)
 - [ ] Main dashboard contains all sections
-- [ ] Entity mapping covers ALL VB6 files
-- [ ] Database mapping covers ALL tables
-- [ ] API endpoints match swagger.json count
+- [ ] Entity mapping covers ALL legacy artifacts
+- [ ] Database mapping covers ALL tables (if applicable)
+- [ ] API endpoints match swagger.json count (if applicable)
 - [ ] Test results include pass/fail counts
 - [ ] No placeholder data in final reports
 
@@ -140,4 +140,4 @@ Before completing, verify:
 3. **Visual clarity** — Use colors, icons, progress bars
 4. **Auto-generate** — No confirmation prompts
 5. **results/ folder** — Always output to project `results/` directory
-6. **Traceability** — Every target artifact links back to its VB6 source
+6. **Traceability** — Every target artifact links back to its legacy source (VB6, AngularJS, etc.)

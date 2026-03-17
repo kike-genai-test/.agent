@@ -1,7 +1,6 @@
 ---
 name: db-transform
 description: Techniques for migrating Access Databases to SQLite.
-model: claude-4.6-sonnet-thinking
 allowed-tools: run_command, mcp_db-usuarios_query
 ---
 

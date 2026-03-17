@@ -1,6 +1,5 @@
 ---
-description: Exports Access data and imports it into SQLite via Prisma. FULLY AUTOMATED - ALL TABLES.
-model: gemini-3.1-pro-high
+description: Exports legacy database data and imports it into SQLite. FULLY AUTOMATED - ALL TABLES. Applicable to VB6/Access migrations or any migration requiring database transformation.
 ---
 
 // turbo-all

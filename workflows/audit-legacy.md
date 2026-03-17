@@ -1,6 +1,5 @@
 ---
-description: Deep analysis of VB6 codebase. Produces documentation artifacts. FULLY AUTOMATED.
-model: gemini-3.1-pro-high
+description: Deep analysis of VB6 codebase. Produces documentation artifacts. FULLY AUTOMATED. For AngularJS projects, use audit-angularjs instead.
 ---
 
 // turbo-all

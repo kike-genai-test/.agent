@@ -1,7 +1,6 @@
 ---
 name: contract-tests
 description: Validates frontend-backend API contract synchronization using swagger.json as source of truth.
-model: gemini-3-flash
 ---
 
 # Contract Tests Skill v1.0

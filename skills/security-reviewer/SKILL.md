@@ -1,7 +1,6 @@
 ---
 name: security-reviewer
 description: Automated OWASP-based security audit for migrated code. Scans for vulnerabilities in frontend/backend.
-model: gemini-3-flash
 ---
 
 # Security Reviewer Skill v1.0
